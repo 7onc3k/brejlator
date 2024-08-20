@@ -111,26 +111,29 @@ function ProductItem({
   const variant = product.variants.nodes[0];
   const variantUrl = useVariantUrl(product.handle, variant.selectedOptions);
   return (
-    <Link
-      className="product-item"
-      key={product.id}
-      prefetch="intent"
-      to={variantUrl}
-    >
-      {product.featuredImage && (
-        <Image
-          alt={product.featuredImage.altText || product.title}
-          aspectRatio="1/1"
-          data={product.featuredImage}
-          loading={loading}
-          sizes="(min-width: 45em) 400px, 100vw"
-        />
-      )}
-      <h4>{product.title}</h4>
-      <small>
+    <div className="product-item">
+      <Link
+        className="product-item-image"
+        key={product.id}
+        prefetch="intent"
+        to={variantUrl}
+      >
+        {product.featuredImage && (
+          <Image
+            alt={product.featuredImage.altText || product.title}
+            aspectRatio="1/1"
+            data={product.featuredImage}
+            loading={loading}
+            sizes="(min-width: 45em) 400px, 100vw"
+          />
+        )}
+      </Link>
+      <div className="product-item-info">
+        <h4>{product.title}</h4>
         <Money data={product.priceRange.minVariantPrice} />
-      </small>
-    </Link>
+        <button className="btn btn-add-to-cart">Přidat do košíku</button>
+      </div>
+    </div>
   );
 }
 

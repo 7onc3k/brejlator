@@ -1079,3 +1079,163 @@
 +"endLineNumber": 29,
 +"endColumn": 30
 +}]
+
+# 2024-08-20 14:09:01.493839
++/add instructions.md
+
+# 2024-08-20 14:12:34.183579
++pojdme podle zadání v instructions md modifikovat naši hydrogen šablonu, dělejme to krok po kroku budeš to dělat autonomně jenom se mě budeš ptát zda-li je vše v pořádku a já ti budu popisovat jestli to je nebo není v pořádku, dále budem modifikovat instructions.md a připisovat tam po každém uspešném dokončení bodu že je to hotový, kdyby náhodou došel kontext window nebo se to přerušilo, pojdme se do toho pustit
+
+# 2024-08-20 14:13:46.441946
++/clear
+
+# 2024-08-20 14:13:49.478355
++/drop
+
+# 2024-08-20 14:15:01.427575
++pojdme podle zadání v instructions md modifikovat naši hydrogen šablonu, dělejme to krok po kroku budeš to dělat  
++autonomně jenom se mě budeš ptát zda-li je vše v pořádku a já ti budu popisovat jestli to je nebo není v pořádku, d 
++ále budem modifikovat instructions.md a připisovat tam po každém uspešném dokončení bodu že je to hotový, kdyby náh 
++odou došel kontext window nebo se to přerušilo, pojdme se do toho pustit, predtím než se do toho pustit požádej o vhodné soubory abys je měl k dispozici
+
+# 2024-08-20 14:17:53.323272
++okkey pokračujme
+
+# 2024-08-20 14:21:08.222526
++pokračujme
+
+# 2024-08-20 14:26:25.296126
++/clear
+
+# 2024-08-20 14:26:33.789493
++/drop
+
+# 2024-08-20 14:32:00.307897
++/add instructions.md
+
+# 2024-08-20 14:35:33.893475
++pojdme na krok 3 zatím tam místo obrázku dej placeholder a pak si to doplním 
+
+# 2024-08-20 14:39:21.895221
++/clear
+
+# 2024-08-20 14:39:23.516700
++pojdme na krok 3 zatím tam místo obrázku dej placeholder a pak si to doplním
+
+# 2024-08-20 14:44:52.394449
++/clear
+
+# 2024-08-20 14:44:54.118319
++/drop
+
+# 2024-08-20 14:45:41.475952
++/add instructions.md
+
+# 2024-08-20 14:46:03.537551
++pojdme na krok 4
+
+# 2024-08-20 14:48:47.072353
++/clear
+
+# 2024-08-20 14:48:58.204086
++pojdme udělat bod 4
+
+# 2024-08-20 16:46:21.386488
++/add instructions.md
+
+# 2024-08-20 17:08:13.005950
++/drop
+
+# 2024-08-20 17:08:17.346433
++/add instructions.md
+
+# 2024-08-20 17:11:59.222542
++pojdme předělat navbar podle principu  mobile first logo uprostřed hamburger pro navigační menu nalevo a košík napravo, účet bude dostupný pod hamburger menu, hledat bude v druhé řadě v navbaru vždy viditelný
+
+# 2024-08-20 17:14:47.219206
++odsad trochu zvrchu jeste at je to zarovnany
+
+# 2024-08-20 17:17:38.477712
++odsad to navbar trochu z vrchu je to moc blizko k hornímu rohu
+
+# 2024-08-20 17:18:14.004017
++/clear
+
+# 2024-08-20 17:18:19.903655
++/drop
+
+# 2024-08-20 17:20:20.598751
++/add app\components\Header.tsx
+
+# 2024-08-20 17:21:06.116532
++přidej k vyhledávání lupu at to můžem vyhledat pomocí klinutí
+
+# 2024-08-20 17:26:00.640916
++/drop
+
+# 2024-08-20 17:26:03.743258
++/clear
+
+# 2024-08-20 17:26:14.577916
++/add app\components\Header.tsx
+
+# 2024-08-20 20:38:27.691277
++/drop
+
+# 2024-08-20 20:38:30.849178
++/clear
+
+# 2024-08-20 20:39:13.966272
++/add app\components\Header.tsx
+
+# 2024-08-20 20:39:31.224500
++/add instructions.md
+
+# 2024-08-20 20:46:22.938190
++/drop
+
+# 2024-08-20 20:46:27.349338
++/add instructions.md
+
+# 2024-08-20 20:46:30.680233
++/clear
+
+# 2024-08-20 20:51:27.942254
++pojdme dát lupu vedle hamburgr menu a který bude zobrazovat a skrývat vyhledavaci pole jak je ted, vyhledavaci pole nebude mit tu lupu jak má ted ta lupu se bude nachazet u hamburgeru jak jsem zminil velde košíku bude bude ještě tlačítka na učet uživatele
+
+# 2024-08-20 20:52:57.916287
++trochu to odsad od spodu at to ma stejny zarovnani z vrchu i zdola
+
+# 2024-08-20 20:55:22.885032
++furt nic
+
+# 2024-08-20 20:56:54.601747
++ukazuje mi to že horní padding má 16 a dolní nic
+
+# 2024-08-20 20:58:04.852736
++/clear
+
+# 2024-08-20 20:58:07.256876
++/drop
+
+# 2024-08-20 20:58:14.694757
++/add instructions.md
+
+# 2024-08-20 20:58:47.974083
++potřebuju aby navbar měl stejný padding nahoře i dole, ted mi to zobrazuje že to má padding jenom nahoře a to 16
+
+# 2024-08-20 20:59:02.603583
++/clear
+
+# 2024-08-20 20:59:05.284207
++potřebuju aby navbar měl stejný padding nahoře i dole, ted mi to zobrazuje že to má padding jenom na 
++hoře a to 1
+
+# 2024-08-20 20:59:27.601569
++/add app\components\Header.tsx
+
+# 2024-08-20 20:59:37.057848
++/exit
+
+# 2024-08-20 21:00:35.704227
++potřebuju aby navbar měl stejný padding nahoře i dole, ted mi to zobrazuje že to má padding jenom nahoře a to 16

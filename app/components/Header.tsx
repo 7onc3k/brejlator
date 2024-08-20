@@ -1,8 +1,9 @@
-import {Suspense} from 'react';
+import {Suspense, useState} from 'react';
 import {Await, NavLink} from '@remix-run/react';
 import {type CartViewPayload, useAnalytics} from '@shopify/hydrogen';
 import type {HeaderQuery, CartApiQueryFragment} from 'storefrontapi.generated';
 import {useAside} from '~/components/Aside';
+import {SearchForm} from '~/components/SearchForm';
 
 interface HeaderProps {
   header: HeaderQuery;
@@ -20,18 +21,90 @@ export function Header({
   publicStoreDomain,
 }: HeaderProps) {
   const {shop, menu} = header;
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
   return (
-    <header className="header">
-      <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
-        <strong>{shop.name}</strong>
-      </NavLink>
-      <HeaderMenu
-        menu={menu}
-        viewport="desktop"
-        primaryDomainUrl={header.shop.primaryDomain.url}
-        publicStoreDomain={publicStoreDomain}
-      />
-      <HeaderCtas isLoggedIn={isLoggedIn} cart={cart} />
+    <header className="header sticky top-0 bg-white z-10 shadow-sm">
+      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div className="flex items-center">
+          <button
+            className="hamburger-menu mr-4"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            ☰
+          </button>
+          <button
+            className="search-toggle mr-4"
+            onClick={() => setIsSearchOpen(!isSearchOpen)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+        </div>
+        <NavLink
+          prefetch="intent"
+          to="/"
+          className="text-2xl font-bold text-black"
+        >
+          {shop.name}
+        </NavLink>
+        <div className="flex items-center">
+          <NavLink prefetch="intent" to="/account" className="mr-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </NavLink>
+          <CartToggle cart={cart} />
+        </div>
+      </div>
+      {isSearchOpen && (
+        <div className="search-bar container mx-auto px-4 py-2">
+          <SearchForm>
+            {({inputRef}) => (
+              <input
+                ref={inputRef}
+                type="text"
+                placeholder="Hledat..."
+                className="w-full px-3 py-2 border border-gray-300 rounded-md"
+              />
+            )}
+          </SearchForm>
+        </div>
+      )}
+      {isMenuOpen && (
+        <HeaderMenu
+          menu={menu}
+          viewport="mobile"
+          primaryDomainUrl={header.shop.primaryDomain.url}
+          publicStoreDomain={publicStoreDomain}
+          isLoggedIn={isLoggedIn}
+        />
+      )}
     </header>
   );
 }
@@ -41,11 +114,13 @@ export function HeaderMenu({
   primaryDomainUrl,
   viewport,
   publicStoreDomain,
+  isLoggedIn,
 }: {
   menu: HeaderProps['header']['menu'];
   primaryDomainUrl: HeaderProps['header']['shop']['primaryDomain']['url'];
   viewport: Viewport;
   publicStoreDomain: HeaderProps['publicStoreDomain'];
+  isLoggedIn: HeaderProps['isLoggedIn'];
 }) {
   const className = `header-menu-${viewport}`;
 
@@ -58,17 +133,15 @@ export function HeaderMenu({
 
   return (
     <nav className={className} role="navigation">
-      {viewport === 'mobile' && (
-        <NavLink
-          end
-          onClick={closeAside}
-          prefetch="intent"
-          style={activeLinkStyle}
-          to="/"
-        >
-          Home
-        </NavLink>
-      )}
+      <NavLink
+        end
+        onClick={closeAside}
+        prefetch="intent"
+        style={activeLinkStyle}
+        to="/"
+      >
+        Home
+      </NavLink>
       {(menu || FALLBACK_HEADER_MENU).items.map((item) => {
         if (!item.url) return null;
 
@@ -93,6 +166,19 @@ export function HeaderMenu({
           </NavLink>
         );
       })}
+      <Suspense fallback={<div>Loading...</div>}>
+        <Await resolve={isLoggedIn}>
+          {(isLoggedIn) => (
+            <NavLink
+              className="header-menu-item"
+              to={isLoggedIn ? '/account' : '/account/login'}
+              prefetch="intent"
+            >
+              {isLoggedIn ? 'Účet' : 'Přihlásit se'}
+            </NavLink>
+          )}
+        </Await>
+      </Suspense>
     </nav>
   );
 }
@@ -102,16 +188,24 @@ function HeaderCtas({
   cart,
 }: Pick<HeaderProps, 'isLoggedIn' | 'cart'>) {
   return (
-    <nav className="header-ctas" role="navigation">
+    <nav className="header-ctas flex items-center" role="navigation">
       <HeaderMenuMobileToggle />
-      <NavLink prefetch="intent" to="/account" style={activeLinkStyle}>
-        <Suspense fallback="Sign in">
-          <Await resolve={isLoggedIn} errorElement="Sign in">
-            {(isLoggedIn) => (isLoggedIn ? 'Account' : 'Sign in')}
-          </Await>
-        </Suspense>
+      <NavLink prefetch="intent" to="/account" className="mx-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
       </NavLink>
-      <SearchToggle />
       <CartToggle cart={cart} />
     </nav>
   );
@@ -143,10 +237,9 @@ function CartBadge({count}: {count: number | null}) {
   const {publish, shop, cart, prevCart} = useAnalytics();
 
   return (
-    <a
-      href="/cart"
-      onClick={(e) => {
-        e.preventDefault();
+    <button
+      className="relative"
+      onClick={() => {
         open('cart');
         publish('cart_viewed', {
           cart,
@@ -156,8 +249,27 @@ function CartBadge({count}: {count: number | null}) {
         } as CartViewPayload);
       }}
     >
-      Cart {count === null ? <span>&nbsp;</span> : count}
-    </a>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <circle cx="9" cy="21" r="1"></circle>
+        <circle cx="20" cy="21" r="1"></circle>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+      </svg>
+      {count !== null && count > 0 && (
+        <span className="absolute -top-1 -right-1 bg-purple-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
+          {count}
+        </span>
+      )}
+    </button>
   );
 }
 

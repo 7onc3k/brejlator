@@ -59,8 +59,27 @@ export default function Homepage() {
   const data = useLoaderData<typeof loader>();
   return (
     <div className="home">
+      <HeroSection />
       <FeaturedCollection collection={data.featuredCollection} />
       <RecommendedProducts products={data.recommendedProducts} />
+    </div>
+  );
+}
+
+function HeroSection() {
+  return (
+    <div className="hero-section">
+      <div className="hero-content">
+        <h1>Exkluzivní brýle pro váš jedinečný styl</h1>
+        <p>Objevte kolekci, která definuje vaši osobnost</p>
+        <button className="cta-button">Objevte naši kolekci</button>
+      </div>
+      <div className="hero-image">
+        {/* Placeholder pro obrázek */}
+        <div className="image-placeholder">
+          [Zde bude obrázek modelu/ky s brýlemi]
+        </div>
+      </div>
     </div>
   );
 }

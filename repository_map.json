@@ -1,0 +1,1139 @@
+{
+  "app/styles/app.css": {
+    "type": "CSS",
+    "description": "Defines custom properties (variables) for use in a web application to maintain consistent styling.",
+    "exports": [],
+    "imports": [],
+    "functions": [],
+    "hooks": [],
+    "attributes": ["Custom properties", "Styling"],
+    "category": "Stylesheet"
+  },
+  "app/styles/tailwind.css": {
+    "type": "CSS Configuration File",
+    "description": "Configures Tailwind CSS v4 using CSS variables and directives.",
+    "exports": [],
+    "imports": [],
+    "functions": [],
+    "hooks": [],
+    "attributes": ["CSS variables", "Tailwind CSS directives"],
+    "category": "Styling"
+  },
+  "app/styles/reset.css": {
+    "type": "CSS",
+    "description": "Defines the styling for the body of a webpage, setting the font family to a series of system and web-safe fonts.",
+    "exports": [],
+    "imports": [],
+    "functions": [],
+    "hooks": [],
+    "attributes": ["font-family"],
+    "category": "Stylesheet"
+  },
+  "app/graphql/customer-account/CustomerUpdateMutation.ts": {
+    "type": "GraphQL Mutation",
+    "description": "Defines a GraphQL mutation for updating customer details.",
+    "exports": ["CUSTOMER_UPDATE_MUTATION"],
+    "imports": [],
+    "functions": [],
+    "hooks": [],
+    "attributes": ["GraphQL", "Mutation", "Customer Update"],
+    "category": "API Interaction"
+  },
+  "app/routes/($locale).discount.$code.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "Handles functionality related to redirects and data loading in a Shopify Remix application.",
+    "exports": [],
+    "imports": ["redirect", "LoaderFunctionArgs"],
+    "functions": [],
+    "hooks": [],
+    "attributes": ["Handles redirects", "Utilizes loader functions"],
+    "category": "Utility"
+  },
+  "app/components/PaginatedResourceSection.tsx": {
+    "type": "JavaScript/React Component",
+    "description": "A React component that utilizes Shopify's Hydrogen library for pagination functionality.",
+    "exports": [],
+    "imports": ["React", "Pagination from '@shopify/hydrogen'"],
+    "functions": [],
+    "hooks": [],
+    "attributes": ["Pagination"],
+    "category": "UI Component"
+  },
+  "app/graphql/customer-account/CustomerOrdersQuery.ts": {
+    "type": "JavaScript",
+    "description": "Exports a GraphQL fragment for order items, potentially used in a Shopify application for data fetching.",
+    "exports": ["ORDER_ITEM_FRAGMENT"],
+    "imports": [],
+    "functions": [],
+    "hooks": [],
+    "attributes": ["GraphQL fragment", "Shopify API integration"],
+    "category": "Data Fetching"
+  },
+  "app/graphql/customer-account/CustomerOrderQuery.ts": {
+    "type": "JavaScript/TypeScript",
+    "description": "Exports a constant related to a customer order query, likely for use in a Shopify application to fetch customer order data.",
+    "exports": ["CUSTOMER_ORDER_QUERY"],
+    "imports": [],
+    "functions": [],
+    "hooks": [],
+    "attributes": ["Shopify API integration"],
+    "category": "API Integration"
+  },
+  "app/routes/cart.$lines.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "Handles routing and data loading for a Shopify application using Remix and Oxygen frameworks.",
+    "exports": [],
+    "imports": ["redirect", "LoaderFunctionArgs from '@shopify/remix-oxygen'"],
+    "functions": [],
+    "hooks": [],
+    "attributes": ["Routing", "Data loading"],
+    "category": "Web Development"
+  },
+  "app/routes/($locale).account_.logout.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains logic for handling actions and redirects within a Shopify application using the Remix framework.",
+    "exports": [],
+    "imports": ["redirect", "ActionFunctionArgs"],
+    "functions": [],
+    "hooks": [],
+    "attributes": [
+      "Handles redirects",
+      "Uses Remix framework",
+      "Integrates with Shopify"
+    ],
+    "category": "Application Logic"
+  },
+  "app/lib/fragments.ts": {
+    "type": "JavaScript/GraphQL",
+    "description": "Defines a query fragment for fetching cart data from Shopify's Storefront API.",
+    "exports": ["CART_QUERY_FRAGMENT"],
+    "imports": [],
+    "functions": [],
+    "hooks": [],
+    "attributes": [
+      "GraphQL query fragment",
+      "Shopify Storefront API integration"
+    ],
+    "category": "API Integration"
+  },
+  "app/lib/context.ts": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely sets up a context for a Shopify Hydrogen application, potentially managing sessions and other functionalities.",
+    "exports": [],
+    "imports": ["@shopify/hydrogen", "~/lib/session"],
+    "functions": [],
+    "hooks": [],
+    "attributes": ["context management", "session handling"],
+    "category": "Application Setup"
+  },
+  "app/components/CartSummary.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely handles cart-related functionalities within a storefront application, leveraging types and fragments from a storefront API.",
+    "exports": [],
+    "imports": ["CartApiQueryFragment", "CartLayout"],
+    "functions": [],
+    "hooks": [],
+    "attributes": ["TypeScript", "Storefront API"],
+    "category": "Cart Management"
+  },
+  "app/lib/search.ts": {
+    "type": "TypeScript file",
+    "description": "Defines types and imports related to search queries from a storefront API.",
+    "exports": [],
+    "imports": [
+      "PredictiveSearchQuery",
+      "RegularSearchQuery from 'storefrontapi.generated'"
+    ],
+    "functions": [],
+    "hooks": [],
+    "attributes": ["Type definitions for search queries"],
+    "category": "Types and Interfaces"
+  },
+  "app/routes/($locale).cart.$lines.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "Handles routing and data loading for a Shopify application using Remix and Oxygen frameworks.",
+    "exports": [],
+    "imports": ["redirect", "LoaderFunctionArgs from '@shopify/remix-oxygen'"],
+    "functions": [],
+    "hooks": [],
+    "attributes": ["Routing", "Data loading"],
+    "category": "Web Development"
+  },
+  "app/graphql/customer-account/CustomerDetailsQuery.ts": {
+    "type": "JavaScript/TypeScript",
+    "description": "Exports a fragment or constant related to the Shopify Customer API, potentially for use in GraphQL queries or mutations.",
+    "exports": ["CUSTOMER_FRAGMENT or similar"],
+    "imports": [],
+    "functions": [],
+    "hooks": [],
+    "attributes": ["Shopify API integration", "Customer data handling"],
+    "category": "API Integration"
+  },
+  "app/components/Footer.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "A file that likely contains components or functions related to navigation and possibly loading states within a React application using Remix.",
+    "exports": [],
+    "imports": ["Suspense", "Await", "NavLink"],
+    "functions": [],
+    "hooks": [],
+    "attributes": ["React integration", "Remix framework usage"],
+    "category": "UI Components"
+  },
+  "app/routes/account.profile.tsx": {
+    "type": "TypeScript file",
+    "description": "This file likely handles customer data, including imports for customer fragments and update inputs from a customer account API.",
+    "exports": [],
+    "imports": [
+      "CustomerFragment from 'customer-accountapi.generated'",
+      "CustomerUpdateInput"
+    ],
+    "functions": [],
+    "hooks": [],
+    "attributes": ["TypeScript", "Customer Data Handling"],
+    "category": "Data Handling"
+  },
+  "app/routes/discount.$code.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "Handles routing and data loading for a Shopify application using Remix and Oxygen frameworks.",
+    "exports": [],
+    "imports": ["redirect", "LoaderFunctionArgs from '@shopify/remix-oxygen'"],
+    "functions": [],
+    "hooks": [],
+    "attributes": ["Routing", "Data loading"],
+    "category": "Web Development"
+  },
+  "app/routes/($locale).search.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains logic for handling data loading and actions within a Shopify application using the Remix framework.",
+    "exports": [],
+    "imports": ["json", "LoaderFunctionArgs", "ActionFunctionArgs"],
+    "functions": [],
+    "hooks": [],
+    "attributes": [
+      "Data handling",
+      "Shopify integration",
+      "Remix framework usage"
+    ],
+    "category": "Backend logic"
+  },
+  "app/routes/products.$handle.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "A file that likely contains React components and logic for handling deferred data loading and redirection in a Shopify environment.",
+    "exports": [],
+    "imports": ["Suspense", "defer", "redirect", "LoaderFunctionArgs"],
+    "functions": [],
+    "hooks": [],
+    "attributes": ["React integration", "Shopify specific functions"],
+    "category": "Frontend"
+  },
+  "app/routes/($locale).account._index.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "Handles redirection logic within a Shopify Remix application using the Remix-Oxygen framework.",
+    "exports": ["loader"],
+    "imports": ["redirect from '@shopify/remix-oxygen'"],
+    "functions": ["loader: Asynchronous function that performs redirection."],
+    "hooks": [],
+    "attributes": ["Asynchronous", "Redirection"],
+    "category": "Routing"
+  },
+  "app/routes/($locale).account.profile.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely handles customer data, including imports for customer fragments and update inputs from a customer account API.",
+    "exports": [],
+    "imports": [
+      "CustomerFragment from 'customer-accountapi.generated'",
+      "CustomerUpdateInput"
+    ],
+    "functions": [],
+    "hooks": [],
+    "attributes": ["TypeScript types", "Customer data handling"],
+    "category": "Data Handling"
+  },
+  "app/routes/($locale).collections._index.tsx": {
+    "type": "JavaScript/TypeScript file",
+    "description": "This file likely contains the logic for a Remix application, handling data loading and navigation.",
+    "exports": [],
+    "imports": ["useLoaderData", "Link", "defer", "LoaderFunctionArgs"],
+    "functions": [],
+    "hooks": ["useLoaderData"],
+    "attributes": ["Data loading", "Navigation"],
+    "category": "Web Application Logic"
+  },
+  "app/routes/collections._index.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "A file that imports and uses Remix-specific hooks and components for data loading and navigation.",
+    "exports": [],
+    "imports": ["useLoaderData", "Link", "defer", "LoaderFunctionArgs"],
+    "functions": [],
+    "hooks": ["useLoaderData"],
+    "attributes": ["Data loading", "Navigation"],
+    "category": "Web Development (Remix Framework)"
+  },
+  "app/components/PageLayout.tsx": {
+    "type": "JavaScript/React",
+    "description": "A file that likely handles cart-related functionality within a React application using Remix framework, focusing on asynchronous operations and suspense for loading states.",
+    "exports": [],
+    "imports": ["@remix-run/react", "react"],
+    "functions": [],
+    "hooks": [],
+    "attributes": ["Asynchronous operations", "Suspense for loading states"],
+    "category": "Component"
+  },
+  "app/routes/account_.logout.tsx": {
+    "type": "JavaScript",
+    "description": "A file that likely contains a Remix action function for handling redirects within a Shopify application using the Remix framework and Oxygen environment.",
+    "exports": [],
+    "imports": ["redirect", "ActionFunctionArgs"],
+    "functions": [],
+    "hooks": [],
+    "attributes": [
+      "Redirect handling",
+      "Shopify integration",
+      "Remix framework usage"
+    ],
+    "category": "Web Development"
+  },
+  "app/components/Header.tsx": {
+    "type": "JavaScript/React",
+    "description": "A file that likely handles cart visualization and interactions within a React application using Remix framework.",
+    "exports": [],
+    "imports": ["Suspense", "Await", "NavLink", "CartVi... (partial import)"],
+    "functions": [],
+    "hooks": [],
+    "attributes": [
+      "React integration",
+      "Remix framework usage",
+      "Cart visualization"
+    ],
+    "category": "UI Component"
+  },
+  "app/routes/account.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file is likely part of a web application built with Remix and Shopify's Oxygen framework, focusing on handling data loading and rendering components.",
+    "exports": [],
+    "imports": ["@shopify/remix-oxygen"],
+    "functions": ["LoaderFunctionArgs"],
+    "hooks": [],
+    "attributes": ["Data loading", "Component rendering"],
+    "category": "Web Application"
+  },
+  "app/components/ProductForm.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "A file that likely interacts with a React-based application, possibly handling product variant selection and navigation.",
+    "exports": [],
+    "imports": [
+      "Link from '@remix-run/react'",
+      "VariantOption, VariantSelector from '@shopify/h..."
+    ],
+    "functions": [],
+    "hooks": [],
+    "attributes": ["React integration", "Product variant handling"],
+    "category": "UI Component"
+  },
+  "app/entry.client.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file is likely part of a React application using Remix framework, focusing on rendering the application in the browser.",
+    "exports": [],
+    "imports": ["@remix-run/react", "react"],
+    "functions": ["startTransition"],
+    "hooks": [],
+    "attributes": ["React integration", "Remix framework usage"],
+    "category": "Frontend"
+  },
+  "app/components/AddToCartButton.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains logic related to handling cart operations in a web application, potentially using Remix and React for rendering and state management.",
+    "exports": [],
+    "imports": ["@remix-run/react", "CartForm"],
+    "functions": [],
+    "hooks": [],
+    "attributes": [
+      "FetcherWithComponents",
+      "OptimisticCartLi... (incomplete import)"
+    ],
+    "category": "Web Application Logic"
+  },
+  "app/components/SearchForm.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "A file that likely contains React components or hooks for handling forms within a Remix application, possibly with logging functionality.",
+    "exports": [],
+    "imports": ["useRef", "useEffect", "Form", "FormProps"],
+    "functions": [],
+    "hooks": ["useRef", "useEffect"],
+    "attributes": ["React integration", "Form handling", "Logging"],
+    "category": "UI Component"
+  },
+  "app/components/CartMain.tsx": {
+    "type": "JavaScript/React Component",
+    "description": "A component likely related to managing a shopping cart with optimistic updates, using Shopify's Hydrogen framework and Remix for routing.",
+    "exports": [],
+    "imports": ["@shopify/hydrogen", "@remix-run/react"],
+    "functions": [],
+    "hooks": ["useOptimisticCart"],
+    "attributes": ["Optimistic UI updates for cart operations"],
+    "category": "E-commerce"
+  },
+  "app/routes/($locale).collections.$handle.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains logic for handling data loading and redirection in a Remix application, specifically tailored for Shopify's Oxygen environment.",
+    "exports": [],
+    "imports": ["defer", "redirect", "LoaderFunctionArgs"],
+    "functions": [],
+    "hooks": ["useLoaderData"],
+    "attributes": ["Data handling", "Redirection", "TypeScript support"],
+    "category": "Web Development"
+  },
+  "app/components/SearchFormPredictive.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains React components or hooks that interact with the Remix framework, handling navigation and data fetching.",
+    "exports": [],
+    "imports": ["useFetcher", "useNavigate", "FormProps", "Fetcher"],
+    "functions": [],
+    "hooks": ["useFetcher", "useNavigate"],
+    "attributes": ["Interactivity", "Data fetching", "Navigation"],
+    "category": "Frontend"
+  },
+  "app/graphql/customer-account/CustomerAddressMutations.ts": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains a mutation function for updating customer addresses in a Shopify store, based on the provided comment referencing Shopify's API documentation.",
+    "exports": ["U..."],
+    "imports": [],
+    "functions": ["U... - Likely a function for updating customer addresses."],
+    "hooks": [],
+    "attributes": ["Shopify API integration", "Customer address management"],
+    "category": "API Integration"
+  },
+  "app/lib/session.ts": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely handles session management and cookie storage for a Shopify Hydrogen application, potentially including type definitions and utility functions for session handling.",
+    "exports": [],
+    "imports": [
+      "HydrogenSession from '@shopify/hydrogen'",
+      "createCookieSessionStorage"
+    ],
+    "functions": [],
+    "hooks": [],
+    "attributes": ["Session management", "Cookie storage"],
+    "category": "Backend/Session Management"
+  },
+  "app/routes/account._index.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "Handles redirection logic within a Shopify Remix application using the @shopify/remix-oxygen package.",
+    "exports": ["loader"],
+    "imports": ["redirect from '@shopify/remix-oxygen'"],
+    "functions": ["loader - Asynchronous function that performs redirection."],
+    "hooks": [],
+    "attributes": ["Asynchronous", "Redirection"],
+    "category": "Routing/Redirection Logic"
+  },
+  "app/components/CartLineItem.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely handles cart operations within a Shopify Hydrogen storefront, including updating cart lines.",
+    "exports": [],
+    "imports": [
+      "CartLineUpdateInput from '@shopify/hydrogen/storefront-api-types'"
+    ],
+    "functions": [],
+    "hooks": [],
+    "attributes": ["TypeScript", "Shopify Hydrogen", "Storefront API"],
+    "category": "E-commerce"
+  },
+  "app/routes/account.orders._index.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "A file that interacts with the Remix framework for React, handling data loading and rendering components like Money and Link.",
+    "exports": [],
+    "imports": [
+      "Link",
+      "useLoaderData",
+      "type MetaFunction",
+      "Money",
+      "getPagi..."
+    ],
+    "functions": [],
+    "hooks": ["useLoaderData"],
+    "attributes": ["Interactivity", "Data fetching", "Component rendering"],
+    "category": "Frontend"
+  },
+  "app/routes/($locale).account.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file is likely part of a web application built with Remix and Shopify's Oxygen framework, focusing on handling data loading and navigation.",
+    "exports": [],
+    "imports": ["@shopify/remix-oxygen", "Form", "NavLink", "Outlet"],
+    "functions": ["LoaderFunctionArgs"],
+    "hooks": [],
+    "attributes": ["Data loading", "Navigation"],
+    "category": "Web Application"
+  },
+  "app/routes/pages.$handle.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains logic for data loading and state management in a Remix application, specifically tailored for Shopify's integration with Remix.",
+    "exports": [],
+    "imports": ["defer", "LoaderFunctionArgs", "useLoaderData", "Me"],
+    "functions": [],
+    "hooks": ["useLoaderData"],
+    "attributes": [
+      "Data loading",
+      "State management",
+      "Integration with Shopify"
+    ],
+    "category": "Web Development"
+  },
+  "app/routes/cart.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains components and logic for a React application using Remix framework, focusing on routing and data loading.",
+    "exports": [],
+    "imports": ["Await", "MetaFunction", "useRouteLoaderData", "Suspense"],
+    "functions": [],
+    "hooks": ["useRouteLoaderData"],
+    "attributes": ["Routing", "Data Loading", "Asynchronous Operations"],
+    "category": "Frontend"
+  },
+  "app/components/ProductImage.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains components or functions related to product variants and images within a Shopify storefront application.",
+    "exports": [],
+    "imports": [
+      "ProductVariantFragment from 'storefrontapi.generated'",
+      "Image from '@shopify/h'"
+    ],
+    "functions": [],
+    "hooks": [],
+    "attributes": [
+      "Integration with Shopify storefront API",
+      "Handling of product variants and images"
+    ],
+    "category": "Storefront Application"
+  },
+  "app/components/SearchResults.tsx": {
+    "type": "JavaScript/React Component",
+    "description": "A component that likely interacts with Shopify's Hydrogen framework for e-commerce, utilizing Remix for routing and navigation.",
+    "exports": [],
+    "imports": ["@remix-run/react", "@shopify/hydrogen"],
+    "functions": [],
+    "hooks": [],
+    "attributes": [
+      "Integration with Shopify Hydrogen for e-commerce functionalities",
+      "Utilizes Remix for routing and navigation"
+    ],
+    "category": "E-commerce Component"
+  },
+  "app/routes/($locale).policies._index.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains logic for data loading and rendering in a Remix application, specifically tailored for Shopify's Oxygen environment.",
+    "exports": [],
+    "imports": ["@shopify/remix-oxygen", "useLoaderData", "Link"],
+    "functions": ["LoaderFunctionArgs", "json"],
+    "hooks": ["useLoaderData"],
+    "attributes": ["Data loading", "Routing", "Integration with Shopify"],
+    "category": "Web Development"
+  },
+  "app/routes/($locale).account.orders._index.tsx": {
+    "type": "React Component",
+    "description": "A component that utilizes Remix's routing and data loading capabilities, potentially for displaying paginated money-related data.",
+    "exports": [],
+    "imports": ["Link", "useLoaderData", "type MetaFunction"],
+    "functions": [
+      "getPagi... (truncated, likely a function for paginating data)"
+    ],
+    "hooks": ["useLoaderData"],
+    "attributes": ["Data fetching", "Routing", "Pagination"],
+    "category": "UI Component"
+  },
+  "app/root.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains logic for handling analytics within a Shopify Hydrogen application, potentially utilizing React hooks and server-side data loading.",
+    "exports": [],
+    "imports": [
+      "useNonce",
+      "getShopAnalytics",
+      "Analytics",
+      "defer",
+      "type LoaderF"
+    ],
+    "functions": [],
+    "hooks": ["useNonce"],
+    "attributes": [
+      "Integration with Shopify Hydrogen",
+      "Potential use of server-side data loading"
+    ],
+    "category": "Analytics"
+  },
+  "app/routes/collections.$handle.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains logic for handling data loading and redirection in a Remix application, specifically tailored for Shopify's Oxygen environment.",
+    "exports": [],
+    "imports": [
+      "defer",
+      "redirect",
+      "LoaderFunctionArgs from '@shopify/remix-oxygen'"
+    ],
+    "functions": [],
+    "hooks": ["useLoaderData"],
+    "attributes": [
+      "Data loading",
+      "Redirection handling",
+      "TypeScript support"
+    ],
+    "category": "Web Development"
+  },
+  "app/routes/account.$.tsx": {
+    "type": "JavaScript",
+    "description": "This file likely contains logic for handling redirects within a Shopify application using Remix and Oxygen frameworks.",
+    "exports": [],
+    "imports": ["redirect", "LoaderFunctionArgs"],
+    "functions": [
+      "redirect: Used to redirect the user to a different route or URL."
+    ],
+    "hooks": [],
+    "attributes": [
+      "Handles redirection",
+      "Uses Remix and Oxygen frameworks",
+      "Imports from @shopify/remix-oxygen"
+    ],
+    "category": "Routing and Redirection"
+  },
+  "app/routes/[robots.txt].tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains logic for handling routes and errors within a Shopify Remix application, utilizing specific hooks and functions from the Remix framework.",
+    "exports": [],
+    "imports": ["@shopify/remix-oxygen", "useRouteError", "isRouteErrorRe"],
+    "functions": ["LoaderFunctionArgs"],
+    "hooks": ["useRouteError"],
+    "attributes": ["Route handling", "Error management"],
+    "category": "Application Logic"
+  },
+  "app/lib/i18n.ts": {
+    "type": "TypeScript Interface",
+    "description": "Defines an interface extending I18nBase from @shopify/hydrogen, likely for internationalization purposes.",
+    "exports": ["I18nLocale"],
+    "imports": ["I18nBase from '@shopify/hydrogen'"],
+    "functions": [],
+    "hooks": [],
+    "attributes": [
+      "Extends I18nBase",
+      "Likely includes additional properties for locale-specific data"
+    ],
+    "category": "Internationalization"
+  },
+  "app/routes/search.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains logic for handling data loading and actions within a Shopify application using the Remix framework, specifically leveraging the Remix-Oxygen library for Shopify's Hydrogen framework.",
+    "exports": [],
+    "imports": ["json", "LoaderFunctionArgs", "ActionFunctionArgs"],
+    "functions": [],
+    "hooks": [],
+    "attributes": [
+      "Data handling",
+      "Shopify integration",
+      "Remix framework usage"
+    ],
+    "category": "Backend logic"
+  },
+  "app/components/ProductPrice.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely deals with handling monetary values within a Shopify Hydrogen application, potentially for displaying or manipulating prices.",
+    "exports": [],
+    "imports": [
+      "Money from '@shopify/hydrogen'",
+      "MoneyV2 type from '@shopify/hydrogen/storefront-api-types'"
+    ],
+    "functions": [],
+    "hooks": [],
+    "attributes": [
+      "Handles monetary values",
+      "Integrates with Shopify Hydrogen"
+    ],
+    "category": "Shopify Hydrogen Integration"
+  },
+  "app/routes/($locale).cart.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains components or logic related to a Remix application, focusing on routing, data loading, and suspenseful rendering.",
+    "exports": [],
+    "imports": ["Await", "MetaFunction", "useRouteLoaderData", "Suspense"],
+    "functions": [],
+    "hooks": ["useRouteLoaderData"],
+    "attributes": ["Routing", "Data Loading", "Suspenseful Rendering"],
+    "category": "Web Application Framework (Remix)"
+  },
+  "app/routes/($locale).account.$.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains logic for handling redirects and possibly other routing or data loading functionalities within a Shopify application using Remix and Oxygen frameworks.",
+    "exports": [],
+    "imports": ["redirect", "LoaderFunctionArgs"],
+    "functions": [
+      "redirect: Used for redirecting the user to a different route or URL."
+    ],
+    "hooks": [],
+    "attributes": ["Handles redirects", "Possibly handles data loading"],
+    "category": "Routing/Data Loading"
+  },
+  "app/routes/blogs.$blogHandle.$articleHandle.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains logic for data loading and handling in a Remix application, specifically tailored for Shopify's Oxygen environment.",
+    "exports": [],
+    "imports": ["@shopify/remix-oxygen", "useLoaderData"],
+    "functions": ["defer", "LoaderFunctionArgs"],
+    "hooks": ["useLoaderData"],
+    "attributes": [
+      "Data loading",
+      "TypeScript support",
+      "Integration with Shopify's Oxygen"
+    ],
+    "category": "Web Development"
+  },
+  "app/routes/collections.all.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains logic for data loading and rendering in a Remix application, potentially interacting with Shopify's Oxygen framework.",
+    "exports": [],
+    "imports": ["@shopify/remix-oxygen", "useLoaderData", "Link"],
+    "functions": ["defer", "LoaderFunctionArgs"],
+    "hooks": ["useLoaderData"],
+    "attributes": [
+      "Data loading",
+      "Interaction with Shopify's Oxygen framework"
+    ],
+    "category": "Web Development"
+  },
+  "app/entry.server.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "Handles server-side rendering for a Remix application within the context of Shopify's Remix-Oxygen framework.",
+    "exports": [],
+    "imports": ["EntryContext", "AppLoadContext", "RemixServer"],
+    "functions": [
+      "Server-side rendering function likely to be defined within the file"
+    ],
+    "hooks": [],
+    "attributes": [
+      "Server-side rendering",
+      "Integration with Shopify's Remix-Oxygen"
+    ],
+    "category": "Server-side Rendering"
+  },
+  "app/routes/policies._index.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains logic for data loading and rendering in a Remix application, specifically tailored for Shopify's Oxygen environment.",
+    "exports": [],
+    "imports": ["@shopify/remix-oxygen", "useLoaderData", "Link"],
+    "functions": ["LoaderFunctionArgs", "json"],
+    "hooks": ["useLoaderData"],
+    "attributes": ["Data loading", "Shopify integration", "Remix framework"],
+    "category": "Web Development"
+  },
+  "app/routes/$.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains a loader function for handling data fetching in a Remix application, specifically tailored for Shopify's Remix-Oxygen framework.",
+    "exports": ["loader"],
+    "imports": ["LoaderFunctionArgs from '@shopify/remix-oxygen'"],
+    "functions": [
+      "loader - Handles data fetching based on the request parameters."
+    ],
+    "hooks": [],
+    "attributes": ["Asynchronous", "Data fetching"],
+    "category": "Data Handling"
+  },
+  "app/routes/($locale).$.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains a loader function for handling data fetching in a Remix application, specifically tailored for use with Shopify's Remix-Oxygen framework.",
+    "exports": ["loader"],
+    "imports": ["LoaderFunctionArgs from '@shopify/remix-oxygen'"],
+    "functions": [
+      "loader - Handles data fetching based on the request parameters."
+    ],
+    "hooks": [],
+    "attributes": ["async", "data fetching"],
+    "category": "Data Handling"
+  },
+  "app/routes/($locale).blogs.$blogHandle._index.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains the logic for handling data loading and routing in a Remix application, specifically tailored for use with Shopify's Remix-Oxygen framework.",
+    "exports": [],
+    "imports": ["@shopify/remix-oxygen", "Link", "useLoaderData"],
+    "functions": ["defer", "LoaderFunctionArgs"],
+    "hooks": ["useLoaderData"],
+    "attributes": ["Data loading", "Routing", "Integration with Shopify"],
+    "category": "Web Development"
+  },
+  "app/routes/($locale).pages.$handle.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains logic for data loading and state management within a Remix application, specifically tailored for Shopify's Oxygen environment.",
+    "exports": [],
+    "imports": ["@shopify/remix-oxygen", "useLoaderData"],
+    "functions": ["defer", "LoaderFunctionArgs"],
+    "hooks": ["useLoaderData"],
+    "attributes": [
+      "Data loading",
+      "State management",
+      "Integration with Shopify's Oxygen"
+    ],
+    "category": "Web Development"
+  },
+  "app/routes/($locale).collections.all.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains logic for data loading, routing, and UI components within a Remix application, specifically tailored for Shopify's Oxygen platform.",
+    "exports": [],
+    "imports": ["@shopify/remix-oxygen", "useLoaderData", "Link"],
+    "functions": ["defer", "LoaderFunctionArgs"],
+    "hooks": ["useLoaderData"],
+    "attributes": ["Data loading", "Routing", "UI components"],
+    "category": "Web Development"
+  },
+  "app/routes/account.addresses.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains type definitions and possibly functions related to customer account management, specifically handling customer address input within a Shopify Hydrogen application.",
+    "exports": [],
+    "imports": [
+      "CustomerAddressInput from '@shopify/hydrogen/customer-account-api-types'",
+      "... (truncated for brevity)"
+    ],
+    "functions": [],
+    "hooks": [],
+    "attributes": [
+      "TypeScript",
+      "Shopify Hydrogen",
+      "Customer Account Management"
+    ],
+    "category": "API Types and Utilities"
+  },
+  "app/routes/blogs._index.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains logic for data loading and rendering in a Remix application, potentially integrated with Shopify's Oxygen framework.",
+    "exports": [],
+    "imports": ["@shopify/remix-oxygen", "Link", "useLoaderData"],
+    "functions": ["defer", "LoaderFunctionArgs"],
+    "hooks": ["useLoaderData"],
+    "attributes": [
+      "Data loading",
+      "Integration with Shopify's Oxygen framework",
+      "React component linking"
+    ],
+    "category": "Web Development"
+  },
+  "app/components/SearchResultsPredictive.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains components or utilities related to a React application, specifically leveraging Remix Run's React library for routing and data fetching, and possibly integrating with Shopify for e-commerce functionalities.",
+    "exports": [],
+    "imports": ["Link", "useFetcher", "Fetcher", "Image", "Money"],
+    "functions": [],
+    "hooks": ["useFetcher"],
+    "attributes": [
+      "Integration with Remix Run for React",
+      "Potential integration with Shopify for e-commerce features"
+    ],
+    "category": "Frontend"
+  },
+  "app/routes/($locale).account.addresses.tsx": {
+    "type": "TypeScript file",
+    "description": "This file likely contains type definitions and possibly functions related to customer account management, specifically handling customer address input within a Shopify Hydrogen application.",
+    "exports": [],
+    "imports": [
+      "CustomerAddressInput from '@shopify/hydrogen/customer-account-api-types'",
+      "... (additional imports not fully shown)"
+    ],
+    "functions": [],
+    "hooks": [],
+    "attributes": [
+      "TypeScript",
+      "Shopify Hydrogen",
+      "Customer Account Management"
+    ],
+    "category": "Backend/API"
+  },
+  "app/routes/account.orders.$id.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely serves as a data loader or route handler in a Remix application, specifically tailored for Shopify's Remix-Oxygen framework, handling data fetching and possibly redirection.",
+    "exports": [],
+    "imports": ["@shopify/remix-oxygen"],
+    "functions": [
+      "useLoaderData (description not provided due to code truncation)"
+    ],
+    "hooks": ["useLoaderData"],
+    "attributes": [
+      "Data fetching",
+      "Redirection handling",
+      "TypeScript support"
+    ],
+    "category": "Data Handling / API Interaction"
+  },
+  "app/routes/blogs.$blogHandle._index.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains the logic for handling data loading and rendering components in a Remix application, specifically tailored for Shopify's Oxygen environment.",
+    "exports": [],
+    "imports": [
+      "defer",
+      "type LoaderFunctionArgs",
+      "@shopify/remix-oxygen",
+      "Link",
+      "useLoaderData"
+    ],
+    "functions": [],
+    "hooks": ["useLoaderData"],
+    "attributes": [
+      "Data loading",
+      "Component rendering",
+      "Shopify integration"
+    ],
+    "category": "Web Development"
+  },
+  "app/routes/_index.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains logic for handling data loading and rendering in a Remix application, specifically tailored for Shopify's integration with Remix using the @shopify/remix-oxygen package.",
+    "exports": [],
+    "imports": ["@shopify/remix-oxygen", "Await", "useLoaderData"],
+    "functions": ["defer", "LoaderFunctionArgs"],
+    "hooks": ["useLoaderData"],
+    "attributes": [
+      "Data loading",
+      "Integration with Shopify",
+      "React hooks usage"
+    ],
+    "category": "Web Development"
+  },
+  "app/lib/variants.ts": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains logic for handling location-based functionalities and possibly integrating with Shopify's Hydrogen framework for e-commerce functionalities.",
+    "exports": [],
+    "imports": [
+      "useLocation from '@remix-run/react'",
+      "SelectedOption from '@shopify/hydrogen/s...'"
+    ],
+    "functions": [],
+    "hooks": ["useLocation"],
+    "attributes": [
+      "Integration with Remix Run for React",
+      "Potential integration with Shopify's Hydrogen framework"
+    ],
+    "category": "Web Development"
+  },
+  "app/routes/($locale).[sitemap.xml].tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains a loader function for handling data fetching or transformation in a Shopify Hydrogen application.",
+    "exports": [],
+    "imports": [
+      "flattenConnection from '@shopify/hydrogen'",
+      "LoaderFunctionArgs from '@shopify'"
+    ],
+    "functions": [
+      "LoaderFunctionArgs: Handles arguments for a loader function, likely used for fetching or transforming data in a Shopify context."
+    ],
+    "hooks": [],
+    "attributes": [
+      "Data fetching",
+      "Data transformation",
+      "Shopify integration"
+    ],
+    "category": "Data Handling"
+  },
+  "app/routes/($locale).blogs.$blogHandle.$articleHandle.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains logic for data loading and handling in a Remix application, specifically tailored for use with Shopify's Remix-Oxygen framework.",
+    "exports": [],
+    "imports": ["@shopify/remix-oxygen", "useLoaderData"],
+    "functions": ["defer", "LoaderFunctionArgs"],
+    "hooks": ["useLoaderData"],
+    "attributes": [
+      "Data loading",
+      "TypeScript support",
+      "Integration with Shopify's Remix-Oxygen"
+    ],
+    "category": "Web Development"
+  },
+  "app/routes/($locale)._index.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains the logic for handling data loading and rendering in a Remix application, specifically tailored for use with Shopify's Remix-Oxygen framework.",
+    "exports": [],
+    "imports": ["@shopify/remix-oxygen", "react-router-dom"],
+    "functions": ["LoaderFunctionArgs", "defer"],
+    "hooks": ["useLoaderData"],
+    "attributes": [
+      "Data loading",
+      "React component rendering",
+      "Integration with Shopify's Remix-Oxygen"
+    ],
+    "category": "Web Development"
+  },
+  "app/routes/($locale).blogs._index.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely serves as a module for handling data loading and routing within a Remix application, specifically tailored for Shopify's integration with Remix through the remix-oxygen package.",
+    "exports": [],
+    "imports": [
+      "defer",
+      "type LoaderFunctionArgs",
+      "@shopify/remix-oxygen",
+      "Link",
+      "useLoaderData"
+    ],
+    "functions": [],
+    "hooks": ["useLoaderData"],
+    "attributes": ["Data loading", "Routing", "Integration with Shopify"],
+    "category": "Web Development"
+  },
+  "app/routes/($locale).products.$handle.tsx": {
+    "type": "JavaScript/React",
+    "description": "A file that likely contains a React component or a module related to Shopify's framework, handling deferred operations, redirects, and possibly utilizing React's Suspense for loading states.",
+    "exports": [],
+    "imports": [
+      "Suspense from 'react'",
+      "defer, redirect, type LoaderFunctionArgs from '@shopify/rem'"
+    ],
+    "functions": [],
+    "hooks": [],
+    "attributes": [
+      "React integration",
+      "Shopify framework interaction",
+      "Handling deferred operations",
+      "Redirect functionality"
+    ],
+    "category": "Web Development"
+  },
+  "app/routes/policies.$handle.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely serves as a data loader or route handler in a Remix application, specifically tailored for Shopify's Remix-Oxygen framework, utilizing React hooks for data fetching and rendering.",
+    "exports": [],
+    "imports": ["@shopify/remix-oxygen", "Link", "useLoaderData"],
+    "functions": ["LoaderFunctionArgs"],
+    "hooks": ["useLoaderData"],
+    "attributes": ["Data fetching", "React integration", "Shopify specific"],
+    "category": "Web Development"
+  },
+  "app/routes/($locale).account_.authorize.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains a loader function for handling data fetching or processing in a Remix application, specifically tailored for use with Shopify's Remix-Oxygen framework.",
+    "exports": ["loader"],
+    "imports": ["LoaderFunctionArgs from '@shopify/remix-oxygen'"],
+    "functions": [
+      "loader - An asynchronous function that takes an object with a context property, presumably for handling data loading tasks."
+    ],
+    "hooks": [],
+    "attributes": ["Asynchronous", "Data Loading", "Shopify Integration"],
+    "category": "Data Handling"
+  },
+  "app/routes/($locale).account_.login.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains a loader function for handling data fetching in a Remix application, specifically tailored for use with Shopify's Remix-Oxygen framework.",
+    "exports": ["loader"],
+    "imports": ["LoaderFunctionArgs from '@shopify/remix-oxygen'"],
+    "functions": [
+      "loader - An asynchronous function that handles data loading, possibly for a route or component in a Remix application."
+    ],
+    "hooks": [],
+    "attributes": [
+      "Asynchronous data handling",
+      "Integration with Shopify's Remix-Oxygen"
+    ],
+    "category": "Data Handling"
+  },
+  "app/routes/($locale).tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains a loader function for handling data fetching or processing in a Remix application, specifically tailored for use with Shopify's Remix-Oxygen framework.",
+    "exports": ["loader"],
+    "imports": ["LoaderFunctionArgs from '@shopify/remix-oxygen'"],
+    "functions": [
+      "loader - An asynchronous function that takes specific parameters (likely including route params) to load data."
+    ],
+    "hooks": [],
+    "attributes": [
+      "Asynchronous data loading",
+      "Integration with Shopify's Remix-Oxygen framework"
+    ],
+    "category": "Data Handling"
+  },
+  "app/routes/[sitemap.xml].tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains a loader function for handling data fetching in a Shopify Hydrogen application, utilizing utility functions and types from the Shopify ecosystem.",
+    "exports": [],
+    "imports": [
+      "flattenConnection from '@shopify/hydrogen'",
+      "LoaderFunctionArgs from '@shopify'"
+    ],
+    "functions": [
+      "LoaderFunctionArgs: Handles arguments for a loader function, likely used for fetching data in a Shopify context."
+    ],
+    "hooks": [],
+    "attributes": [
+      "Data fetching",
+      "Shopify integration",
+      "TypeScript support"
+    ],
+    "category": "Data Handling"
+  },
+  "app/routes/account_.login.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains a loader function for handling data fetching or processing in a Remix application, specifically tailored for use with Shopify's Remix Oxygen framework.",
+    "exports": ["loader"],
+    "imports": ["LoaderFunctionArgs from '@shopify/remix-oxygen'"],
+    "functions": [
+      "loader - An asynchronous function that takes LoaderFunctionArgs as parameters, presumably for handling data loading in a Shopify Remix application."
+    ],
+    "hooks": [],
+    "attributes": [
+      "Asynchronous data handling",
+      "Integration with Shopify's Remix Oxygen framework"
+    ],
+    "category": "Data Handling/API Integration"
+  },
+  "app/routes/account_.authorize.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely contains a loader function for handling data fetching or processing in a Remix application, specifically tailored for use with Shopify's Remix-Oxygen framework.",
+    "exports": ["loader"],
+    "imports": ["LoaderFunctionArgs from '@shopify/remix-oxygen'"],
+    "functions": [
+      "loader - An asynchronous function that takes specific arguments (likely related to context and request) to handle data loading."
+    ],
+    "hooks": [],
+    "attributes": [
+      "Asynchronous data handling",
+      "Integration with Shopify's Remix-Oxygen framework"
+    ],
+    "category": "Data Handling"
+  },
+  "app/routes/($locale).account.orders.$id.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely serves as a data loader or route handler in a Remix application, specifically tailored for Shopify's Remix-Oxygen framework, handling data fetching and possibly redirection.",
+    "exports": [],
+    "imports": ["@shopify/remix-oxygen"],
+    "functions": [
+      "useLoaderData (assumed based on partial code, description: Custom hook for loading data in Remix applications)"
+    ],
+    "hooks": ["useLoaderData"],
+    "attributes": [
+      "Data fetching",
+      "Redirection handling",
+      "Integration with Shopify's Remix-Oxygen"
+    ],
+    "category": "Data Handling / Routing"
+  },
+  "app/routes/($locale).policies.$handle.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "This file likely serves as a data loader or route handler in a Remix application, specifically tailored for an e-commerce environment using Shopify's Remix-Oxygen framework.",
+    "exports": [],
+    "imports": ["@shopify/remix-oxygen", "Link", "useLoaderData", "ty..."],
+    "functions": [
+      "LoaderFunctionArgs - Handles arguments for loader functions, likely used to fetch data from Shopify"
+    ],
+    "hooks": [
+      "useLoaderData - A hook to access data fetched by the loader function"
+    ],
+    "attributes": [
+      "Integration with Shopify's Remix-Oxygen framework",
+      "Data fetching and handling"
+    ],
+    "category": "Data Handling / Route Management"
+  },
+  "app/components/Aside.tsx": {
+    "type": "JavaScript/TypeScript",
+    "description": "A file that likely sets up a context for managing state or data that can be shared across components in a React application.",
+    "exports": ["createContext", "ReactNode", "useContext", "useState"],
+    "imports": ["createContext", "ReactNode", "useContext", "useState"],
+    "functions": [
+      "createContext: Creates a Context object. When React renders a component that subscribes to this Context object it will read the current context value from the closest matching Provider above it in the tree.",
+      "useContext: Accepts a context object (the value returned from React.createContext) and returns the current context value for that context."
+    ],
+    "hooks": ["useContext", "useState"],
+    "attributes": [
+      "Context management",
+      "State management",
+      "Component interaction"
+    ],
+    "category": "React Context API"
+  }
+}

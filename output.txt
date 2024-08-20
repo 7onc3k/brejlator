@@ -1,0 +1,1880 @@
+The text provides information about the GraphiQL explorer, a tool included in Hydrogen for creating queries and learning about Shopify's Storefront API. Key points include:
+
+1. **Requirements**: To use the GraphiQL explorer, you need to set up the following environment variables:
+   - `PUBLIC_STORE_DOMAIN`
+   - `PUBLIC_STOREFRONT_API_VERSION`
+   - `PUBLIC_STOREFRONT_API_TOKEN`
+
+2. **Accessing GraphiQL**: The GraphiQL interface is available by default when running the Hydrogen CLI in development mode. You can start the development server using commands like `npx shopify hydrogen dev` and then access GraphiQL by navigating to `/graphiql` in your browser.
+
+3. **Customizing GraphiQL**: If you're not using the Hydrogen CLI or want to customize the GraphiQL interface, you can create a custom route for GraphiQL in your project. An example route is provided in the text, which includes a loader function that ensures GraphiQL is only available in development mode (`process.env.NODE_ENV === 'development'`).
+
+4. **Note**: When creating a custom GraphiQL route, it's important to ensure it's not accessible in production to prevent security issues.
+
+The text discusses the Customer Account API, which is designed for building personalized customer experiences in headless or Hydrogen custom storefronts. Key features and benefits of the API include:
+
+1. **Seamless Authentication**: Offers passwordless login and single sign-on across various platforms.
+2. **Data Scoping**: Allows data to be scoped to individual stores and customers, enabling personalized experiences and targeted marketing.
+3. **Enhanced Security**: Requires authentication for each request, safeguarding sensitive customer information from unauthorized access.
+
+The API is versioned, with updates released four times a year, and it is recommended to use the latest version. Developers can refer to the API reference for detailed information on available objects, queries, and mutations. The next step suggested is to start using the Customer Account API and learn how to query data.
+
+The tutorial titled "Using the Customer Account API with Hydrogen" provides a step-by-step guide on integrating the Customer Account API into a Hydrogen storefront, allowing customers to authenticate and interact with their accounts. Key points include:
+
+1. **Objective**: To create a login button that authenticates customers using the Customer Account API and displays a welcome message with their email if successful.
+
+2. **Requirements**:
+   - Completion of the "Getting started with the Customer Account API" guide.
+   - Completion of the "Getting started with Hydrogen" guide.
+   - Installation of the Hydrogen or Headless sales channel.
+
+3. **Limitations**:
+   - Multipass does not support the Customer Account API.
+   - mock.shop does not support the Customer Account API; use a production store's credentials.
+
+4. **Steps**:
+   - **Step 1**: Set up a public domain for local development using a tunneling service like ngrok due to localhost security concerns.
+   - **Step 2**: Configure Customer Account API settings in the Shopify admin, including callback URIs and environment variables.
+   - **Step 3**: Create a Customer Account API client using the `createCustomerAccountClient` utility.
+   - **Step 4**: Create necessary routes for login, authorization, and logout.
+   - **Step 5**: Query the Customer Account API to fetch customer data.
+   - **Step 6**: Check the customer's logged-in state without triggering a login redirect.
+
+5. **Next Steps**:
+   - Explore the GraphQL Customer Account API reference.
+   - Review the `createCustomerAccountClient` reference and examples.
+   - Examine an end-to-end implementation example in the default Hydrogen template.
+   - Learn how to manage customer accounts with the Customer Account API.
+
+This tutorial is designed to help developers integrate customer account functionality into their Hydrogen storefronts securely and efficiently.
+
+The text provides a guide on how to attach a debugger to an Oxygen worker for debugging server code in a Shopify Hydrogen application. Here are the key steps summarized:
+
+1. **Start Development Server in Debug Mode:**
+   - Use the command `npx shopify hydrogen dev --worker --debug` in the terminal.
+   - The `--debug` flag enables a port for debugger connections, defaulting to 9229.
+   - The `--worker` flag is necessary to mimic an Oxygen worker environment.
+
+2. **Attach a Debugger:**
+   - **Visual Studio Code:**
+     - Create a new debugger configuration in `.vscode/launch.json`.
+     - Configure the JSON to connect to the local worker, specifying the port (default is 9229).
+     - Start debugging from the Visual Studio Code sidebar.
+   - **Chrome DevTools:**
+     - Open the provided link (default is `http://localhost:9229`) in Google Chrome or a Chromium-based browser.
+     - Use DevTools to set breakpoints, inspect variables, and step through the code.
+
+This setup allows developers to debug server-side code effectively, enhancing troubleshooting capabilities in non-Node.js environments.
+
+The text provides a detailed guide on how to set up Continuous Integration/Continuous Deployment (CI/CD) for Hydrogen apps using GitHub. Here are the key points summarized:
+
+1. **Hydrogen CI/CD with GitHub**:
+   - Hydrogen supports CI/CD with GitHub out of the box.
+   - Oxygen automatically deploys changes when you push or merge updates to your Hydrogen repository.
+
+2. **Requirements**:
+   - A Shopify account on a supported plan.
+   - A GitHub account.
+   - The Hydrogen app installed on your store.
+   - The Shopify GitHub App installed on your GitHub account.
+
+3. **Connecting an Existing Repository**:
+   - Upload your Hydrogen app repository to GitHub.
+   - Connect the GitHub repo to the Hydrogen channel in the Shopify admin.
+   - Oxygen pulls the code and creates a preview deployment.
+   - Merge the Oxygen workflow file to enable continuous deployment.
+
+4. **Creating a New Repository**:
+   - Scaffold a new Hydrogen storefront and GitHub repository from the Shopify admin.
+   - Shopify automatically creates the first deployment.
+
+5. **Enabling Deployment PR Comments**:
+   - Configure Shopify to comment on pull requests with deployment preview links.
+   - This feature allows quick access to deployments without needing to open the Shopify admin.
+
+6. **Oxygen GitHub Workflow**:
+   - Deployments are controlled by an Oxygen workflow file in the Hydrogen app.
+   - The workflow file is automatically added when connecting an existing repo or creating a new one.
+   - Example workflow file provided, detailing steps like setting up Node.js, caching node modules, and deploying to Oxygen.
+
+7. **Alternate Package Managers**:
+   - Hydrogen and Oxygen use npm by default.
+   - If using other package managers like Yarn or pnpm, edit the workflow file to ensure compatibility.
+
+8. **Next Steps**:
+   - Explore support for other version control platforms or more complex deployment systems with custom CI/CD workflows.
+   - Learn more about creating and managing Hydrogen environments.
+
+The text provides a comprehensive guide on using the Shopify Storefront API to query products and collections. Key points include:
+
+1. **Storefront API Overview**: Allows custom storefront development using GraphQL for accessing products, collections, customers, carts, and more.
+
+2. **Getting Started Steps**:
+   - Request public, unauthenticated Storefront API access scopes.
+   - Generate a Storefront API access token.
+   - Query products and collections.
+
+3. **Requirements**:
+   - Completion of the Storefront API getting started guide.
+   - Creation of a public or custom app with Storefront API access enabled.
+   - Creation of products, product variants, and collections in the store.
+
+4. **Query Examples**:
+   - **Products**: Retrieve a list of products using the `products` query with arguments like `first` to specify the number of results.
+   - **Single Product**: Query a single product using its globally unique ID.
+   - **Product Variants**: Query variants associated with a product.
+   - **Product Recommendations**: Retrieve recommended products using the `productRecommendations` query.
+   - **Product Media**: Query media associated with a product.
+   - **Collections**: Query collections and the products they contain.
+
+5. **GraphQL Queries and Responses**: Detailed examples are provided for each type of query, showing how to structure the queries and the expected JSON responses.
+
+6. **Next Steps**:
+   - Filter products in a collection with the Storefront API.
+   - Create and update a cart with the Storefront API.
+   - Explore additional tools for creating unique buying experiences.
+
+The guide is intended for developers looking to build custom storefronts on Shopify using the Storefront API.
+
+The guide titled "Set up a cart handler" on Shopify's Hydrogen documentation website provides instructions on setting up a cart handler within a Hydrogen app. This setup allows a dynamic cart object to be accessible across all requests, enabling it to be read and updated by Remix actions and loaders.
+
+**Requirements:**
+- Completion of the quickstart guide.
+
+**Steps:**
+1. **Create a cart instance with `createCartHandler`:**
+   - Use the `createCartHandler` function to create an object instance for interacting with Storefront API cart queries.
+   - Implement this in the `server.(js|ts)` file within the server fetch handler.
+   - Pass the cart instance to the `getLoadContext` function.
+   - For TypeScript, add the `HydrogenCart` type to `remix.env.d.ts` for type association.
+
+2. **Decide how to manage the cart ID:**
+   - Hydrogen provides default methods for getting and setting a cart ID:
+     - `cartGetIdDefault(requestHeaders: Headers)`: Retrieves the cart ID from the request header cookie.
+     - `cartSetIdDefault()`: Sets a cookie with a new cart ID.
+   - Customize cookie settings by passing an options object to `cartSetIdDefault`.
+
+**Next steps:**
+- Learn how to read data from a cart.
+- Learn how to customize your own cart handler.
+
+The guide includes code snippets in JavaScript and TypeScript for setting up the cart handler and managing the cart ID.
+
+The text provides a guide on getting started with Shopify's Storefront API, which is a GraphQL API used for building storefronts. Key points include:
+
+- The API requires an access token for a specific Shopify store and can be called from any HTTP client.
+- There is a limit of 100 active storefronts and access tokens per shop.
+- The API is framework agnostic, allowing use with various frameworks like Hydrogen, Next.js, Vue, etc.
+- The tutorial covers installing the Headless channel, generating API access tokens, managing storefront permissions, and making queries.
+- Requirements include having the staff role and Apps and channels permissions on the Shopify store.
+- Steps involve enabling API access, managing permissions, setting up request headers with a private access token, and making queries.
+- Additional resources include the GraphiQL explorer and the Storefront API Learning Kit.
+- Next steps involve learning to manage the Headless channel and querying products and collections.
+
+The document titled "Search Engine Optimization for Hydrogen" provides a guide on optimizing Hydrogen for search engines and social media. Key components include:
+
+1. **Meta Tags and Descriptions**: Hydrogen uses Remix's built-in meta features and the `getSeoMeta` utility for rendering SEO meta tags. This utility supports titles, descriptions, images, canonical URLs, JSON-LD, and more.
+
+2. **sitemap.xml**: Hydrogen includes a default `sitemap.xml` route. The sitemap is cached for 24 hours and has a limit of 250 products, 250 collections, and 250 pages. If your store exceeds these limits, consider using the Online Store version of the sitemap.
+
+3. **robots.txt**: Hydrogen also includes a default `robots.txt` route. This file is cached for 24 hours. On Oxygen, the `robots.txt` file is served only in the public production environment and is overridden with a disallow rule for all bots in non-production deployments.
+
+The guide provides steps for setting up these components, including importing and using `getSeoMeta`, merging SEO data from nested routes, and optionally intercepting and overriding route SEO data.
+
+The document titled "Adopt Hydrogen incrementally" discusses the process of gradually migrating to the Hydrogen storefront, a Shopify solution, while continuing to use Liquid for other pages. Key points include:
+
+- **Incremental Adoption**: Merchants can start by creating product pages in Hydrogen and keeping other pages in Liquid during the transition.
+- **Proxying Requests**: Hydrogen allows proxying of Liquid online store routes on a request-by-request basis. However, direct proxies in front of Oxygen deployments are not supported due to potential SEO and bot mitigation issues.
+- **Requirements**: The Hydrogen build must be completed, and the storefront ready for launch.
+- **Limitations**: Incremental adoption is only supported with Oxygen, and customer sessions cannot be shared between the online store and Hydrogen storefront without using Multipass.
+- **Advanced Tutorial**: This method is considered advanced and not officially supported by Shopify. It may lead to increased latency and some features like Shopify analytics might not function as expected.
+- **Catch-all Route Example**: Hydrogen can use a catch-all route to fallback to the Online Store by default or handle routes individually. An example provided shows how to set up a proxy route in Hydrogen to fetch and modify content from the online store.
+
+This approach is recommended for those looking to migrate to Hydrogen while minimizing disruption to their existing store infrastructure.
+
+The text provides information on how to fetch and manage data in Hydrogen, Shopify's framework for headless storefronts. Key points include:
+
+1. **Data Fetching in Hydrogen**: Hydrogen utilizes Remix loader functions to manage queries to the Storefront API, Customer Account API, and other third-party data sources. Efficient data loading is crucial for performance.
+
+2. **Querying APIs**:
+   - **Storefront API**: An example shows how to query product data by handle and render it in a component.
+   - **Customer Account API**: Another example demonstrates querying order data for a logged-in customer.
+
+3. **Caching**:
+   - Hydrogen caches Storefront API data by default and offers utilities to customize caching rules.
+   - The Customer Account API does not cache requests to prevent storing sensitive information.
+   - An example illustrates customizing caching for a product title query.
+
+4. **Next Steps**:
+   - Learn more about caching Shopify API data.
+   - Explore pagination for large product collections.
+   - Use the built-in GraphiQL client to explore the Storefront API.
+
+The text emphasizes the importance of efficient data handling and caching to maintain a fast and performant storefront experience.
+
+The text provides a guide on how to add and customize a Content Security Policy (CSP) for a web app using Hydrogen, a framework by Shopify. CSP is a security layer that helps mitigate cross-site scripting and data injection attacks by controlling what content can be loaded in the app.
+
+**Key Points:**
+
+1. **What You'll Learn:**
+   - Setting up a CSP on an existing Hydrogen app.
+   - Defining custom directives within the CSP.
+   - Securing third-party scripts with a CSP nonce.
+
+2. **Requirements:**
+   - Completion of the Hydrogen "Hello World" example project.
+
+3. **Steps to Implement CSP:**
+   - **Step 1: Set up a CSP**
+     - Use the `createContentSecurityPolicy` utility in `entry.server.jsx`.
+     - Include `nonce`, `NonceProvider`, and `header` in the setup.
+     - Add the CSP header to the app's response headers.
+
+   - **Step 2: Add a nonce to scripts**
+     - Update `root.jsx` to use the `useNonce()` hook and pass the nonce value to components like `ScrollRestoration`, `Scripts`, and `LiveReload`.
+     - Ensure the nonce is also passed in the error boundary.
+
+   - **Step 3: Customize the CSP**
+     - Extend the default CSP by passing custom directives into `createContentSecurityPolicy`.
+     - Refer to the CSP reference for available directives.
+
+The guide provides detailed code snippets and file locations to help in the implementation process.
+
+The document titled "Validating and troubleshooting analytics with Hydrogen" provides guidance on ensuring that analytics data is correctly collected and delivered to Shopify when using Hydrogen, Shopify's framework for headless storefronts.
+
+Key points include:
+
+1. **Consent Check with Customer Privacy API**: Hydrogen’s Analytics components automatically check for tracking consent before sending data. Ensure your project is set up for consent using Shopify's built-in cookie banner or a third-party service.
+
+2. **Content Security Policy (CSP)**: A missing CSP can cause connection errors with the Customer Privacy API, affecting analytics data collection. Ensure CSP is set up for your storefront and checkout domains.
+
+3. **Network Traffic Inspection**: To verify analytics data delivery, inspect network requests in the browser's developer tools, filtering for the `monorail-edge.shopifysvc.com` endpoint. Look for HTTP response status codes 200 (success) or 207 (multi-status with errors).
+
+4. **Shopify Live View Compatibility**: Ensure Shopify cookies are properly set up and your app's Storefront API token is managed through the Hydrogen sales channel. The `storefrontHeaders` prop in `createStorefrontClient` must be defined.
+
+5. **Analytics Across Subdomains**: If your Hydrogen app and checkout are on different subdomains, ensure cookies are consistent across them. Set the `cookieDomain` value in `<Analytics.Provider>` or `useShopifyCookies` to your Hydrogen app domain, and consider using a leading dot for the domain if issues persist.
+
+This guide helps developers troubleshoot and validate their analytics setup in Hydrogen, ensuring accurate data collection and compatibility with Shopify's tools.
+
+The document discusses caching strategies for third-party API data in Hydrogen and Oxygen, which are tools used for building Shopify storefronts. Key points include:
+
+1. **Default Caching Behavior**:
+   - HTTP GET responses are cached according to their response headers.
+   - POST requests are not cached.
+
+2. **Caching Strategies**:
+   - **Hydrogen’s built-in withCache utility**: Recommended method for caching third-party API calls. It wraps multiple sub-requests under a single cache key.
+   - **Custom cache abstractions**: Creating custom functions around withCache for specific APIs, which can be injected into the Remix context.
+   - **Manual caching**: Directly using the cache instance provided by the Storefront client, which requires manual handling of caching features and error management.
+
+3. **Implementation Steps**:
+   - **withCache Utility**: Involves creating a withCache function in the server file and passing it to the Remix context. It can then be used in Remix loaders and actions to cache third-party API calls.
+   - **Custom Abstractions**: Example provided for creating a custom CMS fetcher function and injecting it into the Remix context.
+   - **Manual Caching**: Demonstrates how to manually cache a request to a third-party API using the cache instance from the Storefront client.
+
+4. **Hosting Considerations**:
+   - If hosting Hydrogen app on a provider other than Oxygen, caching behavior might differ. Consult the provider for specific caching capabilities.
+
+This document provides detailed guidance on managing third-party API data caching in Hydrogen and Oxygen environments, emphasizing the use of built-in utilities and custom abstractions for efficient caching.
+
+The provided text is a production checklist for Shopify Hydrogen storefronts, detailing essential steps to ensure a resilient production environment. Key points include:
+
+1. **Operations:**
+   - Set up log drains and monitoring solutions for store health.
+   - Develop a release strategy and incident response process.
+   - Coordinate with a Merchant Success Manager for Shopify Plus plans.
+
+2. **Security:**
+   - Ensure package-lock.json or yarn.lock files are in the Git repository.
+   - Plan for potential service disruptions and coordinate load testing with service providers.
+
+3. **Performance:**
+   - Implement caching and optimize server bundle and static asset sizes.
+
+4. **Go Live Guide:**
+   - Coordinate load testing with Shopify to avoid throttling.
+   - Ensure Shopify analytics are set up correctly.
+   - Manage Shopify Scripts and update Meta & Google product feeds.
+   - Redirect previous order status pages to avoid 404 errors.
+
+5. **Next Steps:**
+   - Take live traffic and redirect to the Hydrogen storefront.
+
+This checklist is crucial for preparing a Shopify Hydrogen storefront for production launch, focusing on operations, security, performance, and the go-live process.
+
+The text provides detailed information about Oxygen, a worker-based runtime designed for hosting Hydrogen storefronts at the edge. Key points include:
+
+1. **Oxygen Runtime**: It is a JavaScript-based HTTP server suitable for serverless or edge-computing contexts, supporting standard web APIs like Fetch, Streams, URL, Cache-Control, and Web Crypto.
+
+2. **Runtime Mirroring**: Hydrogen's local development server mirrors Oxygen's production runtime, ensuring development and production environments are closely aligned. Both use Cloudflare's workerd project.
+
+3. **Development Server**: The Shopify CLI command `shopify hydrogen dev` starts the local development server. Hydrogen versions prior to v2024-01 used a Node.js-based server, which can still be accessed with the `--legacy-runtime` flag.
+
+4. **Worker Runtime APIs**: These include the Cache API, Encoding API, Fetch API, Headers, and Web Crypto API, similar to browser and Node.js APIs.
+
+5. **Cache API**: Supports HTTP headers like Cache-Control, ETag, Expires, and Last-Modified for caching responses. It does not support Cloudflare's `caches.default` API.
+
+6. **Encoding API**: Supports TextEncoder and TextDecoder, but only for UTF-8 encoding.
+
+7. **Fetch API**: Allows fetching resources over the network and includes support for Request, Response, Headers, and other primitives.
+
+8. **Headers**: Oxygen's implementation differs slightly from the standard API, particularly in handling the Set-Cookie header.
+
+9. **Web Crypto API**: Provides cryptographic functions through the SubtleCrypto interface, with some differences in supported algorithms compared to browsers.
+
+10. **JavaScript Objects and Web APIs**: Oxygen uses the V8 engine and supports most standard JavaScript objects and web APIs, excluding certain security-sensitive functions like `eval()` and `new Function()`.
+
+This information is crucial for developers looking to deploy Hydrogen storefronts using Oxygen, as it outlines the runtime environment, supported APIs, and development tools available.
+
+The Android Buy SDK allows developers to create custom storefronts in their mobile apps by connecting to the Shopify platform via GraphQL. It supports various native storefront experiences but only works with direct onsite gateways.
+
+**Requirements:**
+- Android SDK Level 14 (Ice Cream Sandwich 4.0) or higher
+- JDK 1.7
+- Android Studio 2.1.x recommended
+
+**Steps to Use the SDK:**
+1. **Generate an access token** in the Shopify admin or through a custom app.
+2. **Make products and collections available** to your custom app by managing sales channels and apps in the Shopify admin.
+3. **Set up Android App Links** for integration with Android web browsers.
+4. **Access the Android Buy SDK** from the GitHub repository, which includes a sample app demonstrating its use.
+
+**Checkout on Mobile:**
+- Use Shopify’s web checkout for mobile apps to ensure customers have access to the latest optimized checkout experience.
+
+**Support:**
+- Shopify support cannot assist with mobile app development issues unless they relate specifically to the Android Buy SDK.
+- Seek help by opening a GitHub issue, visiting the APIs & Technology forum, or hiring a Shopify Partner.
+
+The text discusses the migration from Shopify's Checkout APIs to the Storefront Cart API, which is necessary due to the deprecation and planned sunsetting of the Checkout APIs. The migration is recommended to maintain continuity and unlock new capabilities. Key benefits of the Storefront Cart API include query optimization through GraphQL, cross-platform compatibility, unlimited access and bot protection, comprehensive feature access, unified functionality, and enhanced promotions. Developers are advised to familiarize themselves with GraphQL and the Storefront API, and to utilize resources such as the Cart API reference and the GraphQL Storefront API reference. Important notes include the absence of webhooks for cart creation or updates, and limitations in support for certain features like gift cards and carrier-calculated shipping rates.
+
+The provided text is a guide on how to measure and optimize CPU startup time for Shopify Hydrogen apps locally. Here are the key steps summarized:
+
+1. **Run the CPU Profiler**: Use the command `npx shopify hydrogen debug cpu` in the terminal to build and run your app, which will measure the startup time and log it to the terminal. The profiler also generates a report saved as `./startup.cpuprofile`.
+
+2. **View the Startup Time Report**: Open the `./startup.cpuprofile` file using a flame graph viewer like Flame Chart Visualizer in Visual Studio Code or Speedscope in a browser to analyze the detailed startup time report.
+
+3. **Optimize Startup Time**: Identify and optimize parts of the app that contribute to slow startup times, such as unnecessary computations during import or functions performing computation outside of a request cycle.
+
+This process helps in observing trends and making informed optimizations to ensure the app's startup time meets the requirements of the Oxygen platform.
+
+The text provides information about interacting with Shopify's Storefront API, which is crucial for developing custom storefronts. Key points include:
+
+1. **Requirements**: Developers should familiarize themselves with the Storefront API and complete the "Getting started" guide.
+2. **GraphiQL Explorer**: An interactive tool to explore Shopify's Storefront GraphQL API using a demo shop.
+3. **Storefront API Learning Kit**: A downloadable package containing sample GraphQL queries to help understand and use the Storefront API effectively.
+4. **Next Steps**: The text suggests learning how to query products and collections for custom storefront development.
+
+The content is aimed at enhancing the developer experience by providing tools and resources for API exploration.
+
+The text discusses how to render a cart from the client side in a Shopify Hydrogen storefront, emphasizing the importance of not server-rendering the cart when cache control is enabled. This is because carts are user-specific and should not be cached and shared across different user sessions.
+
+Key points include:
+1. **Cache Control Modes**:
+   - **Private**: Only the client browser caches the request, useful for user-specific pages.
+   - **Public**: Public servers and CDNs cache the request, suitable for non-personalized content.
+
+2. **Steps to Render Cart Client-Side**:
+   - **Step 1**: Add a loader on the cart route to fetch user's cart data.
+   - **Step 2**: Create a `<CartProvider>` and `useCart` hook for accessing cart data across the app.
+   - **Step 3**: Include the `<CartProvider>` in the root layout to make the `useCart` hook available globally.
+   - **Step 4**: Use the `useCart` hook to access cart data for client-side rendering.
+
+3. **Benefits and Trade-offs**:
+   - **Benefits**: Improved response times for cached static pages.
+   - **Trade-offs**: Delayed UI updates for personalized content and longer time to interactive (TTI) due to client-side data fetching.
+
+This approach ensures that the cart, being user-specific, is handled correctly in a cached environment, avoiding potential issues with shared data across user sessions.
+
+The document titled "Environments" from Shopify's Hydrogen storefront development guide discusses the management of multiple environments within a Hydrogen app. Here are the key points summarized:
+
+1. **Environment Types**:
+   - **Production**: Linked to the default Git branch, editable to select a different branch.
+   - **Custom Environments**: Optional, can be multiple, each linked to its own branch.
+   - **Preview**: All other branches not linked to production or custom environments.
+
+2. **Environment Management**:
+   - Production and preview environments are mandatory and cannot be deleted.
+   - Custom environments can be created for development and testing purposes.
+
+3. **Creating and Managing Environments**:
+   - Access via Storefront settings > Environments and variables.
+   - Create, update, or delete environments through the interface.
+
+4. **Environment Variables**:
+   - Each environment can have unique key-value pairs.
+   - Variables can be accessed in app code via the context object.
+   - Maximum of 110 unique environment variables per environment.
+
+5. **Required Environment Variables**:
+   - Certain variables are required by Oxygen for querying store data and are automatically added.
+   - Some variables are read-only but can be rotated for security.
+
+6. **Environment Visibility**:
+   - Environments can be private (default) or public.
+   - Public environments are accessible by anyone with the URL.
+
+7. **Public Environment Limits**:
+   - The number of public environments depends on the Shopify plan.
+
+8. **Environment URLs**:
+   - Each environment has an auto-generated URL pointing to the latest deployment.
+
+9. **Next Steps**:
+   - Learn to deploy Hydrogen storefronts to Oxygen and other runtimes.
+
+This guide provides detailed steps for managing environments and variables, ensuring flexibility and security in development and deployment processes.
+
+The document titled "Share carts" from Shopify's Hydrogen migration guide discusses the process of sharing shopping carts between an online store and a Hydrogen storefront. Here are the key points:
+
+1. **Context**: The tutorial is for merchants with live traffic on their online store planning to migrate to Hydrogen. If there's no live traffic, the merchant can skip to redirecting traffic to Hydrogen.
+
+2. **Cart Management**: Hydrogen uses the Storefront API for cart management, while the online store uses Liquid. These carts are separate and cannot be accessed or queried across platforms.
+
+3. **Migration Challenges**: During migration, customers might lose their active carts since Liquid and Storefront API carts are not interoperable.
+
+4. **Solution**: To prevent cart loss, both the online store and Hydrogen must use Storefront API carts. This involves updating the online store theme to implement Storefront API carts and handling both types of carts for at least ten days.
+
+5. **Requirements**:
+   - The Hydrogen storefront must be ready for launch.
+   - The merchant must have live traffic on their online store.
+
+6. **Limitations**:
+   - The cart must be rendered client-side, and the `cart.liquid` file may need to be rebuilt with JavaScript.
+   - Some analytics scripts that capture add-to-cart metrics may not function.
+
+7. **Steps**:
+   - **Step 1**: Update the online store theme to use Storefront API carts on pages where products can be added to the cart. Ensure the Storefront API cart ID is read and written to cookies.
+   - **Step 2**: After ten days, update the Hydrogen storefront to read and write the cart ID through the new cookie.
+
+8. **Example Code**: Provided in the document for implementing cart ID handling in Hydrogen storefront components like `/app/routes/Cart.jsx` and `/app/root.jsx`.
+
+9. **Next Steps**:
+   - Learn how to redirect traffic from the online store theme to the Hydrogen channel.
+   - Learn how to adopt Hydrogen incrementally for merchants using both the online store theme and Hydrogen channel.
+
+This guide is crucial for merchants aiming to ensure a smooth transition without disrupting customer shopping experiences during the migration to Hydrogen.
+
+The text provides information about additional SDKs provided by Shopify to facilitate storefront development. Key details include:
+
+1. **Web SDKs**:
+   - **Storefront API Client**: A lightweight tool for interacting with the Storefront API in JavaScript projects.
+   - **Buy Button JS**: A library for integrating customizable UI components into websites.
+   - **JavaScript Buy SDK**: Used to add Shopify commerce features to any website.
+   - **Web Components**: Tools to include Shopify features on any website.
+
+2. **Backend SDKs**:
+   - **Shopify/shopify-api**: Official client library for Node.js applications.
+   - **Shopify/shopify-api-php**: Official client library for PHP applications.
+   - **Shopify/shopify-api-ruby**: Official client library for Ruby applications.
+
+3. **Next Steps**:
+   - Learn more about the Buy Button JS, JS Buy SDK, Android Buy SDK, and iOS Buy SDK.
+
+The text also includes a URL to the Shopify documentation and a section for user feedback on the page's helpfulness.
+
+The text provides a tutorial on getting started with Hydrogen and Oxygen for Shopify storefronts. Here are the key steps summarized:
+
+1. **Create a new Hydrogen storefront**: Use the command `npm create @shopify/hydrogen@latest -- --quickstart` in the terminal to create a new Hydrogen project with example data from Mock.shop.
+
+2. **Run the dev server**: Navigate to the project directory (`cd hydrogen-quickstart`) and start the dev server with `shopify hydrogen dev`. Access the storefront at `http://localhost:3000`.
+
+3. **Link your Hydrogen project to Shopify**: Use `npx shopify hydrogen link` to link your local project to Shopify, create a new storefront, and sync environment variables with `npx shopify hydrogen env pull`.
+
+4. **Deploy to Oxygen**: Deploy your project to Oxygen hosting with `npx shopify hydrogen deploy`, selecting "Preview" at the prompt. This will provide a preview link to view the deployed storefront.
+
+The tutorial concludes with a note of congratulations for completing the setup and a suggestion to explore the fundamentals of Hydrogen and Oxygen.
+
+The text provides a guide on localization detection in Shopify's Hydrogen framework, focusing on how to approximate a user's locale using headers, cookies, or URL search parameters. It emphasizes that while these methods can be used to detect a user's locale, they should be employed to enhance user experience rather than for automatic redirection, which is considered a poor practice. The guide also mentions potential drawbacks, such as page caching ignoring locale-related cookies, headers, and URL search params, and SEO bots often not reflecting the user's actual locale.
+
+Key requirements include completing the Hydrogen getting started guide, setting up store regions and languages using Shopify Markets, and familiarity with using the Storefront API with Shopify Markets.
+
+The guide provides a step-by-step instruction, starting with creating a utility function to read the request and extract the 'accept-language' header. An example JavaScript function is given to illustrate how to detect and handle the locale based on the 'accept-language' header. This utility function can be used for triggering analytics or reading the approximate locale.
+
+The guide titled "Setup multilingual and multi-regional storefronts with domains and subdomains" on Shopify's Hydrogen documentation provides a detailed process for setting up a Hydrogen project to support multi-regional and multilingual storefronts using domains and subdomains. The guide outlines the following steps:
+
+1. **Create a utility function** that reads the requested host and returns the appropriate Locale object using the Storefront API's supported language and country codes. This function should handle different domains or subdomains and return the corresponding language and country.
+
+2. **Add i18n to the storefront client** by updating the server configuration to use the result of the utility function. This ensures that the locale is available throughout the app for every storefront query.
+
+3. **Modify GraphQL queries** to include the `@inContext` directive with `$country` and `$language` parameters. This directive is necessary for supporting international pricing and languages in the Storefront API.
+
+4. **Ensure redirects are properly URL encoded** to handle multilingual handles for products or collections, preventing issues with special characters in URLs.
+
+The guide also provides code examples and tips for each step, ensuring that developers can implement these changes effectively in their Hydrogen projects.
+
+The text discusses Web Components, a set of web standards that enable the creation of custom, reusable, and encapsulated HTML elements. These components are compatible with all modern browsers and can be integrated with various JavaScript libraries or frameworks.
+
+Shopify provides Web Components for embedding specific UI elements, such as the "Buy with Shop Pay" component. This component allows integration of a Shop Pay button on any website for preconfigured products, leading to an accelerated checkout process. It uses Checkout Links and follows Shop Pay branding guidelines.
+
+Key attributes for the "Buy with Shop Pay" component include:
+- `store-url`: The online store URL.
+- `variants`: Product variants, which can include quantities in the format `variant_id:quantity`.
+
+The component is hosted on the Shopify CDN and can be included in a web page using a script tag and the `shop-pay-button` element.
+
+Shopify's Web Components are not supported by Shopify support directly, but assistance can be sought from the Shopify Community forums or by hiring a Shopify Partner.
+
+The text provides information about using analytics with Hydrogen and Oxygen, which are components of Shopify's headless commerce solution. Key points include:
+
+1. **Analytics Integration**: Hydrogen offers recommended patterns for collecting and transmitting website metrics to Shopify analytics, allowing real-time viewing of metrics in the Shopify admin.
+
+2. **Consent Tracking**: Prior to tracking analytics, it is crucial to comply with customer consent regulations. Shopify provides a built-in Customer Privacy API and a native cookie banner to obtain consent, or you can integrate a third-party consent tracking service.
+
+3. **Implementing Analytics Events**: Analytics is built into Hydrogen, but manual implementation is possible if needed. It is important to validate that analytics data is flowing correctly and troubleshoot any issues.
+
+4. **Page Content Summary**: The page covers consent tracking for analytics and the process of tracking analytics events within Hydrogen.
+
+The guide titled "Debugging and testing Hydrogen apps" provides insights on how to debug and troubleshoot Hydrogen apps for common issues. It introduces several debugging tools included in Hydrogen, such as the Subrequest profiler, Error console, Bundle size inspector, Server-side debugger, CPU profiler, and Log drains. The guide also addresses common errors like slow API queries, unoptimized caching strategies, slow or heavy dependencies, failing Oxygen deployments, and React hydration errors. Additionally, it mentions the use of end-to-end testing with authentication bypass tokens for secure access to deployments for testing purposes.
+
+The document titled "Create and update a cart with the Storefront API" provides a detailed guide on how to manage carts using the Shopify Storefront API. Here are the key points summarized:
+
+1. **Requirements**:
+   - Completion of the "Getting started with the Storefront API" guide.
+   - Creation of products and product variants in the store.
+   - Use of Storefront API version 2022-10 or higher (2023-04 for setting metafields on a cart).
+
+2. **Cart Object Relationships**:
+   - **Cart**: Contains merchandise intended for purchase and estimated costs.
+   - **CartBuyerIdentity**: Identifies the customer interacting with the cart, including access tokens and preferences.
+   - **Cost**: Estimated costs at checkout, which may change.
+   - **CartLine**: List of line items in the cart.
+   - **Merchandise**: Represents a product variant.
+
+3. **Cart ID**:
+   - Consists of a token and a secret key.
+   - Must be treated as sensitive information, similar to a password.
+
+4. **Steps to Manage a Cart**:
+   - **Step 1: Create a cart and add a line item** using the `cartCreate` mutation.
+   - **Step 2: Retrieve a cart** using the `cart` query.
+   - **Step 3: Increase an item's quantity** using the `cartLinesUpdate` mutation.
+   - **Step 4: Update customer information and preferences** using the `cartBuyerIdentityUpdate` mutation.
+   - **Step 5: Set metafields on a cart** using the `cartMetafieldsSet` mutation.
+   - **Step 6: Retrieve a checkout URL** by querying the Cart object.
+
+5. **Additional Notes**:
+   - The cart works with web checkout only and is not supported for native mobile checkouts.
+   - Duties are not displayed on the cart but only at checkout. Taxes can be displayed on the cart.
+
+The document also includes detailed GraphQL examples and JSON responses for each step, demonstrating how to interact with the API to manage cart operations effectively.
+
+The guide titled "Apply notes to carts" on Shopify's development documentation website provides instructions on how to use a cart handler to apply a note to a cart, such as for requesting gift-wrapping. The guide assumes that the reader has completed the quickstart guide and set up a cart handler.
+
+**Steps to Apply a Cart Note:**
+
+1. **Create a Cart Note Form:**
+   - Use the `CartForm` component from `@shopify/hydrogen` to create a form that submits a request to the `/cart` route when users update the note.
+   - Example code snippet for `NoteForm.jsx`:
+     ```javascript
+     import {CartForm} from '@shopify/hydrogen';
+
+     export default function NoteForm() {
+       return (
+         <CartForm
+           route="/cart"
+           action={CartForm.ACTIONS.NoteUpdate}
+         >
+           <p>Provide a short message for the gift tag:</p>
+           <input type="text" name="note" />
+           <button>Update note</button>
+         </CartForm>
+       );
+     }
+     ```
+
+2. **Handle the Cart Note Form Request:**
+   - Handle the form request in an action using the cart created from `createCartHandler` to manage cart mutation requests to the Storefront API.
+   - Example code snippet for `cart.jsx`:
+     ```javascript
+     import {CartForm} from '@shopify/hydrogen';
+     import invariant from 'tiny-invariant';
+
+     export async function action({request, context}) {
+       const {cart} = context;
+       const formData = await request.formData();
+       const {action, inputs} = CartForm.getFormInput(formData);
+       let result;
+
+       switch(action) {
+         case CartForm.ACTIONS.NoteUpdate:
+           const note = String(formData.get('note') || '');
+           result = await cart.updateNote(note);
+           break;
+         default:
+           invariant(false, `${action} cart action is not defined`);
+       }
+
+       const headers = cart.setCartId(result.cart.id);
+       return json(
+         result,
+         {status: 200, headers},
+       );
+     }
+     ```
+
+**Next Steps:**
+- Learn how to apply cart attributes.
+
+The guide is part of Shopify's documentation for headless storefronts using Hydrogen.
+
+The text provides a guide on optimizing store performance with search tracking using the Storefront API and Shopify analytics functionality in Hydrogen. Key points include:
+
+1. **Objective**: Improve storefront search performance and relevance by collecting customer interaction data.
+2. **Supported Platforms**: Search tracking is supported in custom storefronts built with Hydrogen or other React frameworks using the Hydrogen React library.
+3. **What You'll Learn**:
+   - Setting up Shopify cookies.
+   - Extracting and appending search tracking parameters.
+   - Sending analytics to Shopify.
+4. **Requirements**:
+   - Completion of the Getting started with the Storefront API guide.
+   - Knowledge of setting up Shopify analytics in Hydrogen.
+   - Use of Storefront API version 2023-07 or higher.
+5. **Steps**:
+   - **Step 1: Set up Shopify cookies** using Hydrogen’s `useShopifyCookies` hook.
+   - **Step 2: Extract and append search tracking parameters** from search and predictiveSearch responses using the `trackingParameters` field.
+   - **Step 3: Send analytics to Shopify** by following the Hydrogen analytics documentation.
+6. **Next Steps**: Customize search, filters, and product recommendations using the Shopify Search & Discovery app.
+
+The text provides a guide on how to build localized experiences using the Storefront API and Shopify Markets. Key points include:
+
+1. **Purpose**: Shopify helps merchants expand globally, requiring support for multiple languages and currencies.
+2. **Capabilities with Storefront API**:
+   - **International Pricing**: Allows querying international prices for products and orders, and setting the context of a cart and checkout. Merchants can configure prices per country in the Shopify admin.
+   - **Multiple Languages**: Supports multiple languages on a storefront, enabling retrieval of available languages, translations, and creating checkouts in the customer's language.
+3. **Translatable Resources**: Includes collections, metafields, articles, blogs, pages, products, product options, product variants, and shop policies.
+4. **Developer Resources**: Guides and references for common use cases and the complete GraphQL Storefront API.
+5. **Next Steps**:
+   - Learn to query international prices and set cart/checkout context.
+   - Support multiple languages on a storefront using the Storefront API.
+
+The text provides a guide on how to support multiple languages on storefronts using Shopify's Storefront API. Here are the key steps and requirements:
+
+**Requirements:**
+- Completion of the "Getting started with the Storefront API" guide.
+- Familiarity with querying products and collections.
+- Creation of translatable resources and translated content using the GraphQL Admin API.
+- Use of API version 2022-04 or higher.
+
+**Steps:**
+
+1. **Retrieve available languages:**
+   - Use the Localization object to access the list of available languages configured within the shop’s Markets settings.
+   - Example query:
+     ```graphql
+     query Localization @inContext(country: US, language: ES) {
+       localization {
+         availableLanguages {
+           isoCode
+           endonymName
+         }
+         availableCountries {
+           isoCode
+           name
+           availableLanguages {
+             isoCode
+             endonymName
+           }
+         }
+       }
+     }
+     ```
+
+2. **Retrieve translations:**
+   - Use the @inContext directive to contextualize any query in one of the shop’s available languages.
+   - Example query:
+     ```graphql
+     query productDetails @inContext(language: ES) {
+       product(handle: "white-t-shirt") {
+         title
+         description
+         descriptionHtml
+         options {
+           name
+           values
+         }
+       }
+     }
+     ```
+
+3. **Create a checkout in the customer’s language:**
+   - Use the @inContext directive with the checkoutCreate mutation to set the checkout locale.
+   - Example mutation:
+     ```graphql
+     mutation createCheckout @inContext(language: ES) {
+       checkoutCreate(input: {
+         lineItems: [
+           { quantity: 1, variantId: "gid://shopify/ProductVariant/38615086082" }
+         ]
+       }) {
+         checkout {
+           webUrl  # loads in Spanish
+         }
+       }
+     }
+     ```
+
+**Next steps:**
+- Learn how to query international prices for products and orders.
+- Learn how to create and update a cart in Shopify with the Storefront API.
+- Retrieve metafields with the Storefront API.
+- Learn how to manage customer accounts with the Storefront API.
+- Explore different tools for creating unique buying experiences.
+
+The text provides an overview of Shopify's Hydrogen and Oxygen stack, which is designed for headless commerce. Here are the key points:
+
+1. **Architecture**:
+   - **Hydrogen**: A set of components, utilities, and design patterns for working with Shopify APIs. It's a Remix app preconfigured with Shopify-specific features.
+   - **Remix**: An open-source React framework that Hydrogen is built on. It handles routing, data fetching, server-side rendering, UI reactivity, and styling.
+   - **Oxygen**: Shopify’s global serverless hosting platform for deploying Hydrogen storefronts at the edge. It manages deployment environments, environment variable management, caching, and integration with Shopify’s CDN.
+
+2. **Hydrogen Project Structure**:
+   - Hydrogen projects are structured like typical Remix apps and can be configured as needed.
+   - Default structure includes directories for assets, components, graphql, lib, routes, styles, and various configuration files.
+
+3. **Packages and Dependencies**:
+   - Key packages include `@shopify/hydrogen`, `@shopify/hydrogen-cli`, `@shopify/mini-oxygen`, and `@shopify/remix-oxygen`.
+
+4. **Hydrogen Channel**:
+   - A sales channel app that needs to be installed on Shopify stores to enable features like product inventory publishing, Oxygen hosting, and managing storefronts and deployment environments.
+
+5. **Remix**:
+   - Hydrogen projects are Remix apps with preconfigured options and Shopify-optimized components.
+   - Key concepts include nested routes, loaders, actions, server-side rendering (SSR), and progressive enhancement.
+
+6. **Oxygen**:
+   - A global deployment platform for hosting Hydrogen storefronts.
+   - Available at no extra charge on paid Shopify plans.
+   - Technical specs include being a worker-based JavaScript runtime supporting web standard APIs.
+   - Limitations include size and time constraints for workers and file sizes for static assets.
+
+7. **Next Steps**:
+   - Learn how to query Shopify’s Storefront API for product data and render it in Hydrogen.
+
+The text discusses the importance of search and discovery in online stores and how to implement these features using Shopify's Storefront API. Key points include:
+
+- **Storefront Search**: Utilizes AI and natural language processing to provide relevant search results, supporting typo tolerance, partial matches, and buyability prediction.
+- **Predictive Search**: Offers typeahead search and resource suggestions, helping customers refine their search queries.
+- **Filters and Facets**: Allows for faceted filtering based on attributes like availability and product type to narrow down product options.
+- **Track Search Analytics**: Provides insights into customer behavior through metrics like search terms, click-through rates, and conversion rates, aiding in store optimization.
+- **Developer Resources**: Guides and references for the GraphQL Storefront API are available to help developers implement these features.
+- **Limitations and Considerations**: Requires Storefront API version 2023-07 or higher for certain features and search tracking setup for AI-powered search.
+
+The guide suggests using the Shopify Search & Discovery app for advanced customizations and analytics.
+
+The text provides a guide on how to fetch third-party API data using Hydrogen, Shopify's framework for headless storefronts. Here are the key steps summarized:
+
+1. **Create a Third-Party API Client**:
+   - Use Hydrogen's utilities to create an API client for a third-party source, such as the Rick and Morty API.
+   - Example code shows how to handle caching and data fetching consistently with Hydrogen's methods.
+
+2. **Add the API Client to the Remix Context**:
+   - Integrate the newly created API client into the Remix server file to make it accessible for data fetching from routes.
+   - If using TypeScript, update the Remix type declaration file accordingly.
+
+3. **Query and Render Data**:
+   - Use the API client within a loader function in any route to fetch data.
+   - An example demonstrates rendering a list of character names from the Rick and Morty API on a specific route.
+
+**Next Steps**:
+- Learn about querying first-party Shopify APIs with Hydrogen.
+- Explore more on caching third-party API data with Hydrogen.
+
+The guide emphasizes reusing Hydrogen's tools to maintain consistency and performance in data fetching and caching across different API sources.
+
+The text provides a guide on how to inspect and optimize the bundle size of a Hydrogen app, which is a framework for building Shopify storefronts. Deployments can fail if the app's worker bundle exceeds Oxygen’s file size limits. Here are the key steps outlined in the guide:
+
+1. **Build your app locally**: Use the command `npx shopify hydrogen build` in the terminal to build the app. This process will output the size of the app bundle and a summary of the top dependencies and app files contributing to the bundle size.
+
+2. **View the full bundle size report**: Open the HTML file generated at `dist/worker/worker-bundle-analyzer.html` in a web browser. This file contains interactive charts that visualize the app bundle size, allowing you to drill down into specific dependencies.
+
+3. **Optimize your bundle**: Identify the heaviest dependencies and consider the following optimizations:
+   - Import only the necessary parts of a package.
+   - Look for smaller alternative packages on NPM, especially those built for the browser.
+   - Replace large third-party API SDKs with raw HTTP requests when possible.
+   - Use a CDN to load frontend-only dependencies instead of bundling them with the app.
+
+The guide aims to help developers reduce the bundle size to avoid deployment failures and improve app performance.
+
+The guide from Shopify explains how to manage subscription products on storefronts using the Storefront API. Key points include:
+
+1. **Requirements**:
+   - Completion of the "Getting started with the Storefront API" guide.
+   - Familiarity with querying products and collections.
+   - Creation of products, variants, and selling plan groups in the store.
+   - Access scopes for unauthenticated_read_selling_plans.
+
+2. **Steps**:
+   - **Step 1**: Query selling plans for a product using the product handle. Information includes delivery frequencies and options.
+   - **Step 2**: Query price adjustments on variants to understand how selling plans affect pricing. Adjustments can be percentage-based, fixed amount, or fixed price.
+   - **Step 3**: Query selling plan allocations and variant prices to see the effect of selling plans on variant prices, including the price, compareAtPrice, perDeliveryPrice, and unitPrice.
+   - **Step 4**: Create a cart with a subscription line item using the cartCreate mutation, specifying the line item quantity, variant ID, and selling plan ID.
+
+3. **Next Steps**:
+   - Learn to create and update carts in Shopify with the Storefront API.
+   - Query international prices and manage customer accounts.
+   - Retrieve metafields and support multiple languages on a storefront.
+
+The text provides a guide on self-hosting Hydrogen, a framework for building Shopify storefronts, on various JavaScript runtimes like Vercel, Netlify, Fly.io, and Cloudflare Workers instead of deploying to Oxygen.
+
+**Requirements:**
+- Install the Headless channel to access the Storefront API and Customer Account API, and manage API tokens.
+
+**Steps to Update Your Hydrogen App:**
+1. **Update your Remix adapter:**
+   - Uninstall the Remix adapter for Oxygen: `npm uninstall @shopify/remix-oxygen`
+   - Install the Remix adapter for your selected hosting platform, e.g., `npm install @remix-run/cloudflare`
+
+2. **Edit app files for your adapter:**
+   - Update files like `server.js`, `remix.config.js`, and `app/entry.server.jsx`
+   - Ensure the Storefront API client is passed to the Remix loader context using the `createRequestHandler` function.
+
+**Example Changes:**
+- Modify `server.js` to include Storefront API credentials and platform-specific configurations.
+- Implement the Web Cache API for caching.
+- Use the `waitUntil` method in serverless contexts to keep the request function alive after a response.
+
+**Additional Notes:**
+- Hosting platforms may have specific requirements or implementation details not covered in the guide.
+- Consult the `createStorefrontClient` API reference for a complete list of parameters.
+
+The document titled "Retrieve metafields with the Storefront API" provides a guide on how to manage metafields using the Shopify Storefront API. Key points include:
+
+1. **Requirements**:
+   - Completion of the "Getting started with the Storefront API" guide.
+   - Familiarity with querying products and collections.
+   - Creation of resources supporting metafields and associated metafields in the store.
+   - Understanding of how metafields function.
+
+2. **Metafield Operations**:
+   - The Storefront API only supports retrieving metafields; creation, update, and deletion require the GraphQL Admin API or REST Admin API.
+
+3. **Steps to Manage Metafields**:
+   - **Expose Metafields**: Use the `metafieldStorefrontVisibilityCreate` mutation in the GraphQL Admin API to make metafields visible. Example provided for exposing product metafields with specific namespace and key.
+   - **Retrieve Metafields**: Use the `metafield` field in the Storefront API to fetch metafields by specifying namespace and key. Example given for retrieving product metafields.
+   - **Hide Metafields (Optional)**: Use the GraphQL Admin API to delete the `MetafieldStorefrontVisibility` record to hide metafields from the Storefront API. Example provided for deleting a visibility record.
+
+4. **Next Steps**:
+   - Learn to use metafields for app-related information storage and attachment to Shopify API resources.
+   - Explore the metafield reference for the Storefront API.
+
+This guide is useful for developers looking to enhance their Shopify storefront with additional data stored in metafields.
+
+The text provides a guide on updating buyer identity in a Shopify storefront, specifically in a headless setup using Hydrogen. The key points are:
+
+1. **Purpose of Buyer Identity Update**:
+   - Associate customer information with a cart.
+   - Update `countryCode` when a customer changes site currency or locale.
+   - Update `customerAccessToken` when a customer logs into a customer account.
+
+2. **Requirements**:
+   - Completion of the quickstart guide.
+   - Setup of a cart handler.
+
+3. **Implementation**:
+   - Use the cart handler to handle cart mutation requests to the Storefront API.
+   - Example code provided in JavaScript/TypeScript (`/app/routes/account.login.jsx`).
+   - Steps include obtaining a customer access token, updating the buyer identity, and syncing the token with the existing cart.
+
+4. **Next Steps**:
+   - Learn how to apply cart notes.
+
+The text provides detailed instructions on how to deploy Hydrogen storefronts using custom CI/CD systems with the help of Oxygen deployment tokens. Here are the key points summarized:
+
+1. **Hydrogen Deployment Support**: Hydrogen supports continuous deployment from GitHub, but also allows deployment from other platforms like BitBucket or GitLab using the Hydrogen CLI deploy command with a valid Oxygen deployment token.
+
+2. **Oxygen Deployment Tokens**:
+   - **Creation**: Tokens can be created through storefront settings, and each token is valid for one year. It's recommended to create a new token for each service for security reasons.
+   - **Management**: Tokens should be kept secret. If leaked, they should be deleted and replaced with a new one.
+   - **Default Token**: Every Hydrogen storefront has a default token managed by Shopify, which can be rotated if compromised.
+
+3. **Using Tokens in CI/CD**:
+   - **Security**: Tokens are sensitive and should be securely stored by the CI/CD platform.
+   - **Integration**: Tokens can be used with the Hydrogen CLI deploy command in any supported context.
+
+4. **Example Workflows**:
+   - **Bitbucket**: Configured in `bitbucket-pipelines.yml` with the token stored as a variable.
+   - **GitLab**: Configured in `.gitlab-ci.yml` with the token stored as a variable.
+   - **CircleCI**: Configured in `.circleci/config.yml` with the token stored as a variable.
+
+These instructions ensure secure and efficient deployment of Hydrogen storefronts using custom CI/CD systems.
+
+The text provides an introduction to building headless with Shopify, focusing on custom storefronts. Here are the key points:
+
+1. **Custom Storefronts Definition**: A custom storefront is a model where the frontend and backend of a storefront are independent, allowing developers to build the frontend while merchants use Shopify's commerce engine for the backend.
+
+2. **How Custom Storefronts Work**: Developers design, build, and manage the frontend using their preferred tech stack and development framework. The frontend integrates with Shopify's commerce primitives and backend operations.
+
+3. **Data and Commerce Capabilities**: The custom storefront utilizes Shopify's backend data and commerce capabilities, which include products, collections, customers, cart functionality, and international pricing.
+
+4. **API-First Platform**: Shopify's API-first approach allows for flexibility in creating shopping experiences beyond websites, such as mobile apps, video games, and smart devices.
+
+5. **When to Build a Custom Storefront**: Consider building a custom storefront if the merchant's desired architecture, business process, or customer experience cannot be achieved with existing Shopify sales channels, themes, or apps. This includes unique storefront experiences, integration with existing tech stacks, robust omni-channel needs, and complex content management systems.
+
+6. **Key Benefits**: Custom storefronts offer flexibility, customization, and integration capabilities. They allow for a device-agnostic and platform-agnostic approach, enabling adaptation to market shifts and integration with various tools and technology stacks.
+
+7. **Examples of Customization**: Custom storefronts can be used to sell products through native mobile apps, PWAs, AR/VR experiences, video livestreams, IoT devices, and more.
+
+8. **Hydrogen Demo Store**: Shopify provides a Hydrogen demo store as an example of a custom storefront, which can be used as a reference or starting point for building one's own custom storefront.
+
+9. **Build Options**: Shopify offers development frameworks, SDKs, and software tools to accelerate the development process of custom storefronts.
+
+10. **Next Steps**: The text suggests exploring options for building custom storefronts and provides a feedback section on the page's usefulness.
+
+The guide titled "Setup multilingual and multi-regional storefronts with URL paths" on Shopify's development documentation site provides a step-by-step process for setting up a Hydrogen project to support multi-region and multilingual storefronts using URL paths. The guide covers the following steps:
+
+1. **Create a utility function** to determine the locale from the requested URL path using the Storefront API's supported language and country codes.
+2. **Match routes** that contain language in the URL using Remix's optional segments to ensure correct page rendering.
+3. **Add i18n to the storefront client** by updating the server.js to use the locale from the utility function.
+4. **Add @inContext directive** to GraphQL queries to support international pricing and languages.
+5. **Match non-existent pages** by creating a catch-all route to handle 404 errors.
+6. **Handle invalid URL lang parameters** in the index route to return a 404 for unsupported languages.
+7. **Create a utility function** to add a language path prefix to URLs.
+8. **Create a Link component** that adds the locale path prefix to ensure consistent navigation.
+9. **Ensure redirects are properly URL encoded** for multilingual handles.
+
+The guide also includes examples of utility functions, GraphQL queries, and Link components to facilitate the implementation of these steps.
+
+The document discusses the use of the `@defer` directive in GraphQL queries to prioritize data fetching, allowing clients to receive critical data first and less critical data later, without additional requests. This is particularly useful for minimizing overhead when fetching data from Shopify.
+
+**Key Points:**
+1. **@defer Directive**: This directive allows clients to prioritize parts of a GraphQL query, receiving data as a stream of responses. It is applied to fragment spreads and inline fragments, not individual fields.
+2. **Supported Clients**: Compatible GraphQL libraries include Shopify GraphQL Client, Shopify Storefront API Client, Apollo Client, and urql. Note that `@defer` is not yet supported on Hydrogen.
+3. **Example Usage**: An example shows how to use `@defer` to prioritize product details over related product recommendations, ensuring the main product data is received first.
+4. **Carrier-Calculated Rates**: As of July 2024, the `@defer` directive is mandatory for fetching carrier-calculated rates for the cart to prevent delays in the cart response.
+5. **Technical Details**: Responses using `@defer` follow the Incremental Delivery over HTTP specification, delivering multipart content responses indicated by the HTTP header `content-type: multipart/mixed; boundary=graphql`.
+
+This approach helps in optimizing query performance by allowing immediate rendering of critical data while deferring less critical data, enhancing user experience and application responsiveness.
+
+The text provides a guide on managing storefronts in the Hydrogen channel, which is part of Shopify's headless commerce framework. Key points include:
+
+1. **Creating Storefronts**:
+   - **From Existing GitHub Repository**: Users can connect an existing GitHub repository to a new Hydrogen storefront. This involves selecting the GitHub account, repository, and connecting it. Shopify then opens a pull request to add an Oxygen deployment workflow file.
+   - **From New GitHub Repository**: Users can start a new storefront by selecting a Hydrogen template, choosing between JavaScript or TypeScript, and specifying the GitHub account and repository name.
+
+2. **Deleting Storefronts**:
+   - Deleting a storefront removes all associated environments, environment variables, and deployments. This process involves navigating to the storefront settings and selecting "Delete storefront."
+
+3. **Next Steps**:
+   - Users are advised to learn how to create custom environments for previewing changes and how to manage environment variables for storing reusable data in Hydrogen storefront code.
+
+The guide is part of the Shopify documentation aimed at developers working with Hydrogen for headless storefronts.
+
+The Storefront API is a key component for building custom storefronts on Shopify, allowing developers to access Shopify's commerce primitives and capabilities. It enables the creation of unique commerce experiences across various platforms like web, native apps, games, and social media. The API supports features such as product and collection display, cart management, contextual pricing, and more.
+
+**Key Points:**
+- **Usage:** Ideal for creating seamless shopping experiences by leveraging Shopify's robust commerce functionality.
+- **Benefits:** Includes built-in commerce essentials, global scalability, and flexibility in tech stack choices.
+- **Versioning:** The API is versioned with quarterly releases, and it's recommended to update to the latest stable version.
+- **Authentication:** Offers public and private access tokens for client-side and server-side interactions respectively.
+- **Headless Channel:** Simplifies the management of access tokens and storefront permissions for headless and self-hosted Hydrogen experiences.
+- **Developer Tools:** Shopify provides resources like the GraphiQL explorer and learning kits to assist developers.
+- **Limitations:** A maximum of 100 active storefronts and access tokens per shop is allowed.
+
+Developers can start building with the Storefront API by consulting the API reference and utilizing the provided developer tools.
+
+The guide provides instructions on managing items in a cart using Shopify's Hydrogen framework. Key points include:
+
+1. **Requirements**:
+   - Completion of the quickstart guide.
+   - Setup of a cart handler.
+
+2. **Create a Remix Action**:
+   - A single cart route handles different cart actions (add, update, remove) using a switch statement.
+   - The cart handler sends mutation requests to the Storefront API.
+
+3. **Adding Cart Items**:
+   - Use the `CartForm` component to create an "Add to Cart" button.
+   - The component submits a form request to the `/cart` route's action.
+
+4. **Updating Cart Items**:
+   - Use the `CartForm` component to create an "Update Cart" button.
+   - The component submits a form request to the `/cart` route's action.
+
+5. **Removing Cart Items**:
+   - Use the `CartForm` component to create a "Remove Items" button.
+   - The component submits a form request to the `/cart` route's action.
+
+6. **Next Steps**:
+   - Learn how to show product variants.
+
+The guide includes code snippets for JavaScript/TypeScript in files like `/app/routes/cart.jsx`, `/app/components/AddToCartButton.jsx`, `/app/components/UpdateCartItemsButton.jsx`, and `/app/components/RemoveCartItemButton.jsx`.
+
+The iOS Buy SDK allows developers to create custom storefronts in mobile apps, enabling customers to purchase products using Apple Pay or credit cards. The SDK connects to Shopify via GraphQL and supports various native storefront experiences. Key points include:
+
+- **Requirements**: iOS 10.0+, Xcode 8.0+, and an Apple developer account.
+- **Steps**:
+  1. Generate an access token from the Shopify admin or via a custom app.
+  2. Make products and collections available to the custom app.
+  3. Configure the app to use Apple Pay and universal links.
+  4. Access the iOS Buy SDK and utilize sample apps for guidance.
+- **Checkout**: Use Shopify’s web checkout for mobile apps to ensure the latest optimized checkout experience.
+- **Support**: Shopify support is limited to issues directly related to the iOS Buy SDK. Additional help can be sought through hiring a Shopify Partner, visiting the Shopify APIs & SDKs forum, or opening a GitHub issue.
+
+The text discusses the full-page cache feature in Oxygen, which is designed to enhance the performance of Hydrogen storefronts by caching responses from the Hydrogen storefront worker. This caching mechanism aims to reduce load times for subsequent visits by serving cached content instead of generating a new response each time.
+
+Key points include:
+- **How it works**: Oxygen intercepts incoming requests and checks for cached content. If a valid cached version exists, it is served directly. If the cached version is stale, it is served while a fresh version is generated in the background. If no cached version is found, the Hydrogen storefront worker generates a new response, which is then cached for future use.
+- **Caching criteria**: A response is considered cacheable if it meets specific conditions, such as being a response to a GET request, having a 2XX or 3XX status code, and including specific headers like Oxygen-Cache-Control and Vary.
+- **Oxygen-Cache-Control header**: This header determines caching behavior, with directives like `public`, `max-age`, `s-maxage`, and `stale-while-revalidate` controlling how long and under what conditions responses can be cached.
+- **Vary response header**: This header helps Oxygen determine which request headers should be considered when matching requests to cached responses.
+- **Oxygen-Full-Page-Cache header**: This informational header indicates the cache status of a response, with values like `Miss`, `Hit`, `Stale`, and `Uncacheable`.
+- **Limitations**: Full-page cache cannot be purged for the current deployment without waiting for it to expire or deploying a new version of the Hydrogen storefront worker. It also has limitations in handling specific cookies and serving cached responses from previous deployments.
+
+The guide emphasizes the importance of ensuring that pages opted into Oxygen's full-page cache can be served consistently, considering the potential issues with server-side personalization and caching.
+
+The guide titled "Update selected delivery options" on Shopify's documentation website provides a step-by-step process for updating delivery options in a cart using a cart handler. Here are the key steps summarized:
+
+1. **Requirements**:
+   - Completion of the quickstart guide.
+   - Setup of a cart handler.
+
+2. **Step 1: Read selected and available delivery groups**:
+   - Modify the cart query fragment to include selected and available delivery options.
+   - Ensure the cart is associated with a customer access token to get a list of delivery groups.
+
+3. **Step 2: Create a select delivery option form**:
+   - Use Remix's `useFetcher` hook to create a form that submits a request to the `/cart` route when a delivery option is chosen.
+   - Ensure the form data includes a JSON stringified object with action and inputs defined.
+
+4. **Step 3: Handle the selected delivery option form request**:
+   - Implement an action to handle the form request.
+   - Use the cart handler to manage cart mutation requests to the Storefront API.
+   - Update the Cart ID after each mutation to reflect any changes.
+
+The guide provides detailed code snippets in JavaScript and TypeScript for each step, ensuring developers can implement these changes in their Shopify storefronts.
+
+The text provides a detailed guide on migrating an app to use the Storefront Cart API from Shopify. Here are the key points summarized:
+
+1. **API Overview**:
+   - The Storefront Cart API is part of the Storefront API, a GraphQL API used for building buyer experiences like custom storefronts and mobile apps.
+   - The endpoint for accessing the Storefront Cart API is `https://your-shop-name.myshopify.com/api/2024-04/graphql.json`.
+   - An `X-Shopify-Storefront-Access-Token` is required to make requests to this API.
+
+2. **Creating a Cart**:
+   - The API allows adding, removing, or updating items, applying discounts, and more before creating the checkout.
+   - The `cartCreate` mutation is used to create a cart.
+
+3. **Updating a Cart**:
+   - Methods like `cartLinesUpdate`, `cartLinesAdd`, and `cartLinesRemove` are provided for updating line items in the cart.
+   - `cartLinesUpdate` replaces existing line items with new ones, similar to `checkoutLineItemsReplace` in the Checkout API.
+
+4. **Discount Codes**:
+   - The Storefront Cart API supports stackable discount codes, unlike the Checkout API.
+   - The `cartDiscountCodesUpdate` mutation allows applying multiple discount codes to the cart.
+
+5. **Associating a Customer**:
+   - The `cartBuyerIdentityUpdate` mutation enables attaching buyer information to the cart, including delivery addresses.
+   - This mutation can be used for both anonymous and authenticated buyers.
+
+6. **Completing the Checkout**:
+   - The `checkoutUrl` field in the Cart object is used to send buyers to the Shopify web checkout.
+
+7. **Next Steps**:
+   - Explore the Storefront Cart API tutorial for more details on extending cart functionality.
+   - Consult the Storefront API reference documentation for further information on the Cart object.
+
+This migration involves replacing deprecated Checkout API methods with new Storefront Cart API methods, enhancing functionality and performance for building buyer experiences.
+
+The text discusses "Log drains" for Shopify Plus, which are tools available exclusively to stores on the Shopify Plus plan. These drains allow merchants to send logs to supported destinations like Splunk Enterprise, Datadog, and New Relic. The text outlines the delivery guarantees, noting that Shopify will retry failed requests but does not guarantee uptime or delivery by the sink provider. Logs are typically processed within a few seconds, with initial delivery attempted within five minutes.
+
+The text also details three types of logs:
+1. **Request logs**: Provide metadata about each request, useful for performance monitoring and troubleshooting.
+2. **Runtime logs**: Generated by console.log, console.warn, or console.error commands, these logs are typically used for application-level logging.
+3. **Exception logs**: Captured from uncaught exceptions, these logs help in identifying and fixing errors in the Hydrogen storefront.
+
+For setting up a log drain, merchants need to be signed up with a supported provider and follow specific steps in their Shopify admin to connect the drain. The text provides a detailed guide on how to connect a log drain and suggests validating the connection by checking the logs in the chosen sink.
+
+The document titled "Migrate from the online store to Hydrogen" provides a comprehensive guide on transitioning from a traditional online store to a Hydrogen storefront. Key considerations and steps include:
+
+1. **Incremental Adoption / Proxy Routes**: Merchants can adopt Hydrogen incrementally by proxying specific routes, such as launching a Hydrogen storefront with just a product page while using the online store for other pages.
+
+2. **Shared Carts**: To share carts between Hydrogen and the online store, update the online store to use the Storefront API for carts instead of Liquid carts.
+
+3. **Subdomain for Checkout**: Set up a subdomain for checkout, such as `checkout.example.com`, by connecting the subdomain and configuring routing.
+
+4. **Configure Routing**: Define custom routes for the Hydrogen storefront and set up redirects if routes are changed to assist customers and search engines.
+
+5. **Shareable Discount Code Links**: Implement shareable discount code links in the Hydrogen storefront, ensuring the logic checks for an existing cart, updates it with the discount code, or creates a new cart with the code.
+
+6. **Cart Permalinks**: Include functionality for cart permalinks in the Hydrogen storefront, similar to the online store.
+
+7. **Online Store Redirects**: Set up redirects from the online store to the Hydrogen storefront to guide customers.
+
+8. **Product Feeds**: Update feed rules for product feeds (Facebook, Google) to use the Hydrogen storefront's domain.
+
+9. **Canonical Links to Legacy Domains**: Add canonical links to the online store's page templates to reflect any URL structural changes.
+
+10. **Password Protection**: Remove password protection from the online store to avoid affecting Hydrogen checkouts.
+
+11. **Notifications**: Update notification URLs to match the Hydrogen storefront's domain.
+
+The guide concludes with the next steps, encouraging merchants to go live with Hydrogen when ready.
+
+The text provides guidance on setting up analytics consent and customer privacy for a Shopify store using Hydrogen, a headless storefront solution. Key points include:
+
+1. **Consent Collection**: Use Shopify's built-in cookie banner to obtain consent from customers for analytics collection.
+
+2. **Domain Configuration**:
+   - **Checkout Domain**: Ensure consistency in customer preferences across storefronts and checkout by configuring the Hydrogen checkout domain.
+   - **Environment Variables**: Add a `PUBLIC_CHECKOUT_DOMAIN` environment variable in the Hydrogen storefront admin under Storefront settings > Environments and variables.
+   - **Content Security Policy (CSP)**: Include both store and checkout domains in the CSP, which is scaffolded by default with Hydrogen's Skeleton template.
+
+3. **Cookie Banner Activation**:
+   - From the Shopify admin, navigate to Settings > Customer Privacy > Cookie banner to activate and customize the banner.
+
+4. **Next Steps**:
+   - Implement analytics event tracking in Hydrogen manually or upgrade an older project.
+   - Validate and troubleshoot Hydrogen analytics to ensure they are working correctly.
+
+The text provides an overview of managing shopping carts in Hydrogen, a framework for building headless storefronts with Shopify. Key points include:
+
+1. **Cart Management**: Hydrogen offers a suite of components designed to simplify the creation of shopping carts, ensuring they are predictable, consistent, and performant.
+
+2. **Server-Side Rendering**: Hydrogen's cart components are server-rendered by default, using traditional `<form>` elements and HTTP requests. This approach enhances performance, improves resilience, and allows cart state to be shared across different app contexts.
+
+3. **Progressive Enhancement**: Hydrogen supports progressive enhancement of web forms, enabling features like optimistic UI updates, loading indicators, and validation feedback to provide a modern user experience without full-page reloads.
+
+4. **Customization**: The cart components in Hydrogen cover common functionalities such as adding, updating, and removing products, managing metafields, and applying discount codes. They are also extensible, allowing for custom features or overrides of built-in functionality.
+
+5. **Next Steps**: The text suggests learning how to set up the Hydrogen cart handler as a next step.
+
+The content is primarily technical, aimed at developers looking to implement shopping cart functionality in a headless Shopify environment using Hydrogen.
+
+The text provides information about building a mobile app for a Shopify store using various SDKs and APIs provided by Shopify. Key points include:
+
+1. **Storefront**:
+   - **Mobile Buy SDKs** for iOS and Android allow developers to create custom storefronts and product discovery experiences.
+   - These SDKs interface with the GraphQL Storefront API to fetch product and collection information and manage buyer carts.
+
+2. **Buyer Identity**:
+   - Shopify supports built-in identity solutions and integrations with third-party identity providers.
+   - Options include new customer accounts with one-time email codes, classic customer accounts with usernames and passwords, and Multipass for third-party authentication.
+
+3. **Checkout Sheet Kit**:
+   - This kit enables a customizable, one-page checkout experience within native apps.
+   - Available libraries for Swift, Android, and React Native.
+   - The checkout experience uses embedded Shopify web checkout with native APIs for easy integration.
+
+4. **Product Roadmap**:
+   - Upcoming features include Storefront Kit and Identity Kit releases for Swift and Android in 2024.
+   - Planned enhancements include branding overrides for light/dark mode, Apple Pay and Google Pay support, and design language improvements.
+
+The text also includes a link to the original source for more detailed information.
+
+The text provides a guide on how to integrate Shopify into a custom technology stack using Shopify’s composable commerce APIs. Key steps include:
+
+1. **Install the Headless channel**: Access the Storefront API and Customer Account API by installing the Headless channel from the Shopify App Store. This channel manages API access for client applications, publishes products to the Headless sales channel, and handles API permissions and credentials.
+
+2. **Create a storefront**: Multiple storefronts can be created within the Headless channel, each with its own API tokens but sharing the same API permissions.
+
+3. **Manage API permissions**: Control store data availability through the Storefront or Customer Account APIs. Permissions are managed from the Shopify admin under Sales channels.
+
+4. **Rotate API credentials**: Update API credentials for security purposes. Both old and new credentials are valid until the old ones are deleted.
+
+5. **Delete a storefront**: Deleting a storefront revokes all its access tokens, requiring updates to any clients using those tokens.
+
+The guide also mentions additional resources for learning more about the Storefront API, Customer Account API, and headless commerce with B2B, as well as consulting the complete API references.
+
+The text provides a detailed guide on how to get started with the Customer Account API on Shopify, which is a GraphQL API used for building unique customer experiences. Here are the key points summarized:
+
+1. **Purpose**: The Customer Account API allows for seamless customer logins across online stores, Hydrogen, and checkout.
+
+2. **Requirements**:
+   - Apps and channels permissions on the Shopify store.
+   - Installation of the Headless or Hydrogen sales channel from the Shopify App Store.
+
+3. **Steps to Enable and Configure**:
+   - **Step 1**: Enable new customer accounts in the Shopify admin settings.
+   - **Step 2**: Configure Customer Account API access by selecting the appropriate client type (Public, Web, Mobile, or Confidential) and copying necessary credentials.
+   - **Step 3**: Perform authorization requests using OAuth 2.0, obtain and exchange tokens to authenticate and make queries.
+
+4. **Security Note**: Shopify does not support localhost or HTTP URLs due to security concerns; recommend using a tunneling service like ngrok for development.
+
+5. **Credential Management**:
+   - Rotate credentials by generating new ones and revoking old ones after updating all applications or scripts.
+
+6. **Next Steps**:
+   - Follow the "Using Customer Account API with Hydrogen" tutorial.
+   - Learn more about the Customer Account API.
+
+This guide is intended for developers looking to integrate and utilize the Customer Account API effectively within their Shopify storefronts.
+
+The guide titled "Support international pricing on storefronts" provides instructions on using the Storefront API to display international prices based on customer location. Key points include:
+
+1. **Requirements**:
+   - Completion of the Storefront API guide.
+   - Familiarity with querying products and collections.
+   - Setup of international pricing in the store.
+   - Knowledge of cart concepts.
+   - Required access scopes for Headless channels or custom apps.
+   - Manual enabling of each country’s currency in Shopify store's payment settings.
+   - Use of API version 2022-07 or higher.
+
+2. **Queries**:
+   - **Available countries and currencies**: Use the `@inContext` directive to get current country information.
+   - **Product prices**: Apply the `@inContext(country: countryCode)` directive to retrieve international prices.
+   - **Price ranges for products**: Include `priceRange` and `compareAtPriceRange` fields in the request.
+   - **Customer orders**: Orders are returned in the context they were created, using the `@inContext` directive.
+
+3. **Checkout or Cart Creation**:
+   - **Checkout**: Use the `checkoutCreate` mutation with the `buyerIdentity.countryCode` input to set the checkout’s country context.
+   - **Cart**: Similar to checkout, use the `buyerIdentity` argument to contextualize product variant prices and ensure all products are published for the given country.
+
+4. **Next Steps**:
+   - Learn to create and update a cart with the Storefront API.
+   - Manage subscription products by querying selling plans and selling plans groups.
+   - Manage customer accounts with the Storefront API.
+   - Retrieve metafields for additional resource information.
+   - Support multiple languages on a storefront.
+
+The text provides a guide on customizing a cart handler in a Shopify Storefront API context. Here are the key points summarized:
+
+1. **Cart Handler Functionality**: The cart handler interface facilitates making cart query and mutation requests to the Storefront API. It automatically creates a cart if none exists and includes default cart queries.
+
+2. **Customization Options**:
+   - **Customize Return Cart Fields**: Users can modify the default query fragment by passing a custom `cartQueryFragment` to include additional data fields from the Storefront API.
+   - **Custom Mutation Queries**: Users can provide a `cartMutateFragment` to customize data returned from mutation queries.
+   - **Add Custom Methods**: Users can add custom methods to the cart handler for reusable cart operations, such as simultaneously adding and removing items.
+   - **Override Existing Methods**: Users can override default cart handler methods with custom logic, such as custom handling of cart attributes.
+
+3. **Requirements**:
+   - Completion of the quickstart guide.
+   - Setup of a cart handler.
+
+4. **Implementation Details**:
+   - **Custom Cart Query Fragment**: Example includes adding the `note` field.
+   - **Custom Cart Mutation Fragment**: Example includes adding the `checkoutUrl` field.
+   - **Custom Methods Example**: Demonstrates adding and removing items simultaneously.
+   - **Override Example**: Shows overriding the `updateAttributes` method to handle cart attributes differently.
+
+This guide is useful for developers looking to extend or modify the default cart handling functionality in a Shopify storefront application.
+
+The text provides instructions on managing the Headless channel in Shopify, which includes creating storefronts, managing tokens, and editing permissions. Key points include:
+
+- **Tasks Covered**: Adding custom storefronts, viewing and editing storefront names, rotating private access tokens, editing storefront permissions, order attribution, and deleting storefronts.
+- **Requirements**: Completion of the "Getting started with the Storefront API" guide.
+- **Storefront Limits**: A maximum of 100 active storefronts and access tokens per shop.
+- **Token Management**: Rotating private access tokens requires updating applications or scripts to use the new token after deleting the old one.
+- **Permissions**: Storefront and Admin API permissions are shared across all storefronts.
+- **Order Attribution**: Managed at the channel level, not the storefront level.
+- **Deleting Storefronts**: This action invalidates Storefront API tokens and cannot be undone.
+- **Next Steps**: Further learning includes Storefront API authorization, access tokens, product publishing, and analytics.
+
+The guide assumes the Headless channel is pinned in the Shopify admin, but it can also be accessed via the Search field.
+
+The guide titled "Update cart metafields" on Shopify's documentation website provides a step-by-step process for updating cart metafields using a cart handler. Here are the key steps summarized:
+
+1. **Requirements**:
+   - Completion of the quickstart guide.
+   - Setup of a cart handler.
+
+2. **Step 1: Read cart metafields**:
+   - Modify the cart query fragment to include cart metafields.
+   - Example provided in JavaScript/TypeScript to add the `metafield` field to the query fragment.
+
+3. **Step 2: Create a metafield form**:
+   - Use Remix's `useFetcher` hook to create a form for submitting metafield data.
+   - Example component `ThisIsGift` demonstrates how to submit a form request to the `/cart` route's action.
+
+4. **Step 3: Handle the update metafield form request**:
+   - Implement an action to handle the form request in the `/cart` route.
+   - Use the cart handler to manage cart mutation requests to the Storefront API.
+   - Ensure the Cart ID is updated after each mutation.
+
+The guide also includes next steps suggesting to learn how to update buyer identity and asks for feedback on the page's helpfulness.
+
+The document titled "Integrate Third-Party Consent Management with Hydrogen" provides a detailed guide on how to integrate third-party consent management services with Shopify’s Customer Privacy API using Hydrogen. Here are the key steps summarized:
+
+1. **Activate the Shopify Cookie Banner**:
+   - Navigate to Settings > Customer Privacy > Cookie banner in the Shopify admin.
+   - Activate the cookie banner and select the regions to include.
+
+2. **Deactivate the Shopify Cookie Banner**:
+   - Go to Settings > Customer Privacy > Cookie banner.
+   - Turn off the cookie banner while keeping the selected regions enabled to use a third-party banner.
+
+3. **Load the Customer Privacy API in Hydrogen**:
+   - Recommended method: Use the `<Analytics.Provider>` component in Hydrogen, which automatically handles API loading and event management.
+   - Alternative method: Use the `useCustomerPrivacy` hook to manually load the API.
+
+4. **Sync Your Third-Party Settings with Shopify**:
+   - Integrate your consent provider's SDK and pass consent preferences to Shopify.
+   - Example implementation provided to sync consent settings with Shopify using JavaScript/TypeScript.
+
+5. **Overriding Tracking with `canTrack` (Optional)**:
+   - Customize the `<Analytics.Provider>` component with the `canTrack` prop to control analytics event publishing.
+   - Default behavior checks `window.Shopify.customerPrivacy.analyticsProcessingAllowed()`.
+   - Option to pass a custom function to `canTrack`.
+
+The document also mentions the importance of checking with the third-party provider for testing documentation and ensuring that the integration works seamlessly.
+
+The text provides a detailed guide on how to configure products and collections using the GraphQL Storefront API in Shopify. Key functionalities include:
+
+1. **Product Filtering**: The API allows filtering products within a collection based on attributes like product type, vendor, variant options, price, and stock availability. This helps in customizing the customer shopping experience.
+
+2. **Metafields**: The API can retrieve metafields to access additional information from various resources such as articles, blogs, collections, customers, orders, pages, products, product variants, and the shop itself. However, metafields need to be exposed using the GraphQL Admin API before they can be accessed via the Storefront API.
+
+3. **Local Pickup**: The API supports displaying product availability for local pickup, using components like `storeAvailability` and `Location`. The `@inContext` directive can be used to contextualize the response, such as sorting in-store availability results based on a preferred location.
+
+4. **Subscription Products**: The API facilitates the management of subscription products through the `sellingPlan` object. Selling plans and selling plan groups represent different selling methods and their impact on pricing.
+
+5. **Developer Resources**: The guide provides links to various resources and tutorials to help developers get started with querying products and collections, supporting local pickup, retrieving metafields, filtering products, and managing subscription products using the Storefront API.
+
+Overall, the Storefront API is a powerful tool for enhancing the functionality and user experience of Shopify storefronts through advanced product and collection management capabilities.
+
+The document titled "Filter products in a collection with the Storefront API" provides guidance on how to use Shopify's Storefront API to filter products within a collection based on various attributes such as product type, vendor, variant options, price, and stock availability. The guide is intended for developers who have completed the initial Storefront API setup and are familiar with querying products and collections.
+
+Key requirements for using the API include:
+- Completion of the "Getting started with the Storefront API" guide.
+- Familiarity with querying products and collections.
+- Creation of products and collections in the store.
+- Installation of the Shopify Search & Discovery app, which enables filtering options.
+- Use of API version 2022-01 or higher.
+
+The document outlines steps for querying products using GraphQL, including examples for filtering by collection handle, product type, vendor, variant options, price, and stock availability. It also discusses limitations, such as the inability to pass multiple price ranges in a single query.
+
+Additionally, the guide explains how to combine filters using logical operators (AND and OR) and how to query available filters for constructing a filter panel on a storefront. The document concludes with suggestions for further learning, including creating and updating carts, managing customer accounts, supporting multiple languages, and creating unique buying experiences using the Storefront API.
+
+The text provides a guide on implementing analytics event tracking in a Hydrogen project, which is a framework for building Shopify storefronts. Here are the key points:
+
+1. **Hydrogen Version Requirement**: Hydrogen includes analytics by default as of version 2024.4.3. If you're using an older version, you need to upgrade or manually set up analytics.
+
+2. **Requirements**:
+   - Hydrogen channel installed.
+   - Completion of “Getting started with Hydrogen and Oxygen”.
+   - Configuration of Customer Privacy API settings.
+
+3. **Setup Steps**:
+   - Import the Analytics component and the `getShopAnalytics` utility from Hydrogen.
+   - Update the root loader function to destructure the `env` object from the Hydrogen context and return the shop object using `getShopAnalytics`.
+   - Wrap your Hydrogen app with the Analytics provider component.
+
+4. **Event Tracking**:
+   - Add pageview components to each route you want to track.
+   - Use subcomponents like `Analytics.ProductView`, `Analytics.CollectionView`, `Analytics.SearchView`, and `Analytics.CartView` for different routes.
+   - Ensure the cart query includes the `updatedAt` field to avoid errors.
+
+5. **Optional: Third-Party Services**:
+   - Create custom components using the `useAnalytics` hook to send events to third-party analytics services.
+   - Register the analytics integration with `<Analytics.Provider>` and use the `subscribe` function to listen for events and send data to third-party platforms.
+
+6. **Next Steps**:
+   - Validate and troubleshoot Hydrogen analytics to ensure they are working correctly.
+
+This guide helps developers set up and manage analytics tracking for their Shopify storefronts built with Hydrogen, ensuring compliance with privacy settings and effective data collection.
+
+The text provides information about using the Shopify Buy Button JS library to embed customizable Shopify UI components like product listings and shopping carts into any website. Here are the key steps and requirements:
+
+1. **Requirements**:
+   - A development or production Shopify store.
+   - Products or collections created in the store.
+   - A website where you want to add ecommerce functionality.
+
+2. **Steps**:
+   - **Generate an access token**: This can be done in the Shopify admin or by creating a custom app with authorization code grant.
+   - **Make products and collections available**: Use the access token to make products and collections accessible to your custom app. You can retrieve them using their IDs. Bulk actions can be used for many products or collections.
+   - **Access the Buy Button JS**: Use the library to add components like product listings, Buy Now buttons, collections of products, and a shopping cart to your website.
+
+3. **Help and Support**:
+   - Not supported by Shopify support.
+   - Open a GitHub issue.
+   - Visit Shopify Community forums.
+   - Hire a Shopify Partner.
+
+The library uses the JS Buy SDK to connect to a Shopify store and access its products and collections.
+
+The text provides a guide on how to read data from a cart in a Shopify Hydrogen storefront. Here are the key details:
+
+1. **Requirements**:
+   - Completion of the quickstart guide.
+   - Setup of a cart handler.
+
+2. **Step 1: Get a visitor's cart**:
+   - Use the `createCartHandler` to get a user's cart.
+   - No need to provide a cart ID as it's handled by the cart handler.
+   - `cart.get()` returns a promise.
+   - Use Remix's `defer` to stream the cart data to the browser.
+
+3. **Step 2: Server render the content of the cart**:
+   - Use Remix's `useMatches` hook to access the cart data.
+   - Since the data is deferred, use `Suspense` and `Await` to handle data loading.
+
+4. **Next steps**:
+   - Learn how to manage items in a cart.
+   - Learn how to render the cart client-side.
+
+The guide includes code snippets for both JavaScript and TypeScript in specific files (`/app/root.jsx` and `/app/components/CartDrawer.jsx`).
+
+The text provides a guide on how to support local pickup on custom storefronts using the Shopify Storefront API. Here are the key steps and requirements:
+
+**Requirements:**
+1. Completion of the "Getting started with the Storefront API" guide.
+2. Familiarity with querying products and collections.
+3. Creation of products and variants in the store.
+4. Enabling local pickup for one or more locations.
+5. Headless channel or custom app with the `unauthenticated_read_product_pickup_locations` access scopes.
+
+**Steps:**
+
+1. **Determine pickup availability for a product variant:**
+   - Query for in-store pickup availability when a user selects a product variant.
+   - Use the `storeAvailability` object to check availability, location, and pickup time.
+   - Example GraphQL query and JSON response provided.
+
+2. **Retrieve in-store pickup locations:**
+   - Use the `locations` query to get a list of available pickup locations.
+   - Option to sort results by proximity to the customer's location using latitude and longitude.
+   - Example GraphQL query and JSON response provided.
+
+3. **Use the customer's preferred location:**
+   - Sort `storeAvailability` objects by proximity to the customer's preferred location using the `preferredLocationId` argument.
+   - Example GraphQL query and JSON response provided.
+
+**Next steps:**
+- Learn how to create and update a cart with the Storefront API.
+- Manage customer accounts with the Storefront API.
+- Support multiple languages on a custom storefront with the Storefront API.
+- Explore tools for creating unique buying experiences across various platforms.
+
+The guide titled "Show available variants" on Shopify's Hydrogen framework documentation provides instructions on how to render a product form that includes a list of available product variants. Key points include:
+
+1. **Requirements**:
+   - Completion of the quickstart guide.
+   - Setup of a cart handler.
+
+2. **Selecting Variants with Links**:
+   - Use a Link to select each variant, which updates the URL and offers benefits like search engine indexing, sharing, and prefetching on hover.
+
+3. **Query the Storefront API for Product Options**:
+   - Include product options in the product query by adding options with `name` and `values` properties.
+
+4. **VariantSelector Component**:
+   - Use the `VariantSelector` component to render links for all product options.
+
+5. **Calculating the Selected Product**:
+   - Update the GraphQL query to use `variantBySelectedOptions` and `getSelectedProductOptions` to calculate the selected product options based on URL parameters.
+
+6. **Product Variants by Availability**:
+   - Add product variants to the Storefront API query and include the `availableForSale` property to render variants differently based on availability.
+
+7. **Add to Cart**:
+   - Use the `CartForm` component to add the selected variant to the cart and disable the add-to-cart button if the selected variant is invalid or unavailable.
+
+8. **Automatically Select a Default Variant**:
+   - Redirect to a variant from the loader to automatically select a default variant when the page first loads.
+
+The guide also includes code snippets for each step, demonstrating how to implement these features in a Hydrogen application.
+
+The text provides a guide on how to perform end-to-end testing for a Shopify Hydrogen deployment within a CI/CD workflow. Here are the key steps summarized:
+
+1. **Generate the Authentication Bypass Token:**
+   - Obtain a deployment token from the Shopify admin.
+   - Modify the CI/CD file to include a deploy command using `npx shopify hydrogen deploy --auth-bypass-token --token $SHOPIFY_HYDROGEN_DEPLOYMENT_TOKEN`.
+   - This command generates a `h2_deploy_log.json` file containing the deployment URL and the authentication bypass token.
+   - Tokens are valid for two hours by default but can be adjusted from 1 to 12 hours using the `--auth-bypass-token-duration` flag.
+
+2. **Embed the Authentication Bypass Token in the Request Header:**
+   - The end-to-end testing system must include the token in the request header before accessing the deployment URL.
+   - Example header format: `oxygen-auth-bypass-token: <auth-bypass-token>`.
+
+Additionally, the text provides an example GitHub workflow configuration and references a live example in the Hydrogen Demo Store.
+
+The guide titled "Create a country selector" on Shopify's Hydrogen framework documentation provides a step-by-step process to implement a country selector for buyers to change store language and currency. Here are the key steps summarized:
+
+1. **Provide a list of available countries**: Create a JSON file with a list of countries, using a static JSON variable for performance and SEO benefits.
+
+2. **Create getLocaleFromRequest utility**: Develop a utility function to determine the locale based on the request, which will be used throughout the app.
+
+3. **Add the selected locale in the root loader function**: Modify the root loader to include the selected locale, making it available globally.
+
+4. **Create a resource route for the available countries**: Set up a Remix resource route to fetch and display the available countries.
+
+5. **Render the available countries as a form**: Develop a CountrySelector component using Remix Forms to allow users to select their country.
+
+6. **Handle form submit**: Create a route to handle the form submission, updating the user's locale and redirecting them accordingly.
+
+7. **Ensure re-rendering at the root HTML**: Ensure components re-render correctly by providing a key based on the locale, especially for URL path localization schemes.
+
+This guide assumes familiarity with the Storefront API, Shopify Markets, and prior setup of regions and languages in the store.
+
+The text provides information about the "Error console" feature for debugging server errors in Hydrogen code deployed to Oxygen. Key points include:
+
+1. **Accessing the Error Console**: Available for apps deployed to Oxygen, accessed by clicking on an error in the runtime log on the deployment detail page. It highlights the error line and allows viewing the complete source code.
+
+2. **Source Map Requirement**: The error console and stack trace require a source map file, which the Hydrogen CLI generates by default during the build command.
+
+3. **Raw Stack Traces**: If prettified source maps are inaccurate, users can view raw stack traces for more detailed error information. This involves clicking on the error in the deployment detail page and then selecting "Raw traces" in the Stack trace panel.
+
+4. **Disabling Source Maps**: Source maps can be disabled using the `--no-sourcemap` flag during the build command (`npx shopify hydrogen build --no-sourcemap`), which prevents access to the error console and stack traces in runtime logs.
+
+The text provides information about the Shopify Storefront API GraphiQL explorer, which allows users to explore Shopify's Storefront GraphQL API on a demo shop. Users can run queries using the embedded GraphiQL explorer. However, the demo is read-only, and to build queries and mutations, users need to install Shopify's GraphiQL app. There is also a link to launch the explorer in its own window and a suggestion to familiarize oneself with the Storefront API reference documentation.
+
+The text provides a guide on how to set up internationalization (i18n) for Shopify Markets using Hydrogen, a framework built on top of Remix. Key points include:
+
+1. **Introduction**: Shopify Markets allows merchants to expand globally by offering shopping experiences in local languages and currencies. Hydrogen leverages market configurations to facilitate i18n.
+
+2. **Requirements**: 
+   - Completion of a Hydrogen "Hello World" example project.
+   - Setup of store regions and languages using Shopify Markets.
+   - Familiarity with using the Storefront API with Shopify Markets.
+
+3. **Setup the Default Locale**: 
+   - Setting a default language and country code is crucial to ensure the correct language and currency are used throughout the app.
+
+4. **Multi-Region and Multilingual Storefront**: 
+   - Shopify recommends separate URLs for each locale to improve accessibility.
+   - Options include using URL paths (e.g., hydrogen.shop/fr) or domains and subdomains (e.g., hydrogen.fr).
+
+5. **Create a Country Selector**: 
+   - Providing a way for users to switch to their preferred country enhances user experience.
+
+6. **Localization Detection**: 
+   - Detection methods include using headers, cookies, or URL search params, but Shopify advises this only to improve user experience.
+   - Automatic redirection is discouraged.
+
+7. **Developer Tools and Resources**: 
+   - Information on Shopify Markets for launching into multiple international markets.
+
+8. **Next Steps**: 
+   - Setting up the default locale.
+   - Setting up multi-region and multilingual storefronts with URL paths or domains and subdomains.
+   - Creating a country selector.
+   - Setting up locale detection using headers, cookies, or URL search params.
+
+The text discusses caching strategies for Shopify API data using Hydrogen and Oxygen. Hydrogen and Oxygen offer built-in caching to enhance the performance of Hydrogen storefronts, utilizing the web-standard Cache-Control API. By default, Hydrogen caches Storefront API data automatically when using its built-in API client, but this behavior can be customized or disabled. Customer Account API data is not cached due to its personalized nature.
+
+Hydrogen provides several caching strategies with associated cache control headers and durations:
+- **CacheShort()**: public, max-age=1, stale-while-revalidate=9 (10 seconds)
+- **CacheLong()**: public, max-age=3600, stale-while-revalidate=82800 (1 day)
+- **CacheNone()**: no-store (no cache)
+- **CacheCustom()**: Define your own cache control header (custom)
+
+The default caching strategy revalidates data after one second and caches it for up to one day (1 public, max-age=1, stale-while-revalidate=86399). Subrequest caching can be configured by passing a cache option with the query.
+
+For custom caching strategies, Hydrogen allows the use of the CacheCustom() function, which accepts options compatible with the Cache-Control API. Some available options include mode, maxAge, staleWhileRevalidate, sMaxAge, and staleIfError.
+
+Hydrogen and Oxygen caching strategies are compatible with the HTTP Header Cache-Control API, with a few exceptions. Notably, the no-cache directive is not supported by Oxygen.
+
+The text discusses pagination in the context of Shopify's Storefront API, emphasizing the importance of paginating long lists of items like products, collections, or orders to enhance app performance. Key points include:
+
+1. **Pagination Setup**:
+   - **GraphQL Query**: A paginated query to the Storefront API requires arguments like `first`, `last`, `startCursor`, and `endCursor`. The response should include `pageInfo` with `hasPreviousPage`, `hasNextPage`, `startCursor`, and `endCursor`.
+   - **Utility Function**: Hydrogen provides `getPaginationVariables` to calculate pagination variables from URL parameters, which are then passed to the query.
+
+2. **Rendering Pagination**:
+   - **Pagination Component**: The `Pagination` component from Hydrogen is used to render pages. It provides render props for nodes, NextLink, PreviousLink, and loading state.
+   - **Example**: Demonstrates how to set up and use the `Pagination` component to render product links, with convenience links for loading more or previous pages.
+
+3. **Complete Example**:
+   - Shows a full implementation of data fetching using pagination, including setting up the paginated query, rendering the `Pagination` component, and handling data.
+
+4. **Automatic Loading on Scroll**:
+   - Describes how to modify the implementation to load subsequent pages automatically when scrolling, using `react-intersection-observer` to detect when the user reaches the end of the list and then fetching more data.
+
+The text provides detailed code snippets and explanations for setting up and managing pagination in a Shopify storefront application, ensuring efficient data handling and user experience.
+
+The JS Buy SDK is a lightweight JavaScript library that enables developers to integrate e-commerce functionalities into any website using Shopify's Storefront API. Key features include retrieving products and collections, managing a shopping cart, and facilitating checkout processes. To use the SDK, developers need to have a Shopify store, products or collections set up, and JavaScript experience. The setup involves generating an access token, making products and collections available to the app, and accessing the SDK to fetch data and manage shopping functionalities. Support for the SDK is community-based, with resources available through GitHub issues, Shopify Community forums, and Shopify Partner agencies.
+
+The text provides a guide on managing customer accounts using the Customer Account API on Shopify. Key points include:
+
+1. **Requirements**: The guide assumes you have completed the "Getting started with the Customer Account API" guide.
+
+2. **Updating a Customer**:
+   - Use the `customerUpdate` mutation to update customer profiles.
+   - Example mutation and variables provided for updating first and last names.
+   - JSON response format shown.
+
+3. **Creating an Address**:
+   - Use the `customerAddressCreate` mutation to add new addresses.
+   - Example mutation and variables provided for creating a new address.
+   - JSON response format shown.
+
+4. **Updating an Address**:
+   - Use the `customerAddressUpdate` mutation to modify existing addresses.
+   - Example mutation and variables provided for updating an address.
+   - JSON response format shown.
+
+5. **Deleting an Address**:
+   - Use the `customerAddressDelete` mutation to remove addresses.
+   - Example mutation and variables provided for deleting an address.
+   - JSON response format shown.
+
+The guide concludes with a prompt to learn more about the Customer Account API and a feedback section.
+
+The document titled "Performant data loading with Hydrogen" discusses strategies to improve the performance of data loading in Shopify's Hydrogen framework. Key points include:
+
+1. **Fetch Data in Parallel**: Use `Promise.all` to execute multiple data requests simultaneously, avoiding a "request waterfall" where each request is made sequentially.
+
+2. **Prioritize Critical Data**: Focus on loading critical data first, such as product information, to minimize the Time To First Byte (TTFB). Non-critical data, like reviews, can be deferred and streamed in later.
+
+3. **Optimize the Loading Sequence**: Initiate deferred requests first to ensure all data loads in parallel, even if it seems counterintuitive.
+
+4. **Eliminate Data Dependencies**: Organize third-party data in a way that allows simultaneous queries instead of sequential ones, reducing the need for intermediate lookups.
+
+5. **Separate Critical and Non-Critical Queries**: Split large queries into smaller ones, deferring non-critical content to speed up initial page rendering.
+
+6. **Do Not Over-fetch**: Ensure GraphQL queries only request the necessary fields to avoid unnecessary data processing and increased response times.
+
+7. **Leverage Caching**: Use caching strategies to reduce network delays for future visitors. Hydrogen provides various caching options, including default, no cache, short-term, long-term, and custom strategies.
+
+These practices aim to enhance the speed and efficiency of storefronts, improving the overall customer experience.
+
+The provided text is a guide from Shopify about building carts using the Storefront API. Here are the key points summarized:
+
+1. **Cart Functionality**: Carts in Shopify contain merchandise intended for purchase and buyer information. They are integral to the buying journey, allowing customers to add and remove products before checkout.
+
+2. **Benefits of Shopify-Powered Carts**:
+   - Display accurate and personalized discounts, tax, and shipping estimates.
+   - Provide real-time price transparency.
+   - Execute custom business logic.
+   - Shorten checkout times by using buyer preferences.
+   - Ensure fast and predictable performance regardless of store size.
+
+3. **Extensibility Options**:
+   - **Shopify Functions**: Customize default logic, e.g., limit cart items or validate addresses.
+   - **Metafields**: Extend cart schema with custom values and logic.
+   - **Preferences**: Personalize the cart and checkout experience based on customer preferences.
+
+4. **International Pricing**: Carts support contextual experiences based on location, language, and pricing, allowing for country-specific pricing configurations.
+
+5. **Speed and Scale**: Shopify's cart infrastructure is global, ensuring low-latency experiences and no global API rate limits.
+
+6. **Developer Tools and Resources**:
+   - Use the Storefront API to manage carts.
+   - Support international pricing on storefronts.
+   - Consult the GraphQL Storefront API reference for Cart and CartBuyerIdentity objects.
+
+7. **Product Roadmap**: Future features include a Cart API Migration Guide, support for gift cards, carrier-calculated shipping rates, asynchronous calls, and native wallets like Apple Pay and Google Pay.
+
+8. **Limitations and Considerations**:
+   - Carts are subject to Storefront API throttling.
+   - Support up to 500 line items.
+   - Unused carts expire after 10 days.
+
+9. **Next Steps**: Learn to create and update carts with the Storefront API and migrate to the Cart API.
+
+The text discusses various options for building headless storefronts with Shopify, focusing on the integration of Shopify's Storefront API with different frameworks and tools. Key points include:
+
+1. **Hydrogen Stack**: Shopify's opinionated fullstack approach for building custom storefronts using Remix.
+2. **Hydrogen React**: A third-party React framework option for building custom storefronts with Shopify's library of components, functions, and utilities.
+3. **Headless Channel**: Allows building headless storefronts using any framework with Shopify's backend via the Storefront API.
+4. **Hydrogen and Oxygen**: Hydrogen is a Shopify storefront toolkit built on Remix, optimized for the Storefront API. Oxygen is Shopify's edge hosting environment for deploying Hydrogen storefronts.
+5. **Channels**: Shopify admin manages commerce data across multiple channels, including custom channels like mobile apps or custom websites.
+6. **Hydrogen Channel**: Enables deployment of Hydrogen storefronts to Oxygen, with automatic environment variable setup and order attribution in the Shopify admin.
+7. **Headless Channel**: Simplifies access token management for the Storefront API and includes features like product publishing, order attribution, and analytics.
+8. **Additional SDKs**: Shopify provides SDKs and tools to accelerate development for various customer touchpoints.
+9. **Next Steps**: Suggestions for starting with the Headless channel, Hydrogen React, and Hydrogen to build custom storefronts.
+
+The text also mentions the use of GitHub for code hosting and collaboration with Shopify's Oxygen environment.
+
+The text provides a comprehensive guide on managing customer accounts using the Storefront API from Shopify. Key points include:
+
+1. **General Availability**: The Customer Account API is generally available as of January 2024, making it the recommended method for managing customer data across platforms.
+
+2. **Creating and Activating Customers**:
+   - Use the `customerCreate` mutation to create a customer account.
+   - If the account is not activated, an activation email is sent. The account can be activated using the `customerActivate` or `customerActivateByUrl` mutations.
+
+3. **Access Tokens**:
+   - After account creation, use the `customerAccessTokenCreate` mutation to generate a customer access token for login purposes.
+   - Alternatively, use `customerAccessTokenCreateWithMultipass` for customers with Multipass tokens.
+
+4. **Updating Customer Information**:
+   - Use mutations like `customerAddressCreate` to add or update customer addresses.
+   - Implement password recovery using `customerRecover` and password reset using `customerReset` or `customerResetByUrl`.
+
+5. **Requirements**:
+   - Familiarity with the Storefront API and querying products and collections is necessary.
+
+6. **Next Steps**:
+   - Explore retrieving metafields, supporting multiple languages, and creating unique buying experiences using various tools.
+
+This guide is useful for developers looking to integrate customer account management functionalities into their Shopify storefronts using the Storefront API.
+
+The text discusses Shopify's headless commerce solutions, which allow developers to leverage Shopify's backend capabilities while having full control over the frontend. Key points include:
+
+1. **Hydrogen and Oxygen**: Shopify offers an all-in-one solution for custom commerce with Hydrogen, its official headless framework, and Oxygen, a global edge hosting platform. This setup includes hosting and allows for quick start-up with pre-wired components for Shopify APIs.
+
+2. **Custom Stack Building**: Developers can build custom experiences using any language or framework and host their projects anywhere, integrating Shopify's composable APIs into existing infrastructure.
+
+3. **Hydrogen Features**: Hydrogen is built on Remix, ensuring high performance with features like server-side rendering, progressive enhancement, and nested routes. It includes build-ready components to reduce boilerplate code and focuses on high-performance storefronts.
+
+4. **Free Hosting**: Hydrogen apps can be deployed to Oxygen for free, offering continuous deployment, push-to-preview, and instant rollbacks without extra costs.
+
+5. **Headless Channel**: Shopify provides a Headless channel for quick setup of storefronts, API tokens, and permissions, allowing integration with various apps and platforms to enhance custom storefront experiences.
+
+6. **Getting Started**: The command `npm create @shopify/hydrogen@latest` is provided to start a new Hydrogen project, and documentation is available for further guidance.
+
+The text discusses deployment processes for Hydrogen apps on Oxygen, emphasizing the use of immutable snapshots for each deployment. Key points include:
+
+1. **Deployment Types**:
+   - **Continuous Deployment**: Automated systems deploy updates to the app codebase, supported by Hydrogen and Oxygen with GitHub integration.
+   - **Custom CI/CD**: Allows configuration of advanced workflows using platforms like BitBucket or GitLab.
+   - **Manual Deployment**: Can be initiated locally using the Hydrogen CLI.
+
+2. **Shareable Links**:
+   - Deployments are private by default but can be shared using special URLs that bypass login requirements.
+   - These links should be shared cautiously due to the security implications.
+
+3. **Deployment Rollbacks**:
+   - Allows reverting to a previous deployment if the latest update has issues.
+   - Rollbacks do not redeploy or delete any deployments; they only change the environment URL's target.
+
+4. **Redeployments**:
+   - Creates a new deployment using the original code but with updated environment variables.
+   - Available for production and custom environments.
+
+5. **Deployment Immutability**:
+   - Each deployment is a snapshot of the codebase at a specific time, retaining its original environment variables.
+
+6. **Deployment Retention Policy**:
+   - Deployments remain accessible for at least six months and are deleted afterward.
+   - The ten most recent deployments per environment are always kept.
+
+7. **Log Data Retention**:
+   - Runtime logging data is available for up to one month, with options to extend retention using log drains.
+
+This information is crucial for developers managing deployments of Hydrogen apps on Oxygen, ensuring they understand the deployment lifecycle, security considerations, and data retention policies.
+
+The guide titled "Update cart attributes" on Shopify's documentation website provides instructions on how to update cart attributes using the cart handler. Here are the key steps and details:
+
+1. **Requirements**:
+   - Completion of the quickstart guide.
+   - Setup of the cart handler.
+
+2. **Step 1: Create a form for cart attributes**:
+   - Cart attributes are key/value string pairs.
+   - Use the `CartForm` component to create a form that submits a request to the `/cart` route when an attribute is submitted.
+   - Example file: `/app/components/AttributeUpdateForm.jsx`.
+
+3. **Step 2: Handle the cart attribute form request**:
+   - Handle the form request in an action using the cart created from `createCartHandler`.
+   - Example file: `/app/routes/cart.jsx`.
+   - The cart ID might change after each mutation, so it needs to be updated each time.
+
+4. **Note**:
+   - Cart attributes are visible at checkout by default. To hide an attribute, prefix it with an underscore.
+
+5. **Next steps**:
+   - Learn how to apply discount codes.
+
+The guide includes code snippets in JavaScript/TypeScript for creating and handling the form for updating cart attributes.
+
+The text discusses Shopify's headless commerce solutions, emphasizing the flexibility and control it offers developers. Key points include:
+
+1. **Hydrogen and Oxygen**: Shopify provides an all-in-one solution for custom commerce, including hosting. Hydrogen is Shopify's official headless framework, built on Remix, which ensures high performance and fast storefronts.
+
+2. **Custom Stack Building**: Developers can use any language and framework to build custom experiences and host them anywhere, integrating Shopify's APIs into their existing tech stack.
+
+3. **Hydrogen Components**: Hydrogen offers a suite of pre-wired components and utilities for Shopify APIs, allowing developers to skip boilerplate code and focus on unique brand experiences.
+
+4. **Free Hosting**: Hydrogen apps can be deployed to Oxygen, Shopify's global edge hosting platform, which includes continuous deployment, push-to-preview, and instant rollbacks at no extra cost.
+
+5. **Composable APIs**: Shopify's APIs can be integrated into any existing infrastructure and workflows, providing flexibility for developers.
+
+6. **Headless Channel**: This feature allows for quick setup of storefronts, API tokens, and permissions, enabling faster development of custom storefronts.
+
+7. **App Integration**: Developers can integrate the latest apps and platforms with their custom storefronts, focusing on creating unique experiences.
+
+The document titled "Redirect traffic to the Hydrogen channel" provides a tutorial on how to redirect online store traffic to a Hydrogen storefront. Key steps include:
+
+1. **Requirements**: Ensure the Hydrogen build is complete and the storefront is ready for launch, with domains and subdomains set up.
+
+2. **Step 1: Set up the domains**:
+   - Configure the primary domain for the Hydrogen storefront and a subdomain for Shopify web checkout.
+   - Update DNS records to point both the primary and subdomain to Shopify.
+   - In the Shopify admin, set the subdomain target to Online Store and the domain type to Primary.
+   - Make the Hydrogen storefront public by changing its URL privacy to Public.
+   - Direct online store traffic to the Hydrogen storefront by changing its target to the production Hydrogen storefront and setting its type to Primary.
+   - Remove password protection from the online store.
+
+3. **Step 2: Redirect old order status URL requests to the online store**:
+   - Create a route in the Hydrogen storefront to redirect old order status URLs back to the online store.
+
+4. **Step 3: Redirect visitors to the Hydrogen storefront**:
+   - After launching the Hydrogen storefront, download and publish the Hydrogen redirect theme to serve the Hydrogen storefront to visitors landing on online store pages.
+
+The document also mentions the need to review the production checklist before launching the store on Hydrogen and provides a link to learn how to adopt Hydrogen incrementally.
+
+The text provides a detailed guide on how to debug performance issues using the Subrequest Profiler in a Hydrogen project, which is a tool for inspecting server-side network requests. Here are the key points summarized:
+
+1. **Purpose**: The Subrequest Profiler helps diagnose network and cache performance issues on the server side.
+
+2. **Requirements**: Users need to have completed the getting started guide and have a Hydrogen project running in their local development environment.
+
+3. **Usage**:
+   - Start the development server with `shopify hydrogen dev`.
+   - Open the app at `http://localhost:3000`.
+   - Access the Subrequest Profiler at `http://localhost:3000/subrequest-profiler`.
+
+4. **Components of the Subrequest Profiler**:
+   - A waterfall chart of server-side network requests.
+   - A table of server-side network requests.
+   - A network request details panel.
+
+5. **Debugging Third-Party Requests**:
+   - Use Hydrogen's `createWithCache` utility to inspect third-party network requests.
+
+6. **Customizing Request Display Names**:
+   - Add the `displayName` property to Storefront API queries and mutations for better readability.
+
+7. **Identifying Performance Issues**:
+   - Look for request waterfall patterns where requests are sequential instead of parallel.
+   - Execute independent requests in parallel to reduce response time.
+   - Defer non-critical requests to improve initial page load times.
+
+The guide also includes code examples and screenshots to illustrate how to implement these practices in a Hydrogen project.
+
+The text provides a guide on setting the default locale for a Hydrogen app, which is part of Shopify's headless commerce solution. The guide outlines three main steps:
+
+1. **Set the default language and country**: This is done in the `server.js` file by configuring the `i18n` object with appropriate language and country codes supported by the Storefront API. For example, setting the language to non-regional English and the country to Canada would look like this:
+   ```javascript
+   const {storefront} = createStorefrontClient({
+     i18n: {language: 'EN', country: 'CA'},
+   });
+   ```
+
+2. **Update the HTML lang attribute**: The `lang` attribute in the HTML root should be updated to match the language set in `server.js`. This is important for accessibility and SEO. The update would look like this:
+   ```javascript
+   <html lang="EN">
+   ```
+
+3. **Ensure redirects are properly URL encoded**: For multilingual handles, ensure that URLs are correctly encoded when making redirects. This is particularly important for non-ASCII characters. An example of encoding a Japanese product handle would involve using the `URL` object to construct the redirect path.
+
+The guide also mentions prerequisites, such as having a basic Hydrogen app setup, the ability to query the Storefront API, and having configured store regions and languages using Shopify Markets.
+
+Finally, the guide suggests further reading on setting up a multiregion and multilingual storefront using URL paths or domains and subdomains.
+
+The guide titled "Headless with B2B" on Shopify's documentation site provides a detailed process for building a custom storefront for B2B customers using Shopify's headless commerce capabilities. The guide is specifically tailored for stores on the Shopify Plus plan and requires familiarity with the Storefront API, Customer Account API, and cart management.
+
+Key steps outlined in the guide include:
+1. **Creating a storefront `customerAccessToken`**: This token is necessary for authenticating and contextualizing storefront queries for B2B customers.
+2. **Retrieving a `companyLocationId`**: This ID is used to identify the specific location for which the B2B customer is purchasing.
+3. **Contextualizing storefront queries**: Using the `customerAccessToken` and `companyLocationId`, queries can be tailored to reflect B2B pricing, volume pricing, and quantity rules.
+4. **Setting the buyer identity on cart**: This step ensures that the cart reflects B2B-specific rules and pricing, which is crucial for a B2B checkout experience.
+
+The guide also mentions optional steps for building a gated B2B store, where certain features can be restricted to B2B customers only, such as viewing prices or adding products to the cart.
+
+Overall, the guide aims to help developers create a tailored B2B shopping experience by leveraging Shopify's APIs and headless commerce features.
+
+The guide titled "Update discount codes" on Shopify's documentation website provides instructions on how to apply discount codes to a cart using a cart handler. Here are the key steps summarized:
+
+1. **Requirements**:
+   - Completion of the quickstart guide.
+   - Setup of a cart handler.
+
+2. **Step 1: Create a discount code form**:
+   - Use the `CartForm` component from `@shopify/hydrogen` to create a form that submits a request to the `/cart` route's action when a visitor enters a discount code.
+   - Example code provided in `/app/components/DiscountCodeForm.jsx`.
+
+3. **Step 2: Handle the discount code form request**:
+   - Handle the form request in an action using the cart created from `createCartHandler`.
+   - Example code provided in `/app/routes/cart.jsx`.
+   - The action processes the discount code input and updates the cart with the new discount codes.
+
+**Next steps**:
+- Learn how to apply selected delivery options.
+
+The guide includes JavaScript/TypeScript code snippets for both creating the discount code form and handling the form request.
+
