@@ -1,0 +1,1081 @@
+
+# 2024-08-17 16:41:33.343471
++/help jak nejlépe nastavit aider pro tenhle repositář ?
+
+# 2024-08-17 16:45:57.994878
++/help jak na subtree only nevím co to je dále pojdme zvýšit map token podle potřeby, a taky pojdme vytvořit aider ignor, jedná se o hydrogen projekt od shopify
+
+# 2024-08-17 16:48:10.390536
++/help a co eslint předtím jsem měl problém že mi toházelo error s eslint prettier
+
+# 2024-08-17 16:49:15.460387
++/help jak nastavit vše potřebný pro náš projekt v .env ?
+
+# 2024-08-17 16:49:52.479735
++/clear
+
+# 2024-08-17 16:50:20.610685
++/drop
+
+# 2024-08-17 16:50:40.556179
++/help jak vypnout automatický commity
+
+# 2024-08-17 16:51:06.769449
++a můžu to nějak v .env ?
+
+# 2024-08-17 16:52:31.762882
++/exit
+
+# 2024-08-17 17:05:38.656773
++potřebuju udělat že když zákazník přijde na naši stránku tak se mu ukaže komponenta kde bude waiting list s dotazníkem, chci to udělat tak že když to bude zapnuté, napada me že to budem volat v hlavní komponente tuhle komponentu a bude to vždy v popředí jinak to můžem zakomentovat a nebude se to zobrazovat tahle komponenta jestli tě napadá lepší způsob tak to udělej, dotazník uděláme pak až zařídíš tohle
+
+# 2024-08-17 17:08:48.781648
++/help podle tady vypisu erroru[[{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/WaitingListSurvey.tsx",
++"owner": "eslint",
++"code": {
++"value": "prettier/prettier",
++"target": {
++"$mid": 1,
++"path": "/prettier/eslint-plugin-prettier",
++"scheme": "https",
++"authority": "github.com",
++"fragment": "options"
++}
++},
++"severity": 8,
++"message": "Delete ``",
++"source": "eslint",
++"startLineNumber": 1,
++"startColumn": 27,
++"endLineNumber": 1,
++"endColumn": 28
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/WaitingListSurvey.tsx",
++"owner": "eslint",
++"code": {
++"value": "prettier/prettier",
++"target": {
++"$mid": 1,
++"path": "/prettier/eslint-plugin-prettier",
++"scheme": "https",
++"authority": "github.com",
++"fragment": "options"
++}
++},
++"severity": 8,
++"message": "Delete ``",
++"source": "eslint",
++"startLineNumber": 2,
++"startColumn": 1,
++"endLineNumber": 2,
++"endColumn": 2
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/WaitingListSurvey.tsx",
++"owner": "eslint",
++"code": {
++"value": "prettier/prettier",
++"target": {
++"$mid": 1,
++"path": "/prettier/eslint-plugin-prettier",
++"scheme": "https",
++"authority": "github.com",
++"fragment": "options"
++}
++},
++"severity": 8,
++"message": "Delete ``",
++"source": "eslint",
++"startLineNumber": 3,
++"startColumn": 35,
++"endLineNumber": 3,
++"endColumn": 36
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/WaitingListSurvey.tsx",
++"owner": "eslint",
++"code": {
++"value": "prettier/prettier",
++"target": {
++"$mid": 1,
++"path": "/prettier/eslint-plugin-prettier",
++"scheme": "https",
++"authority": "github.com",
++"fragment": "options"
++}
++},
++"severity": 8,
++"message": "Delete ``",
++"source": "eslint",
++"startLineNumber": 4,
++"startColumn": 22,
++"endLineNumber": 4,
++"endColumn": 23
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/WaitingListSurvey.tsx",
++"owner": "eslint",
++"code": {
++"value": "prettier/prettier",
++"target": {
++"$mid": 1,
++"path": "/prettier/eslint-plugin-prettier",
++"scheme": "https",
++"authority": "github.com",
++"fragment": "options"
++}
++},
++"severity": 8,
++"message": "Delete ``",
++"source": "eslint",
++"startLineNumber": 5,
++"startColumn": 2,
++"endLineNumber": 5,
++"endColumn": 3
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/WaitingListSurvey.tsx",
++"owner": "eslint",
++"code": {
++"value": "prettier/prettier",
++"target": {
++"$mid": 1,
++"path": "/prettier/eslint-plugin-prettier",
++"scheme": "https",
++"authority": "github.com",
++"fragment": "options"
++}
++},
++"severity": 8,
++"message": "Delete ``",
++"source": "eslint",
++"startLineNumber": 6,
++"startColumn": 1,
++"endLineNumber": 6,
++"endColumn": 2
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/WaitingListSurvey.tsx",
++"owner": "eslint",
++"code": {
++"value": "prettier/prettier",
++"target": {
++"$mid": 1,
++"path": "/prettier/eslint-plugin-prettier",
++"scheme": "https",
++"authority": "github.com",
++"fragment": "options"
++}
++},
++"severity": 8,
++"message": "Replace `isEnabled}:WaitingListSurveyProps){` with `isEnabled}:WaitingListSurveyProps){`",
++"source": "eslint",
++"startLineNumber": 7,
++"startColumn": 36,
++"endLineNumber": 7,
++"endColumn": 76
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/WaitingListSurvey.tsx",
++"owner": "eslint",
++"code": {
++"value": "prettier/prettier",
++"target": {
++"$mid": 1,
++"path": "/prettier/eslint-plugin-prettier",
++"scheme": "https",
++"authority": "github.com",
++"fragment": "options"
++}
++},
++"severity": 8,
++"message": "Delete ``",
++"source": "eslint",
++"startLineNumber": 8,
++"startColumn": 31,
++"endLineNumber": 8,
++"endColumn": 32
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/WaitingListSurvey.tsx",
++"owner": "eslint",
++"code": {
++"value": "prettier/prettier",
++"target": {
++"$mid": 1,
++"path": "/prettier/eslint-plugin-prettier",
++"scheme": "https",
++"authority": "github.com",
++"fragment": "options"
++}
++},
++"severity": 8,
++"message": "Delete ``",
++"source": "eslint",
++"startLineNumber": 9,
++"startColumn": 1,
++"endLineNumber": 9,
++"endColumn": 2
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/WaitingListSurvey.tsx",
++"owner": "eslint",
++"code": {
++"value": "prettier/prettier",
++"target": {
++"$mid": 1,
++"path": "/prettier/eslint-plugin-prettier",
++"scheme": "https",
++"authority": "github.com",
++"fragment": "options"
++}
++},
++"severity": 8,
++"message": "Delete ``",
++"source": "eslint",
++"startLineNumber": 10,
++"startColumn": 11,
++"endLineNumber": 10,
++"endColumn": 12
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/WaitingListSurvey.tsx",
++"owner": "eslint",
++"code": {
++"value": "prettier/prettier",
++"target": {
++"$mid": 1,
++"path": "/prettier/eslint-plugin-prettier",
++"scheme": "https",
++"authority": "github.com",
++"fragment": "options"
++}
++},
++"severity": 8,
++"message": "Delete ``",
++"source": "eslint",
++"startLineNumber": 11,
++"startColumn": 97,
++"endLineNumber": 11,
++"endColumn": 98
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/WaitingListSurvey.tsx",
++"owner": "eslint",
++"code": {
++"value": "prettier/prettier",
++"target": {
++"$mid": 1,
++"path": "/prettier/eslint-plugin-prettier",
++"scheme": "https",
++"authority": "github.com",
++"fragment": "options"
++}
++},
++"severity": 8,
++"message": "Replace `className=\"bg-whitep-8rounded-lgshadow-lg\"role=\"dialog\"aria-labelledby=\"survey-title\">` with `className=\"bg-whitep-8rounded-lgshadow-lg\"role=\"dialog\"aria-labelledby=\"survey-title\">`",
++"source": "eslint",
++"startLineNumber": 12,
++"startColumn": 11,
++"endLineNumber": 12,
++"endColumn": 104
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/WaitingListSurvey.tsx",
++"owner": "eslint",
++"code": {
++"value": "prettier/prettier",
++"target": {
++"$mid": 1,
++"path": "/prettier/eslint-plugin-prettier",
++"scheme": "https",
++"authority": "github.com",
++"fragment": "options"
++}
++},
++"severity": 8,
++"message": "Replace `WaitingListSurvey</h2>` with `WaitingListSurvey</h2>`",
++"source": "eslint",
++"startLineNumber": 13,
++"startColumn": 67,
++"endLineNumber": 13,
++"endColumn": 92
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/WaitingListSurvey.tsx",
++"owner": "eslint",
++"code": {
++"value": "prettier/prettier",
++"target": {
++"$mid": 1,
++"path": "/prettier/eslint-plugin-prettier",
++"scheme": "https",
++"authority": "github.com",
++"fragment": "options"
++}
++},
++"severity": 8,
++"message": "Replace `Thankyouforyourinterest.Pleasefilloutthisquicksurvey.</p>` with `Thankyouforyourinterest.Pleasefilloutthisquicksurvey.</p>`",
++"source": "eslint",
++"startLineNumber": 14,
++"startColumn": 29,
++"endLineNumber": 14,
++"endColumn": 97
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/WaitingListSurvey.tsx",
++"owner": "eslint",
++"code": {
++"value": "prettier/prettier",
++"target": {
++"$mid": 1,
++"path": "/prettier/eslint-plugin-prettier",
++"scheme": "https",
++"authority": "github.com",
++"fragment": "options"
++}
++},
++"severity": 8,
++"message": "Delete ``",
++"source": "eslint",
++"startLineNumber": 15,
++"startColumn": 56,
++"endLineNumber": 15,
++"endColumn": 57
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/WaitingListSurvey.tsx",
++"owner": "eslint",
++"code": {
++"value": "prettier/prettier",
++"target": {
++"$mid": 1,
++"path": "/prettier/eslint-plugin-prettier",
++"scheme": "https",
++"authority": "github.com",
++"fragment": "options"
++}
++},
++"severity": 8,
++"message": "Replace `className=\"bg-blue-500text-whitepx-4py-2roundedhover:bg-blue-600focus:outline-nonefocus:ring-2focus:ring-blue-500focus:ring-opacity-50\"aria-label=\"Submitsurvey\">` with `className=\"bg-blue-500text-whitepx-4py-2roundedhover:bg-blue-600focus:outline-nonefocus:ring-2focus:ring-blue-500focus:ring-opacity-50\"aria-label=\"Submitsurvey\">`",
++"source": "eslint",
++"startLineNumber": 16,
++"startColumn": 16,
++"endLineNumber": 16,
++"endColumn": 190
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/WaitingListSurvey.tsx",
++"owner": "eslint",
++"code": {
++"value": "prettier/prettier",
++"target": {
++"$mid": 1,
++"path": "/prettier/eslint-plugin-prettier",
++"scheme": "https",
++"authority": "github.com",
++"fragment": "options"
++}
++},
++"severity": 8,
++"message": "Delete ``",
++"source": "eslint",
++"startLineNumber": 17,
++"startColumn": 17,
++"endLineNumber": 17,
++"endColumn": 18
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/WaitingListSurvey.tsx",
++"owner": "eslint",
++"code": {
++"value": "prettier/prettier",
++"target": {
++"$mid": 1,
++"path": "/prettier/eslint-plugin-prettier",
++"scheme": "https",
++"authority": "github.com",
++"fragment": "options"
++}
++},
++"severity": 8,
++"message": "Delete ``",
++"source": "eslint",
++"startLineNumber": 18,
++"startColumn": 18,
++"endLineNumber": 18,
++"endColumn": 19
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/WaitingListSurvey.tsx",
++"owner": "eslint",
++"code": {
++"value": "prettier/prettier",
++"target": {
++"$mid": 1,
++"path": "/prettier/eslint-plugin-prettier",
++"scheme": "https",
++"authority": "github.com",
++"fragment": "options"
++}
++},
++"severity": 8,
++"message": "Delete ``",
++"source": "eslint",
++"startLineNumber": 19,
++"startColumn": 13,
++"endLineNumber": 19,
++"endColumn": 14
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/WaitingListSurvey.tsx",
++"owner": "eslint",
++"code": {
++"value": "prettier/prettier",
++"target": {
++"$mid": 1,
++"path": "/prettier/eslint-plugin-prettier",
++"scheme": "https",
++"authority": "github.com",
++"fragment": "options"
++}
++},
++"severity": 8,
++"message": "Delete ``",
++"source": "eslint",
++"startLineNumber": 20,
++"startColumn": 11,
++"endLineNumber": 20,
++"endColumn": 12
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/WaitingListSurvey.tsx",
++"owner": "eslint",
++"code": {
++"value": "prettier/prettier",
++"target": {
++"$mid": 1,
++"path": "/prettier/eslint-plugin-prettier",
++"scheme": "https",
++"authority": "github.com",
++"fragment": "options"
++}
++},
++"severity": 8,
++"message": "Delete ``",
++"source": "eslint",
++"startLineNumber": 21,
++"startColumn": 5,
++"endLineNumber": 21,
++"endColumn": 6
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/WaitingListSurvey.tsx",
++"owner": "eslint",
++"code": {
++"value": "prettier/prettier",
++"target": {
++"$mid": 1,
++"path": "/prettier/eslint-plugin-prettier",
++"scheme": "https",
++"authority": "github.com",
++"fragment": "options"
++}
++},
++"severity": 8,
++"message": "Delete ``",
++"source": "eslint",
++"startLineNumber": 22,
++"startColumn": 2,
++"endLineNumber": 22,
++"endColumn": 3
++}]] a historie konverzace proč se generuje kod který dělá tyhle problémy, je to prostředím ? nebo nastavením aiderem, pojdme to troubleshootovat
+
+# 2024-08-17 17:10:58.403622
++/help jak mám nastavit aider aby to mělo naše formátování teda
+
+# 2024-08-17 17:14:19.998996
++/exit
+
+# 2024-08-17 17:26:39.986895
++npx prettier --write
++
++
++[If you're still using ugly Google forms, even mrbeast cannot save you. So here's a little secret to create custom Google forms thoughts of a free SEO boost first, create a new Google form. Add a bunch of questions, head over to settings and click get prefilled link. Now create some unique ids for these form fields and just fill them in here. Click get link and then hit copy link at the bottom. Now paste your link in a text editor. Now examine the link and search for view form and change it to form response. If you look closely, you'll find the ids you created as key value pairs. Go ahead and separate your key value pairs and delete everything else after form response. This is the basic skeleton of what you need. You need two input fields, and the names have to be those two keys that you found on the form tag. Set the action attribute to the link we just found. So I just went online and found some designs. You can make your own if you want to. Now fill in the form and hit send details. Now if you head over to Google forms, you'll find your response right here. As a bonus tip, you can also link your responses to a Google sheet. Subscribe for more web development tips and tricks.]
++
++pochop jak to udělat podle poskytnutého návodu
++tady je odkaz[https://docs.google.com/forms/d/e/1FAIpQLSf0L3ksRzp3NNpaS4oLpEafkwBginDO57W4SQinudhxTYEERg/viewform?usp=pp_url&entry.1410803887=input&entry.1684906164=input&entry.934314220=Kulat%C3%A9&entry.467936851=%C4%8Cern%C3%A1&entry.585540967=3&entry.1664370766=input&entry.2030643292=Ano]
++
++potřebuju upravit komponentu tak aby aby podle odkazu se vygeneroval dotazník v react komponentě, chci to udělat tak že se bude vždy zobrazovat jenom jedna otázka a kolik otázek jsme zopověděli, napiš jak to chápeš, a pak vygenrujeme zadání s přesnýma instrukcema ale prvně se musím ujistit že to dobře chápeš
++
++takhle bys to měl pochopit[
++Chcete vytvořit React komponentu, která bude generovat dotazník na základě poskytnutého Google Forms odkazu.
++Místo použití standardního Google Forms rozhraní chcete vytvořit vlastní uživatelské rozhraní.
++Dotazník by měl zobrazovat vždy jen jednu otázku najednou.
++Měl by také ukazovat, kolik otázek již bylo zodpovězeno (např. "Otázka 3 z 7").
++Odkaz obsahuje informace o otázkách a možných odpovědích, které budete muset parsovat a použít k vytvoření vlastního formuláře.
++Odpovědi by měly být odesílány zpět do Google Forms, aby byly zaznamenány stejně, jako by byly vyplněny přímo v Google Forms.]
+
+# 2024-08-17 17:27:32.958520
++`app\components\WaitingListSurvey.tsx` udělej to prosím do této komponenty
+
+# 2024-08-17 17:29:44.340713
++/help Tokens: 5,151 sent, 1,502 received. Cost: $0.04 message, $0.07 session.
++Applied edit to app\components\WaitingListSurvey.tsx
++Traceback (most recent call last):
++  File "<frozen runpy>", line 198, in _run_module_as_main                                                                                    
++  File "<frozen runpy>", line 88, in _run_code
++  File "C:\Users\thanh\AppData\Roaming\Python\Python311\site-packages\aider\__main__.py", line 4, in <module>
++    main()
++  File "C:\Users\thanh\AppData\Roaming\Python\Python311\site-packages\aider\main.py", line 620, in main
++    coder.run()
++  File "C:\Users\thanh\AppData\Roaming\Python\Python311\site-packages\aider\coders\base_coder.py", line 693, in run
++    self.run_one(user_message, preproc)
++  File "C:\Users\thanh\AppData\Roaming\Python\Python311\site-packages\aider\coders\base_coder.py", line 734, in run_one
++    list(self.send_message(message))
++  File "C:\Users\thanh\AppData\Roaming\Python\Python311\site-packages\aider\coders\base_coder.py", line 1069, in send_message
++    lint_errors = self.lint_edited(edited)
++                  ^^^^^^^^^^^^^^^^^^^^^^^^
++  File "C:\Users\thanh\AppData\Roaming\Python\Python311\site-packages\aider\coders\base_coder.py", line 1155, in lint_edited
++    errors = self.linter.lint(self.abs_root_path(fname))
++             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++  File "C:\Users\thanh\AppData\Roaming\Python\Python311\site-packages\aider\linter.py", line 95, in lint
++    lintres = self.run_cmd(cmd, rel_fname, code)
++              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++  File "C:\Users\thanh\AppData\Roaming\Python\Python311\site-packages\aider\linter.py", line 46, in run_cmd
++    process = subprocess.Popen(
++              ^^^^^^^^^^^^^^^^^
++  File "C:\ProgramData\anaconda3\Lib\subprocess.py", line 1026, in __init__
++    self._execute_child(args, executable, preexec_fn, close_fds,
++  File "C:\ProgramData\anaconda3\Lib\subprocess.py", line 1538, in _execute_child
++    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
++                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++FileNotFoundError: [WinError 2] Systém nemůže nalézt uvedený soubor tohle se mi stálo v minule konverzaci co se stalo ?
+
+# 2024-08-17 17:34:30.053726
++/help npx prettier --write app/components/WaitingListSurvey.tsx ono jako když provedu tenhle příkaz tak to zmizí, kde bude problém ?
+
+# 2024-08-17 17:38:03.274545
++/exit
+
+# 2024-08-17 17:38:28.410145
++tady je odkaz[https://docs.google.com/forms/d/e/1FAIpQLSf0L3ksRzp3NNpaS4oLpEafkwBginDO57W4SQinudhxTYEERg/viewform?usp=pp_url&entry.141080388 
++7=input&entry.1684906164=input&entry.934314220=Kulat%C3%A9&entry.467936851=%C4%8Cern%C3%A1&entry.585540967=3&entry.1664370766=input&entry.20 
++30643292=Ano]
++
++potřebuju upravit komponentu tak aby aby podle odkazu se vygeneroval dotazník v react komponentě, chci to udělat tak že se bude vždy zobrazo 
++vat jenom jedna otázka a kolik otázek jsme zopověděli, napiš jak to chápeš, a pak vygenrujeme zadání s přesnýma instrukcema ale prvně se mus 
++ím ujistit že to dobře chápeš
++
++takhle bys to měl pochopit[
++Chcete vytvořit React komponentu, která bude generovat dotazník na základě poskytnutého Google Forms odkazu.
++Místo použití standardního Google Forms rozhraní chcete vytvořit vlastní uživatelské rozhraní.
++Dotazník by měl zobrazovat vždy jen jednu otázku najednou.
++Měl by také ukazovat, kolik otázek již bylo zodpovězeno (např. "Otázka 3 z 7").
++Odkaz obsahuje informace o otázkách a možných odpovědích, které budete muset parsovat a použít k vytvoření vlastního formuláře.
++Odpovědi by měly být odesílány zpět do Google Forms, aby byly zaznamenány stejně, jako by byly vyplněny přímo v Google Forms.]
++
++Add https://docs.google.com/forms/d/e/1FAIpQLSf0L3ksRzp3NNpaS4oLpEafkwBginDO57W4SQinudhxTYEERg/viewform?usp=pp_url&entry.1410803887=input&en 
++try.1684906164=input&entry.934314220=Kulat%C3%A9&entry.467936851=%C4%8Cern%C3%A1&entry.585540967=3&entry.1664370766=input&entry.2030643292=A 
++no] to the chat? n
++Rozumím vašemu požadavku. Chcete vytvořit React komponentu, která bude:
++
++ 1 Parsovat poskytnutý Google Forms odkaz pro získání informací o otázkách a možných odpovědích.
++ 2 Vytvořit vlastní uživatelské rozhraní pro dotazník.
++ 3 Zobrazovat vždy jen jednu otázku najednou.
++ 4 Ukazovat progress (např. "Otázka 3 z 7").
++ 5 Odesílat odpovědi zpět do Google Forms.
++
++Pro implementaci tohoto řešení budeme pravděpodobně potřebovat vytvořit novou React komponentu nebo upravit existující. Nejpravděpodobnější  
++soubory, které budou potřebovat úpravy, jsou:
++
++ 1 Nový soubor pro komponentu dotazníku, například app/components/CustomGoogleForm.tsx
++ 2 Případně úprava existující komponenty, kde chcete tento dotazník použít.
++
++Můžete mi prosím potvrdit, že toto chápání je správné, a případně mi sdělit, zda máte nějaký konkrétní soubor, kde chcete tuto funkcionalitu 
++implementovat? Poté můžeme pokračovat s detailnějšími instrukcemi a implementací.
++
++
++Tokens: 9,741 sent, 397 received. Cost: $0.04 message, $0.04 session.
++
++> `app\components\WaitingListSurvey.tsx` udělej to prosím do této komponenty
++
++app\components\WaitingListSurvey.tsx
++Add these files to the chat? y
++Rozumím, že chcete upravit komponentu WaitingListSurvey v souboru app\components\WaitingListSurvey.tsx. Implementujeme požadovanou
++funkcionalitu do této komponenty. Zde je návrh změn:
++
++app\components\WaitingListSurvey.tsx
++
++
++ <<<<<<< SEARCH
++ import React from 'react';
++
++ interface WaitingListSurveyProps {
++   isEnabled: boolean;
++ }
++
++ export function WaitingListSurvey({isEnabled}: WaitingListSurveyProps) {
++   if (!isEnabled) return null;
++
++   return (
++     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
++       <div
++         className="bg-white p-8 rounded-lg shadow-lg"
++         role="dialog"
++         aria-labelledby="survey-title"
++       >
++         <h2 id="survey-title" className="text-2xl font-bold mb-4">
++           Waiting List Survey
++         </h2>
++         <p className="mb-4">
++           Thank you for your interest. Please fill out this quick survey.
++         </p>
++         {/* Zde můžete přidat formulář s dotazníkem */}
++         <button
++           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500
++ focus:ring-opacity-50"
++           aria-label="Submit survey"
++         >
++           Submit
++         </button>
++       </div>
++     </div>
++   );
++ }
++ =======
++ import React, { useState, useEffect } from 'react';
++
++ interface WaitingListSurveyProps {
++   isEnabled: boolean;
++   formUrl: string;
++ }
++
++ interface Question {
++   id: string;
++   question: string;
++   type: string;
++   options?: string[];
++ }
++
++ export function WaitingListSurvey({ isEnabled, formUrl }: WaitingListSurveyProps) {
++   const [questions, setQuestions] = useState<Question[]>([]);
++   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
++   const [answers, setAnswers] = useState<Record<string, string>>({});
++
++   useEffect(() => {
++     if (isEnabled) {
++       parseFormUrl(formUrl);
++     }
++   }, [isEnabled, formUrl]);
++
++   const parseFormUrl = (url: string) => {
++     const parsedUrl = new URL(url);
++     const params = new URLSearchParams(parsedUrl.search);
++     const parsedQuestions: Question[] = [];
++
++     params.forEach((value, key) => {
++       if (key.startsWith('entry.')) {
++         const id = key.split('.')[1];
++         parsedQuestions.push({
++           id,
++           question: `Question ${parsedQuestions.length + 1}`,
++           type: 'text',
++           options: value.split(',')
++         });
++       }
++     });
++
++     setQuestions(parsedQuestions);
++   };
++
++   const handleAnswer = (answer: string) => {
++     setAnswers({ ...answers, [questions[currentQuestionIndex].id]: answer });
++     if (currentQuestionIndex < questions.length - 1) {
++       setCurrentQuestionIndex(currentQuestionIndex + 1);
++     } else {
++       submitForm();
++     }
++   };
++
++   const submitForm = () => {
++     const form = document.createElement('form');
++     form.method = 'POST';
++     form.action = formUrl.replace('viewform', 'formResponse');
++
++     Object.entries(answers).forEach(([id, value]) => {
++       const input = document.createElement('input');
++       input.type = 'hidden';
++       input.name = `entry.${id}`;
++       input.value = value;
++       form.appendChild(input);
++     });
++
++     document.body.appendChild(form);
++     form.submit();
++   };
++
++   if (!isEnabled || questions.length === 0) return null;
++
++   const currentQuestion = questions[currentQuestionIndex];
++
++   return (
++     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
++       <div
++         className="bg-white p-8 rounded-lg shadow-lg"
++         role="dialog"
++         aria-labelledby="survey-title"
++       >
++         <h2 id="survey-title" className="text-2xl font-bold mb-4">
++           Waiting List Survey
++         </h2>
++         <p className="mb-4">
++           Question {currentQuestionIndex + 1} of {questions.length}
++         </p>
++         <p className="mb-4">{currentQuestion.question}</p>
++         {currentQuestion.type === 'text' ? (
++           <input
++             type="text"
++             className="w-full p-2 border rounded mb-4"
++             onChange={(e) => handleAnswer(e.target.value)}
++           />
++         ) : (
++           currentQuestion.options?.map((option) => (
++             <button
++               key={option}
++               className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500     
++ focus:ring-opacity-50 mr-2 mb-2"
++               onClick={() => handleAnswer(option)}
++             >
++               {option}
++             </button>
++           ))
++         )}
++       </div>
++     </div>
++   );
++ }
++ >>>>>>> REPLACE
++
++
++Tato úprava implementuje následující funkcionalitu:
++
++ 1 Parsování Google Forms URL pro získání informací o otázkách.
++ 2 Zobrazení jedné otázky najednou s indikací progresu.
++ 3 Dynamické generování vstupních polí nebo tlačítek pro odpovědi.
++ 4 Odesílání odpovědí zpět do Google Forms po zodpovězení všech otázek.
++
++Nezapomeňte, že budete muset upravit způsob, jakým je komponenta volána, aby zahrnovala formUrl prop:
++
++
++ <WaitingListSurvey
++   isEnabled={true}
++   formUrl="https://docs.google.com/forms/d/e/1FAIpQLSf0L3ksRzp3NNpaS4oLpEafkwBginDO57W4SQinudhxTYEERg/viewform?usp=pp_url&entry.1410803887= 
++ put&entry.1684906164=input&entry.934314220=Kulat%C3%A9&entry.467936851=%C4%8Cern%C3%A1&entry.585540967=3&entry.1664370766=input&entry.20306 
++ 292=Ano"
++ />
++
++
++Tato implementace je základní a může vyžadovat další vylepšení, jako je lepší zpracování různých typů otázek, validace vstupů, nebo vylepšení
++uživatelského rozhraní. Můžeme tyto aspekty dále rozvinout podle vašich konkrétních potřeb. pojdme to do delat
+
+# 2024-08-17 17:40:08.486816
++[{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/root.tsx",
++"owner": "typescript",
++"code": "2741",
++"severity": 8,
++"message": "Property 'formUrl' is missing in type '{ isEnabled: true; }' but required in type 'WaitingListSurveyProps'.",
++"source": "ts",
++"startLineNumber": 156,
++"startColumn": 16,
++"endLineNumber": 156,
++"endColumn": 33,
++"relatedInformation": [
++{
++"startLineNumber": 5,
++"startColumn": 3,
++"endLineNumber": 5,
++"endColumn": 10,
++"message": "'formUrl' is declared here.",
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/WaitingListSurvey.tsx"
++}
++]
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/root.tsx",
++"owner": "typescript",
++"code": "2741",
++"severity": 8,
++"message": "Property 'formUrl' is missing in type '{ isEnabled: true; }' but required in type 'WaitingListSurveyProps'.",
++"source": "ts",
++"startLineNumber": 162,
++"startColumn": 14,
++"endLineNumber": 162,
++"endColumn": 31,
++"relatedInformation": [
++{
++"startLineNumber": 5,
++"startColumn": 3,
++"endLineNumber": 5,
++"endColumn": 10,
++"message": "'formUrl' is declared here.",
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/WaitingListSurvey.tsx"
++}
++]
++}]
+
+# 2024-08-17 18:07:02.175503
++clear
+
+# 2024-08-17 18:07:10.634155
++/clear
+
+# 2024-08-18 09:59:43.415718
++/drop
+
+# 2024-08-18 10:04:31.585416
++pojdme udělat že při navstívení naši stránky se ukáže surveylist pro přidání uživatele na waitinglist, kdyz to bude zapnuty tak bude dostupny jenom ten survey list nic jineho, můžem to vypínat a zapínat, data se nám by se nám mělo ukládat někam na shopify pojdme si to pořádně promyslet jak nato
+
+# 2024-08-18 10:07:14.641022
++/help proč se to vždycky formatuje spatne ze mi celý soubor ukazuje že [{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/routes/($locale)._index.tsx",
++"owner": "eslint",
++"code": {
++"value": "prettier/prettier",
++"target": {
++"$mid": 1,
++"path": "/prettier/eslint-plugin-prettier",
++"scheme": "https",
++"authority": "github.com",
++"fragment": "options"
++}
++},
++"severity": 8,
++"message": "Delete ``",
++"source": "eslint",
++"startLineNumber": 1,
++"startColumn": 70,
++"endLineNumber": 1,
++"endColumn": 71
++}]
+
+# 2024-08-18 10:11:39.001265
++/help npx prettier --write tenhle příkaz vždy pomůže nelze nějak nastavit aby se tenhle příkaz prováděl automaticky nebo funkce tohoto příkazu prováděla automaticky ?
+
+# 2024-08-18 10:12:50.114699
++/clear
+
+# 2024-08-18 10:12:55.800630
++/drop
+
+# 2024-08-18 10:17:51.201887
++/add app\routes\($locale)._index.tsx 
+
+# 2024-08-20 12:27:27.662388
++Header:
++
++
++Background: Light grey with subtle concrete texture
++Logo: Minimalist, black, positioned on the left
++Navigation: Right-aligned, black text on light background
++Search bar: Thin black border, centered
++
++
++Hero section:
++
++
++Large image of designer eyewear on a neutral background
++Overlay text: Large, white, sans-serif font
++CTA button: Black with white text, rectangular shape
++
++
++Product categories:
++
++
++Horizontal row of rectangular tiles
++Each tile: Grey background, black text, subtle shadow effect
++
++
++Product listing:
++
++
++Grid layout: 3-4 products per row
++Product card: White background, thin black border
++Product image: Clean, on white background
++Product name: Black, sans-serif font
++Price: Bold, dark grey text
++"Add to cart" button: Small, black, rectangular
++
++
++Product detail:
++
++
++Layout: Image on left, information on right
++Photo gallery: Large main image, thumbnails below
++Product description: Black text on white background
++Variant selection: Minimalist dropdown menus
++CTA button: Large, black, with white "Buy" text
++
++
++Shopping cart:
++
++
++Overview: Clean table with thin grey lines
++Buttons: "Continue shopping" (grey), "Checkout" (black)
++
++
++Footer:
++
++
++Background: Dark grey with subtle concrete texture
++Text: White, smaller sans-serif font
++Social media icons: Simple white icons
++
++
++Mobile version:
++
++
++Hamburger menu: Black icon in top right corner
++Adapted layout: Single column for products
++Enlarged buttons for easy touch control
++
++
++Popup windows:
++
++
++Background: Semi-transparent black overlay
++Content: White box with thin black border
++Close button: Small black cross in top right corner
++
++Each component should maintain a minimalist, clean design with a focus on functionality and aesthetics inspired by the original industrial interior. pojdme krok po k/exit
+
+# 2024-08-20 12:31:21.130311
++/help Traceback (most recent call last):
++  File "<frozen runpy>", line 198, in _run_module_as_main
++  File "<frozen runpy>", line 88, in _run_code
++  File "C:\Users\thanh\AppData\Roaming\Python\Python311\site-packages\aider\__main__.py", line 4, in <module>       
++    main()
++  File "C:\Users\thanh\AppData\Roaming\Python\Python311\site-packages\aider\main.py", line 620, in main
++    coder.run()
++  File "C:\Users\thanh\AppData\Roaming\Python\Python311\site-packages\aider\coders\base_coder.py", line 693, in run 
++    self.run_one(user_message, preproc)
++  File "C:\Users\thanh\AppData\Roaming\Python\Python311\site-packages\aider\coders\base_coder.py", line 734, in run_one
++    list(self.send_message(message))
++  File "C:\Users\thanh\AppData\Roaming\Python\Python311\site-packages\aider\coders\base_coder.py", line 1069, in send_message
++    lint_errors = self.lint_edited(edited)
++                  ^^^^^^^^^^^^^^^^^^^^^^^^
++  File "C:\Users\thanh\AppData\Roaming\Python\Python311\site-packages\aider\coders\base_coder.py", line 1155, in lint_edited
++    errors = self.linter.lint(self.abs_root_path(fname))
++             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++  File "C:\Users\thanh\AppData\Roaming\Python\Python311\site-packages\aider\linter.py", line 95, in lint
++    lintres = self.run_cmd(cmd, rel_fname, code)
++              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++  File "C:\Users\thanh\AppData\Roaming\Python\Python311\site-packages\aider\linter.py", line 46, in run_cmd
++    process = subprocess.Popen(
++              ^^^^^^^^^^^^^^^^^
++  File "C:\ProgramData\anaconda3\Lib\subprocess.py", line 1026, in __init__
++    self._execute_child(args, executable, preexec_fn, close_fds,
++  File "C:\ProgramData\anaconda3\Lib\subprocess.py", line 1538, in _execute_child
++    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
++                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++FileNotFoundError: [WinError 2] Systém nemůže nalézt uvedený soubor nastavil jsem autolint ale asi když to chce lintnout tak se mi zobrazuje tenhle soubor
+
+# 2024-08-20 12:39:35.533505
++/add instructions.md
+
+# 2024-08-20 12:40:52.538920
++pojdme krok po kroku udělat první komponentu header pořádně si to rozmyslet vybrat a upravit potřebný soubory podle konvencí hydrogen frameworku
+
+# 2024-08-20 12:46:38.218892
++[{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/Header.tsx",
++"owner": "typescript",
++"code": "2305",
++"severity": 8,
++"message": "Module '\"@shopify/hydrogen\"' has no exported member 'useLocalization'.",
++"source": "ts",
++"startLineNumber": 2,
++"startColumn": 9,
++"endLineNumber": 2,
++"endColumn": 24
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/Header.tsx",
++"owner": "typescript",
++"code": "2307",
++"severity": 8,
++"message": "Cannot find module '~/lib/utils' or its corresponding type declarations.",
++"source": "ts",
++"startLineNumber": 3,
++"startColumn": 33,
++"endLineNumber": 3,
++"endColumn": 46
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/Header.tsx",
++"owner": "typescript",
++"code": "2322",
++"severity": 8,
++"message": "Type '{ title: string; menu: any; languageCode: any; countryCode: any; }' is not assignable to type 'IntrinsicAttributes & { title: any; menu: any; }'.\n  Property 'languageCode' does not exist on type 'IntrinsicAttributes & { title: any; menu: any; }'.",
++"source": "ts",
++"startLineNumber": 21,
++"startColumn": 7,
++"endLineNumber": 21,
++"endColumn": 19
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/Layout/Header.tsx",
++"owner": "typescript",
++"code": "2305",
++"severity": 8,
++"message": "Module '\"@shopify/hydrogen\"' has no exported member 'Link'.",
++"source": "ts",
++"startLineNumber": 1,
++"startColumn": 9,
++"endLineNumber": 1,
++"endColumn": 13
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/Layout/Header.tsx",
++"owner": "typescript",
++"code": "2305",
++"severity": 8,
++"message": "Module '\"@shopify/hydrogen\"' has no exported member 'useUrl'.",
++"source": "ts",
++"startLineNumber": 1,
++"startColumn": 15,
++"endLineNumber": 1,
++"endColumn": 21
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/Layout/Header.tsx",
++"owner": "typescript",
++"code": "2305",
++"severity": 8,
++"message": "Module '\"@shopify/hydrogen\"' has no exported member 'useCart'.",
++"source": "ts",
++"startLineNumber": 1,
++"startColumn": 23,
++"endLineNumber": 1,
++"endColumn": 30
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/Layout/Header.tsx",
++"owner": "typescript",
++"code": "2307",
++"severity": 8,
++"message": "Cannot find module 'react-use' or its corresponding type declarations.",
++"source": "ts",
++"startLineNumber": 2,
++"startColumn": 31,
++"endLineNumber": 2,
++"endColumn": 42
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/Layout/Header.tsx",
++"owner": "typescript",
++"code": "7031",
++"severity": 8,
++"message": "Binding element 'title' implicitly has an 'any' type.",
++"source": "ts",
++"startLineNumber": 4,
++"startColumn": 25,
++"endLineNumber": 4,
++"endColumn": 30
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/Layout/Header.tsx",
++"owner": "typescript",
++"code": "7031",
++"severity": 8,
++"message": "Binding element 'menu' implicitly has an 'any' type.",
++"source": "ts",
++"startLineNumber": 4,
++"startColumn": 32,
++"endLineNumber": 4,
++"endColumn": 36
++},{
++"resource": "/c:/Users/thanh/Downloads/Programy/brejlator/app/components/Layout/Header.tsx",
++"owner": "typescript",
++"code": "7006",
++"severity": 8,
++"message": "Parameter 'item' implicitly has an 'any' type.",
++"source": "ts",
++"startLineNumber": 29,
++"startColumn": 26,
++"endLineNumber": 29,
++"endColumn": 30
++}]

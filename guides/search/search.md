@@ -210,7 +210,7 @@ export async function loader({request, context}: LoaderFunctionArgs) {
   const isRegular = !url.searchParams.has('predictive');
 
   if (!isRegular) {
-    return json({})
+    return json({});
   }
 
   const searchPromise = regularSearch({request, context});
