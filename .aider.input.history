@@ -1239,3 +1239,322 @@
 
 # 2024-08-20 21:00:35.704227
 +potřebuju aby navbar měl stejný padding nahoře i dole, ted mi to zobrazuje že to má padding jenom nahoře a to 16
+
+# 2024-08-20 21:05:07.113406
++/clear
+
+# 2024-08-20 21:05:09.721647
++/drop
+
+# 2024-08-20 21:05:44.004606
++jak zprovoznit přihlašování ? An error occured
++invalid_request
++The error was: "redirect_uri" mismatch
++Show request details
++
++
++
++
++
++
++
++
++Request ID: 98503908-7d5f-4e0c-9fb8-95d7acf32346-1724180701
+
+# 2024-08-20 21:08:16.158902
++/code uprav to
+
+# 2024-08-20 21:16:04.675977
++/exit
+
+# 2024-08-20 21:16:21.063045
++/add instructions.md
+
+# 2024-08-20 21:16:36.545972
++VM46:2327 
++        
++        
++        GET https://shopify.com/88195727624/auth/oauth/authorize?client_id=shp_85d80d3d-0404-44bb-a32c-3b080abb94a9&scope=openid+email+https://api.customers.com/auth/customer.graphql&response_type=code&redirect_uri=https://localhost:3000/account/authorize&state=1724180948020l2d0ak4n5ad&nonce=8c0adf36b5de27db69696c0bb96c654e&code_challenge=MwRkL0C4HUYDN6GVnKas1ZHpfQVqzkXEh_eSvJV4k2M&code_challenge_method=S256 400 (Bad Request)
++startRedirectNavigation @ VM46:2327
++handleLoaders @ VM46:1963
++await in handleLoaders
++startNavigation @ VM46:1731
++startRedirectNavigation @ VM46:2353
++handleLoaders @ VM46:1963
++authorize:1  The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy.
++14[Deprecation]-ms-high-constrast is in the process of being deprecated. Please see <URL> for tips on updating to the new Forced Colors Mode standard.
++trekkie.identity.min.js:1 
++        
++        
++        POST https://monorail-edge.shopifysvc.com/unstable/produce_batch net::ERR_BLOCKED_BY_CLIENT
++i @ trekkie.identity.min.js:1
++t.produce @ trekkie.identity.min.js:1
++t.logMetricToMonorail @ trekkie.identity.min.js:1
++e @ trekkie.identity.min.js:1
++(anonymní) @ trekkie.identity.min.js:1
++(anonymní) @ trekkie.identity.min.js:1
++(anonymní) @ trekkie.identity.min.js:1
++trekkie.identity.min.js:1 
++        
++        
++        POST https://monorail-edge.shopifysvc.com/unstable/produce_batch net::ERR_BLOCKED_BY_CLIENT
++i @ trekkie.identity.min.js:1
++t.produce @ trekkie.identity.min.js:1
++t.emit @ trekkie.identity.min.js:1
++t.page @ trekkie.identity.min.js:1
++e.callEvent @ trekkie.identity.min.js:1
++e.emitEventOrAwaitConsent @ trekkie.identity.min.js:1
++e.page @ trekkie.identity.min.js:1
++t.replayAnalyticsQueue @ trekkie.identity.min.js:1
++(anonymní) @ trekkie.identity.min.js:1
++(anonymní) @ trekkie.identity.min.js:1
++t.bugsnag @ shared-83657f5bea40178ee89d.js:2
++(anonymní) @ shared-83657f5bea40178ee89d.js:2
++setTimeout
++(anonymní) @ shared-83657f5bea40178ee89d.js:2
++(anonymní) @ trekkie.identity.min.js:1
++e.initialize @ trekkie.identity.min.js:1
++t.initialize @ trekkie.identity.min.js:1
++e.initializeOrAwaitConsent @ trekkie.identity.min.js:1
++(anonymní) @ trekkie.identity.min.js:1
++e.loadIntegrations @ trekkie.identity.min.js:1
++e.initialize @ trekkie.identity.min.js:1
++e @ trekkie.identity.min.js:1
++(anonymní) @ trekkie.identity.min.js:1
++(anonymní) @ trekkie.identity.min.js:1
++(anonymní) @ trekkie.identity.min.js:1
++trekkie.identity.min.js:1 
++        
++        
++        POST https://monorail-edge.shopifysvc.com/unstable/produce_batch net::ERR_BLOCKED_BY_CLIENT čím to může být pojdme to troubleshootovat
+
+# 2024-08-20 21:18:23.411622
++furt mi to háže error používám hydrogen od shopify je potřeba to nějak nastavit předtím než se přihlasím ?
+
+# 2024-08-21 11:18:38.848312
++/add instructions.md
+
+# 2024-08-21 11:19:43.497222
++mám problém že nefunguje autentizace když kliknu na ikonku account můžeš si pořádně promyslet krok po kroku a zkontrolovat tyto věci ? [Jistě, projdeme si další kroky krok za krokem. Zde jsou přesné instrukce pro kontrolu a nastavení:
++
++1. Ověření proměnných prostředí:
++   Otevřete soubor `.env` ve vašem projektu a zkontrolujte, že obsahuje tyto proměnné s správnými hodnotami:
++   ```
++   PUBLIC_STOREFRONT_API_TOKEN=váš_token
++   PUBLIC_STORE_DOMAIN=váš_obchod.myshopify.com
++   PUBLIC_CUSTOMER_ACCOUNT_API_CLIENT_ID=vaše_client_id
++   PUBLIC_CUSTOMER_ACCOUNT_API_URL=https://shopify.com/váš_obchod_id
++   ```
++
++2. Kontrola nastavení v Shopify administraci:
++   a) Přihlaste se do Shopify admin panelu.
++   b) Jděte do "Apps and sales channels" > "Hydrogen".
++   c) Klikněte na "Manage" u vašeho Hydrogen projektu.
++   d) V sekci "Customer accounts", zkontrolujte "Callback URL".
++      Měla by tam být URL: `https://localhost:3000/account/authorize`
++
++3. Nastavení HTTPS pro lokální vývoj:
++   a) Otevřete soubor `remix.config.js` ve vašem projektu.
++   b) Přidejte nebo upravte následující kód:
++      ```javascript
++      module.exports = {
++        ...
++        devServerBroadcastDelay: 1000,
++        server: "./server.js",
++        serverBuildPath: "build/index.js",
++        devServerPort: 8002,
++        ignoredRouteFiles: ["**/.*"],
++        serverDependenciesToBundle: "all",
++      };
++      ```
++   c) Restartujte váš vývojový server s příkazem:
++      ```
++      npm run dev
++      ```
++
++4. Ověření Customer Account API:
++   a) V Shopify admin panelu jděte do "Settings" > "Apps and sales channels".
++   b) Klikněte na "Develop apps".
++   c) Otevřete vaši Hydrogen aplikaci.
++   d) V sekci "Configuration", zkontrolujte, že "Customer Account API" je povolené.
++   e) Zkopírujte "Client ID" a ujistěte se, že odpovídá hodnotě v `.env` souboru.
++
++5. Vyčištění cache a cookies:
++   a) Otevřete nastavení vašeho prohlížeče.
++   b) Vymažte cache a cookies pro vaši lokalní vývojovou URL (localhost).
++
++6. Ověření oprávnění aplikace:
++   a) V Shopify admin panelu jděte do "Settings" > "Apps and sales channels".
++   b) Klikněte na "Develop apps".
++   c) Otevřete vaši Hydrogen aplikaci.
++   d) V sekci "Configuration" > "Admin API access scopes", 
++      ujistěte se, že máte povolené potřebné scopes, zejména:
++      - `read_customers`
++      - `write_customers`
++
++7. Restartování vývojového serveru:
++   a) Zastavte běžící vývojový server (Ctrl+C v terminálu).
++   b) Spusťte server znovu příkazem:
++      ```
++      npm run dev
++      ```
++
++Po provedení těchto kroků by mělo být vše správně nastaveno pro vývoj s Customer Account API. Pokud problém přetrvává, může být užitečné zkontrolovat logy vývojového serveru pro další detaily o chybě.]
+
+# 2024-08-21 11:22:26.913030
++/clear
+
+# 2024-08-21 11:22:59.927946
++zkontroluj tady tyto věci za mě [Jistě, projdeme si další kroky krok za krokem. Zde jsou přesné instrukce pro kontrolu a nastavení:
++
++1. Ověření proměnných prostředí:
++   Otevřete soubor `.env` ve vašem projektu a zkontrolujte, že obsahuje tyto proměnné s správnými hodnotami:
++   ```
++   PUBLIC_STOREFRONT_API_TOKEN=váš_token
++   PUBLIC_STORE_DOMAIN=váš_obchod.myshopify.com
++   PUBLIC_CUSTOMER_ACCOUNT_API_CLIENT_ID=vaše_client_id
++   PUBLIC_CUSTOMER_ACCOUNT_API_URL=https://shopify.com/váš_obchod_id
++   ```
++
++2. Kontrola nastavení v Shopify administraci:
++   a) Přihlaste se do Shopify admin panelu.
++   b) Jděte do "Apps and sales channels" > "Hydrogen".
++   c) Klikněte na "Manage" u vašeho Hydrogen projektu.
++   d) V sekci "Customer accounts", zkontrolujte "Callback URL".
++      Měla by tam být URL: `https://localhost:3000/account/authorize`
++
++3. Nastavení HTTPS pro lokální vývoj:
++   a) Otevřete soubor `remix.config.js` ve vašem projektu.
++   b) Přidejte nebo upravte následující kód:
++      ```javascript
++      module.exports = {
++        ...
++        devServerBroadcastDelay: 1000,
++        server: "./server.js",
++        serverBuildPath: "build/index.js",
++        devServerPort: 8002,
++        ignoredRouteFiles: ["**/.*"],
++        serverDependenciesToBundle: "all",
++      };
++      ```
++   c) Restartujte váš vývojový server s příkazem:
++      ```
++      npm run dev
++      ```
++
++4. Ověření Customer Account API:
++   a) V Shopify admin panelu jděte do "Settings" > "Apps and sales channels".
++   b) Klikněte na "Develop apps".
++   c) Otevřete vaši Hydrogen aplikaci.
++   d) V sekci "Configuration", zkontrolujte, že "Customer Account API" je povolené.
++   e) Zkopírujte "Client ID" a ujistěte se, že odpovídá hodnotě v `.env` souboru.
++
++5. Vyčištění cache a cookies:
++   a) Otevřete nastavení vašeho prohlížeče.
++   b) Vymažte cache a cookies pro vaši lokalní vývojovou URL (localhost).
++
++6. Ověření oprávnění aplikace:
++   a) V Shopify admin panelu jděte do "Settings" > "Apps and sales channels".
++   b) Klikněte na "Develop apps".
++   c) Otevřete vaši Hydrogen aplikaci.
++   d) V sekci "Configuration" > "Admin API access scopes", 
++      ujistěte se, že máte povolené potřebné scopes, zejména:
++      - `read_customers`
++      - `write_customers`
++
++7. Restartování vývojového serveru:
++   a) Zastavte běžící vývojový server (Ctrl+C v terminálu).
++   b) Spusťte server znovu příkazem:
++      ```
++      npm run dev
++      ```
++
++Po provedení těchto kroků by mělo být vše správně nastaveno pro vývoj s Customer Account API. Pokud problém přetrvává, může být užitečné zkontrolovat logy vývojového serveru pro další detaily o chybě.]
+
+# 2024-08-21 11:23:58.490548
++/exit
+
+# 2024-08-21 11:24:11.637688
++/add instructions.md
+
+# 2024-08-21 11:24:44.487907
++zažádej si o potřebné soubory a zkontroluj toto za mě [Jistě, projdeme si další kroky krok za krokem. Zde jsou přesné instrukce pro kontrolu a nastavení:
++
++1. Ověření proměnných prostředí:
++   Otevřete soubor `.env` ve vašem projektu a zkontrolujte, že obsahuje tyto proměnné s správnými hodnotami:
++   ```
++   PUBLIC_STOREFRONT_API_TOKEN=váš_token
++   PUBLIC_STORE_DOMAIN=váš_obchod.myshopify.com
++   PUBLIC_CUSTOMER_ACCOUNT_API_CLIENT_ID=vaše_client_id
++   PUBLIC_CUSTOMER_ACCOUNT_API_URL=https://shopify.com/váš_obchod_id
++   ```
++
++2. Kontrola nastavení v Shopify administraci:
++   a) Přihlaste se do Shopify admin panelu.
++   b) Jděte do "Apps and sales channels" > "Hydrogen".
++   c) Klikněte na "Manage" u vašeho Hydrogen projektu.
++   d) V sekci "Customer accounts", zkontrolujte "Callback URL".
++      Měla by tam být URL: `https://localhost:3000/account/authorize`
++
++3. Nastavení HTTPS pro lokální vývoj:
++   a) Otevřete soubor `remix.config.js` ve vašem projektu.
++   b) Přidejte nebo upravte následující kód:
++      ```javascript
++      module.exports = {
++        ...
++        devServerBroadcastDelay: 1000,
++        server: "./server.js",
++        serverBuildPath: "build/index.js",
++        devServerPort: 8002,
++        ignoredRouteFiles: ["**/.*"],
++        serverDependenciesToBundle: "all",
++      };
++      ```
++   c) Restartujte váš vývojový server s příkazem:
++      ```
++      npm run dev
++      ```
++
++4. Ověření Customer Account API:
++   a) V Shopify admin panelu jděte do "Settings" > "Apps and sales channels".
++   b) Klikněte na "Develop apps".
++   c) Otevřete vaši Hydrogen aplikaci.
++   d) V sekci "Configuration", zkontrolujte, že "Customer Account API" je povolené.
++   e) Zkopírujte "Client ID" a ujistěte se, že odpovídá hodnotě v `.env` souboru.
++
++5. Vyčištění cache a cookies:
++   a) Otevřete nastavení vašeho prohlížeče.
++   b) Vymažte cache a cookies pro vaši lokalní vývojovou URL (localhost).
++
++6. Ověření oprávnění aplikace:
++   a) V Shopify admin panelu jděte do "Settings" > "Apps and sales channels".
++   b) Klikněte na "Develop apps".
++   c) Otevřete vaši Hydrogen aplikaci.
++   d) V sekci "Configuration" > "Admin API access scopes", 
++      ujistěte se, že máte povolené potřebné scopes, zejména:
++      - `read_customers`
++      - `write_customers`
++
++7. Restartování vývojového serveru:
++   a) Zastavte běžící vývojový server (Ctrl+C v terminálu).
++   b) Spusťte server znovu příkazem:
++      ```
++      npm run dev
++      ```
++
++Po provedení těchto kroků by mělo být vše správně nastaveno pro vývoj s Customer Account API. Pokud problém přetrvává, může být užitečné zkontrolovat logy vývojového serveru pro další detaily o chybě.]
+
+# 2024-08-21 11:25:45.275653
++/clear
+
+# 2024-08-21 11:25:47.963615
++/drop
+
+# 2024-08-21 11:26:12.982554
++/help jak mám určit co všechno se má ukládat do repository map
+
+# 2024-08-21 11:33:30.397002
++/exit
+
+# 2024-08-21 11:34:06.422529
++/help jak mám nastavit soubory které se budou nacházet v repository map ?
