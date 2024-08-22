@@ -20,20 +20,25 @@ export function Header({
   const {shop, menu} = header;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+    if (isSearchOpen) setIsSearchOpen(false);
+  };
+
+  const toggleSearch = () => {
+    setIsSearchOpen(!isSearchOpen);
+    if (isMenuOpen) setIsMenuOpen(false);
+  };
+
   return (
     <header className="header sticky top-0 bg-white z-10 shadow-sm">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex items-center">
-          <button
-            className="hamburger-menu mr-4"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
+          <button className="hamburger-menu mr-4" onClick={toggleMenu}>
             ☰
           </button>
-          <button
-            className="search-toggle mr-4"
-            onClick={() => setIsSearchOpen(!isSearchOpen)}
-          >
+          <button className="search-toggle mr-4" onClick={toggleSearch}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="28"
