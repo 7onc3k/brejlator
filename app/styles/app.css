@@ -797,6 +797,31 @@ h6 {
   grid-gap: 0.75rem;
 }
 
+/* ... (zbytek kódu zůstává stejný) */
+
+/* Přidejte nebo upravte tyto styly */
+.header input[type='search'] {
+  border: none;
+  border-bottom: 2px solid var(--color-dark);
+  border-radius: 0;
+  padding: 0.5rem 0;
+  transition: border-color 0.3s ease;
+}
+
+.header input[type='search']:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.search-bar {
+  position: relative;
+}
+
+.search-bar .absolute {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
 .product-options-item {
   padding: 0.25rem 0.5rem;
 }

@@ -1,16 +1,20 @@
 import {Suspense, useState} from 'react';
-import {Await, NavLink} from '@remix-run/react';
+import {Await, NavLink, Link} from '@remix-run/react';
 import {type CartViewPayload, useAnalytics} from '@shopify/hydrogen';
 import type {HeaderQuery, CartApiQueryFragment} from 'storefrontapi.generated';
 import {useAside} from '~/components/Aside';
-import {SearchForm} from '~/components/SearchForm';
+import {SearchFormPredictive} from '~/components/SearchFormPredictive';
+import {SearchResultsPredictive} from '~/components/SearchResultsPredictive';
+
 interface HeaderProps {
   header: HeaderQuery;
   cart: Promise<CartApiQueryFragment | null>;
   isLoggedIn: Promise<boolean>;
   publicStoreDomain: string;
 }
+
 type Viewport = 'desktop' | 'mobile';
+
 export function Header({
   header,
   isLoggedIn,
@@ -83,17 +87,81 @@ export function Header({
         </div>
       </div>
       {isSearchOpen && (
-        <div className="search-bar container mx-auto px-4 py-2">
-          <SearchForm>
-            {({inputRef}) => (
-              <input
-                ref={inputRef}
-                type="text"
-                placeholder="Hledat..."
-                className="w-full px-3 py-2 border border-gray-300 rounded-md"
-              />
-            )}
-          </SearchForm>
+        <div className="search-bar-container">
+          <div className="search-bar-wrapper">
+            <div className="search-bar">
+              <SearchFormPredictive>
+                {({fetchResults, goToSearch, inputRef}) => (
+                  <div className="relative">
+                    <input
+                      ref={inputRef}
+                      onChange={fetchResults}
+                      onFocus={fetchResults}
+                      type="search"
+                      placeholder="Hledat..."
+                      className="w-full px-4 py-2 pr-10 border-none border-b-2 border-gray-300 focus:border-purple-600 outline-none transition-colors duration-300"
+                    />
+                    <button
+                      onClick={() => setIsSearchOpen(false)}
+                      className="absolute right-2 top-1/2 transform -translate-y-1/2 text-black"
+                    >
+                      ✕
+                    </button>
+                    <SearchResultsPredictive>
+                      {({items, total, term, state, inputRef, closeSearch}) => {
+                        if (state === 'loading' && term.current) {
+                          return <div className="absolute top-full left-0 right-0 bg-white p-2 shadow-md">Načítání...</div>;
+                        }
+
+                        if (!total) {
+                          return null;
+                        }
+
+                        return (
+                          <div className="absolute top-full left-0 right-0 bg-white shadow-md z-10">
+                            <SearchResultsPredictive.Queries
+                              queries={items.queries}
+                              term={term}
+                              inputRef={inputRef}
+                            />
+                            <SearchResultsPredictive.Products
+                              products={items.products}
+                              closeSearch={closeSearch}
+                              term={term}
+                            />
+                            <SearchResultsPredictive.Collections
+                              collections={items.collections}
+                              closeSearch={closeSearch}
+                              term={term}
+                            />
+                            <SearchResultsPredictive.Pages
+                              pages={items.pages}
+                              closeSearch={closeSearch}
+                              term={term}
+                            />
+                            <SearchResultsPredictive.Articles
+                              articles={items.articles}
+                              closeSearch={closeSearch}
+                              term={term}
+                            />
+                            {term.current && total > 0 && (
+                              <Link 
+                                onClick={closeSearch} 
+                                to={`/search?q=${term.current}`}
+                                className="block p-2 text-sm text-gray-600 hover:bg-gray-100"
+                              >
+                                Zobrazit všechny výsledky pro <q>{term.current}</q> →
+                              </Link>
+                            )}
+                          </div>
+                        );
+                      }}
+                    </SearchResultsPredictive>
+                  </div>
+                )}
+              </SearchFormPredictive>
+            </div>
+          </div>
         </div>
       )}
       {isMenuOpen && (
@@ -108,6 +176,7 @@ export function Header({
     </header>
   );
 }
+
 export function HeaderMenu({
   menu,
   primaryDomainUrl,
@@ -122,12 +191,14 @@ export function HeaderMenu({
   isLoggedIn: HeaderProps['isLoggedIn'];
 }) {
   const className = `header-menu-${viewport}`;
+
   function closeAside(event: React.MouseEvent<HTMLAnchorElement>) {
     if (viewport === 'mobile') {
       event.preventDefault();
       window.location.href = event.currentTarget.href;
     }
   }
+
   return (
     <nav className={className} role="navigation">
       <NavLink
@@ -178,6 +249,7 @@ export function HeaderMenu({
     </nav>
   );
 }
+
 function HeaderCtas({
   isLoggedIn,
   cart,
@@ -205,6 +277,7 @@ function HeaderCtas({
     </nav>
   );
 }
+
 function HeaderMenuMobileToggle() {
   const {open} = useAside();
   return (
@@ -216,6 +289,7 @@ function HeaderMenuMobileToggle() {
     </button>
   );
 }
+
 function SearchToggle() {
   const {open} = useAside();
   return (
@@ -224,6 +298,7 @@ function SearchToggle() {
     </button>
   );
 }
+
 function CartBadge({count}: {count: number | null}) {
   const {open} = useAside();
   const {publish, shop, cart, prevCart} = useAnalytics();
@@ -263,6 +338,7 @@ function CartBadge({count}: {count: number | null}) {
     </button>
   );
 }
+
 function CartToggle({cart}: Pick<HeaderProps, 'cart'>) {
   return (
     <Suspense fallback={<CartBadge count={null} />}>
@@ -275,6 +351,7 @@ function CartToggle({cart}: Pick<HeaderProps, 'cart'>) {
     </Suspense>
   );
 }
+
 const FALLBACK_HEADER_MENU = {
   id: 'gid://shopify/Menu/199655587896',
   items: [
@@ -316,6 +393,7 @@ const FALLBACK_HEADER_MENU = {
     },
   ],
 };
+
 function activeLinkStyle({
   isActive,
   isPending,
