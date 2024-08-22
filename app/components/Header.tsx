@@ -4,16 +4,13 @@ import {type CartViewPayload, useAnalytics} from '@shopify/hydrogen';
 import type {HeaderQuery, CartApiQueryFragment} from 'storefrontapi.generated';
 import {useAside} from '~/components/Aside';
 import {SearchForm} from '~/components/SearchForm';
-
 interface HeaderProps {
   header: HeaderQuery;
   cart: Promise<CartApiQueryFragment | null>;
   isLoggedIn: Promise<boolean>;
   publicStoreDomain: string;
 }
-
 type Viewport = 'desktop' | 'mobile';
-
 export function Header({
   header,
   isLoggedIn,
@@ -22,9 +19,7 @@ export function Header({
 }: HeaderProps) {
   const {shop, menu} = header;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-
   return (
     <header className="header sticky top-0 bg-white z-10 shadow-sm">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -41,8 +36,8 @@ export function Header({
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
+              width="28"
+              height="28"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -63,11 +58,11 @@ export function Header({
           {shop.name}
         </NavLink>
         <div className="flex items-center">
-          <NavLink prefetch="intent" to="/account" className="mr-4">
+          <NavLink prefetch="intent" to="/account" className="mr-6">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
+              width="28"
+              height="28"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -108,7 +103,6 @@ export function Header({
     </header>
   );
 }
-
 export function HeaderMenu({
   menu,
   primaryDomainUrl,
@@ -123,14 +117,12 @@ export function HeaderMenu({
   isLoggedIn: HeaderProps['isLoggedIn'];
 }) {
   const className = `header-menu-${viewport}`;
-
   function closeAside(event: React.MouseEvent<HTMLAnchorElement>) {
     if (viewport === 'mobile') {
       event.preventDefault();
       window.location.href = event.currentTarget.href;
     }
   }
-
   return (
     <nav className={className} role="navigation">
       <NavLink
@@ -144,7 +136,6 @@ export function HeaderMenu({
       </NavLink>
       {(menu || FALLBACK_HEADER_MENU).items.map((item) => {
         if (!item.url) return null;
-
         // if the url is internal, we strip the domain
         const url =
           item.url.includes('myshopify.com') ||
@@ -182,7 +173,6 @@ export function HeaderMenu({
     </nav>
   );
 }
-
 function HeaderCtas({
   isLoggedIn,
   cart,
@@ -193,8 +183,8 @@ function HeaderCtas({
       <NavLink prefetch="intent" to="/account" className="mx-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
+          width="28"
+          height="28"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -210,7 +200,6 @@ function HeaderCtas({
     </nav>
   );
 }
-
 function HeaderMenuMobileToggle() {
   const {open} = useAside();
   return (
@@ -222,7 +211,6 @@ function HeaderMenuMobileToggle() {
     </button>
   );
 }
-
 function SearchToggle() {
   const {open} = useAside();
   return (
@@ -231,11 +219,9 @@ function SearchToggle() {
     </button>
   );
 }
-
 function CartBadge({count}: {count: number | null}) {
   const {open} = useAside();
   const {publish, shop, cart, prevCart} = useAnalytics();
-
   return (
     <button
       className="relative"
@@ -251,8 +237,8 @@ function CartBadge({count}: {count: number | null}) {
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
+        width="28"
+        height="28"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -272,7 +258,6 @@ function CartBadge({count}: {count: number | null}) {
     </button>
   );
 }
-
 function CartToggle({cart}: Pick<HeaderProps, 'cart'>) {
   return (
     <Suspense fallback={<CartBadge count={null} />}>
@@ -285,7 +270,6 @@ function CartToggle({cart}: Pick<HeaderProps, 'cart'>) {
     </Suspense>
   );
 }
-
 const FALLBACK_HEADER_MENU = {
   id: 'gid://shopify/Menu/199655587896',
   items: [
@@ -327,7 +311,6 @@ const FALLBACK_HEADER_MENU = {
     },
   ],
 };
-
 function activeLinkStyle({
   isActive,
   isPending,
