@@ -100,12 +100,16 @@ export function Header({
                       type="search"
                       placeholder="Hledat..."
                       className="w-full px-4 py-2 pr-10 border-none border-b-2 border-gray-300 focus:border-purple-600 outline-none transition-colors duration-300"
-                      style={{ margin: '0 4px' }}
+                      style={{margin: '0 4px'}}
                     />
                     <SearchResultsPredictive>
                       {({items, total, term, state, inputRef, closeSearch}) => {
                         if (state === 'loading' && term.current) {
-                          return <div className="absolute top-full left-0 right-0 bg-white p-2 shadow-md">Načítání...</div>;
+                          return (
+                            <div className="absolute top-full left-0 right-0 bg-white p-2 shadow-md">
+                              Načítání...
+                            </div>
+                          );
                         }
 
                         if (!total) {
@@ -140,12 +144,13 @@ export function Header({
                               term={term}
                             />
                             {term.current && total > 0 && (
-                              <Link 
-                                onClick={closeSearch} 
+                              <Link
+                                onClick={closeSearch}
                                 to={`/search?q=${term.current}`}
                                 className="block p-2 text-sm text-gray-600 hover:bg-gray-100"
                               >
-                                Zobrazit všechny výsledky pro <q>{term.current}</q> →
+                                Zobrazit všechny výsledky pro{' '}
+                                <q>{term.current}</q> →
                               </Link>
                             )}
                           </div>
