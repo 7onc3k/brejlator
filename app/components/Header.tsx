@@ -100,6 +100,7 @@ export function Header({
                       type="search"
                       placeholder="Hledat..."
                       className="w-full px-4 py-2 pr-10 border-none border-b-2 border-gray-300 focus:border-purple-600 outline-none transition-colors duration-300"
+                      style={{ margin: '0 4px' }}
                     />
                     <SearchResultsPredictive>
                       {({items, total, term, state, inputRef, closeSearch}) => {
