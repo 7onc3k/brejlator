@@ -8,7 +8,7 @@ interface SearchComponentProps {
 
 export function SearchComponent({onClose}: SearchComponentProps) {
   return (
-    <div className="search-container fixed top-[60px] left-0 right-0 bg-white shadow-md z-20">
+    <div className="search-overlay fixed top-[60px] left-0 right-0 bottom-0 bg-white z-20 overflow-y-auto">
       <div className="container mx-auto px-4 py-4">
         <SearchFormPredictive>
           {({fetchResults, goToSearch, inputRef}) => (
