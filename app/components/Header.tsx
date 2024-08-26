@@ -132,13 +132,14 @@ export function HeaderMenu({
   return (
     <nav className={className} role="navigation">
       <NavLink
+        className="header-menu-item"
         end
         onClick={closeAside}
         prefetch="intent"
         style={activeLinkStyle}
         to="/"
       >
-        Home
+        Domů
       </NavLink>
       {(menu || FALLBACK_HEADER_MENU).items.map((item) => {
         if (!item.url) return null;
@@ -163,19 +164,6 @@ export function HeaderMenu({
           </NavLink>
         );
       })}
-      <Suspense fallback={<div>Loading...</div>}>
-        <Await resolve={isLoggedIn}>
-          {(isLoggedIn) => (
-            <NavLink
-              className="header-menu-item"
-              to={isLoggedIn ? '/account' : '/account/login'}
-              prefetch="intent"
-            >
-              {isLoggedIn ? 'Účet' : 'Přihlásit se'}
-            </NavLink>
-          )}
-        </Await>
-      </Suspense>
     </nav>
   );
 }
