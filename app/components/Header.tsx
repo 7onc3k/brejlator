@@ -35,7 +35,7 @@ export function Header({
   };
 
   return (
-    <>
+    <div className="relative">
       <header className="header sticky top-0 bg-white z-10 shadow-sm">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center">
@@ -88,18 +88,22 @@ export function Header({
         </div>
       </header>
       {isSearchOpen && (
-        <SearchComponent onClose={() => setIsSearchOpen(false)} />
+        <div className="absolute top-full left-0 right-0 z-20">
+          <SearchComponent onClose={() => setIsSearchOpen(false)} />
+        </div>
       )}
       {isMenuOpen && (
-        <HeaderMenu
-          menu={menu}
-          viewport="mobile"
-          primaryDomainUrl={header.shop.primaryDomain.url}
-          publicStoreDomain={publicStoreDomain}
-          isLoggedIn={isLoggedIn}
-        />
+        <div className="absolute top-full left-0 right-0 z-20 bg-white shadow-md">
+          <HeaderMenu
+            menu={menu}
+            viewport="mobile"
+            primaryDomainUrl={header.shop.primaryDomain.url}
+            publicStoreDomain={publicStoreDomain}
+            isLoggedIn={isLoggedIn}
+          />
+        </div>
       )}
-    </>
+    </div>
   );
 }
 
