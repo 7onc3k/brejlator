@@ -3,8 +3,7 @@ import {Await, NavLink, Link} from '@remix-run/react';
 import {type CartViewPayload, useAnalytics} from '@shopify/hydrogen';
 import type {HeaderQuery, CartApiQueryFragment} from 'storefrontapi.generated';
 import {useAside} from '~/components/Aside';
-import {SearchFormPredictive} from '~/components/SearchFormPredictive';
-import {SearchResultsPredictive} from '~/components/SearchResultsPredictive';
+import {SearchComponent} from '~/components/SearchComponent';
 
 interface HeaderProps {
   header: HeaderQuery;
@@ -36,133 +35,60 @@ export function Header({
   };
 
   return (
-    <header className="header sticky top-0 bg-white z-10 shadow-sm">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div className="flex items-center">
-          <button className="hamburger-menu mr-4" onClick={toggleMenu}>
-            ☰
-          </button>
-          <button className="search-toggle mr-4" onClick={toggleSearch}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-          </button>
-        </div>
-        <NavLink
-          prefetch="intent"
-          to="/"
-          className="text-2xl font-bold text-black"
-        >
-          {shop.name}
-        </NavLink>
-        <div className="flex items-center">
-          <NavLink prefetch="intent" to="/account" className="mr-6">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-              <circle cx="12" cy="7" r="4"></circle>
-            </svg>
+    <>
+      <header className="header sticky top-0 bg-white z-10 shadow-sm">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <div className="flex items-center">
+            <button className="hamburger-menu mr-4" onClick={toggleMenu}>
+              ☰
+            </button>
+            <button className="search-toggle mr-4" onClick={toggleSearch}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+          </div>
+          <NavLink
+            prefetch="intent"
+            to="/"
+            className="text-2xl font-bold text-black"
+          >
+            {shop.name}
           </NavLink>
-          <CartToggle cart={cart} />
-        </div>
-      </div>
-      {isSearchOpen && (
-        <div className="search-bar-container">
-          <div className="search-bar-wrapper">
-            <div className="search-bar">
-              <SearchFormPredictive>
-                {({fetchResults, goToSearch, inputRef}) => (
-                  <div className="relative">
-                    <input
-                      ref={inputRef}
-                      onChange={fetchResults}
-                      onFocus={fetchResults}
-                      type="search"
-                      placeholder="Hledat..."
-                      className="w-full px-4 py-2 pr-10 border-none border-b-2 border-gray-300 focus:border-purple-600 outline-none transition-colors duration-300"
-                      style={{margin: '0 4px'}}
-                    />
-                    <SearchResultsPredictive>
-                      {({items, total, term, state, inputRef, closeSearch}) => {
-                        if (state === 'loading' && term.current) {
-                          return (
-                            <div className="absolute top-full left-0 right-0 bg-white p-2 shadow-md">
-                              Načítání...
-                            </div>
-                          );
-                        }
-
-                        if (!total) {
-                          return null;
-                        }
-
-                        return (
-                          <div className="absolute top-full left-0 right-0 bg-white shadow-md z-10">
-                            <SearchResultsPredictive.Queries
-                              queries={items.queries}
-                              term={term}
-                              inputRef={inputRef}
-                            />
-                            <SearchResultsPredictive.Products
-                              products={items.products}
-                              closeSearch={closeSearch}
-                              term={term}
-                            />
-                            <SearchResultsPredictive.Collections
-                              collections={items.collections}
-                              closeSearch={closeSearch}
-                              term={term}
-                            />
-                            <SearchResultsPredictive.Pages
-                              pages={items.pages}
-                              closeSearch={closeSearch}
-                              term={term}
-                            />
-                            <SearchResultsPredictive.Articles
-                              articles={items.articles}
-                              closeSearch={closeSearch}
-                              term={term}
-                            />
-                            {term.current && total > 0 && (
-                              <Link
-                                onClick={closeSearch}
-                                to={`/search?q=${term.current}`}
-                                className="block p-2 text-sm text-gray-600 hover:bg-gray-100"
-                              >
-                                Zobrazit všechny výsledky pro{' '}
-                                <q>{term.current}</q> →
-                              </Link>
-                            )}
-                          </div>
-                        );
-                      }}
-                    </SearchResultsPredictive>
-                  </div>
-                )}
-              </SearchFormPredictive>
-            </div>
+          <div className="flex items-center">
+            <NavLink prefetch="intent" to="/account" className="mr-6">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </NavLink>
+            <CartToggle cart={cart} />
           </div>
         </div>
+      </header>
+      {isSearchOpen && (
+        <SearchComponent onClose={() => setIsSearchOpen(false)} />
       )}
       {isMenuOpen && (
         <HeaderMenu
@@ -173,7 +99,7 @@ export function Header({
           isLoggedIn={isLoggedIn}
         />
       )}
-    </header>
+    </>
   );
 }
 
