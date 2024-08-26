@@ -1558,3 +1558,18 @@
 
 # 2024-08-21 11:34:06.422529
 +/help jak mám nastavit soubory které se budou nacházet v repository map ?
+
+# 2024-08-26 16:36:08.981480
++jaká komponenta je zodpovědná za zobrazení produktů na odkaze /collections/all-products, v kde mám změnit kod ana mobilním zobrazení se zobrazovali produkty jinak ?
+
+# 2024-08-26 16:38:13.676019
++/reset
+
+# 2024-08-26 16:38:25.037824
++/add app\styles\app.css
+
+# 2024-08-26 16:39:59.349678
++/ask jaký další soubor jsou zopovědné za zobrazení produktů v na odkaze /collections/all-products, v kde mám změnit kod aby se na mobilním zobrazení zobrazovali dva produkty vedle sebe momentálně se zobrazuje pouze jeden na řádek
+
+# 2024-08-26 16:41:32.667161
++/code uprav to ale nerozbij kod

@@ -687,9 +687,16 @@ h6 {
 
 .products-grid {
   display: grid;
-  grid-gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
   margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .products-grid {
+    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
 }
 
 .product-item {
@@ -700,7 +707,7 @@ h6 {
 }
 
 .product-item:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .product-item-image {
@@ -722,7 +729,7 @@ h6 {
 }
 
 .product-item-info {
-  padding: 1rem;
+  padding: 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -730,8 +737,23 @@ h6 {
 }
 
 .product-item-info h4 {
-  margin: 0 0 0.5rem;
-  font-size: 1.1rem;
+  margin: 0 0 0.25rem;
+  font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  .product-item:hover {
+    transform: scale(1.05);
+  }
+
+  .product-item-info {
+    padding: 1rem;
+  }
+
+  .product-item-info h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+  }
 }
 
 .product-item-info .Money {
