@@ -25,9 +25,7 @@ export function SearchComponent({onClose}: SearchComponentProps) {
                 {({items, total, term, state, inputRef, closeSearch}) => (
                   <div className="mt-4">
                     {state === 'loading' && term.current && (
-                      <div className="p-2">
-                        Načítání...
-                      </div>
+                      <div className="p-2">Načítání...</div>
                     )}
 
                     {total > 0 && (
@@ -66,7 +64,8 @@ export function SearchComponent({onClose}: SearchComponentProps) {
                             to={`/search?q=${term.current}`}
                             className="block p-2 text-sm text-gray-600 hover:bg-gray-100"
                           >
-                            Zobrazit všechny výsledky pro <q>{term.current}</q> →
+                            Zobrazit všechny výsledky pro <q>{term.current}</q>{' '}
+                            →
                           </Link>
                         )}
                       </>

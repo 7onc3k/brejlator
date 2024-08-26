@@ -47,7 +47,10 @@ export function PageLayout({
         </header>
         <CartAside cart={cart} />
         <SearchAside />
-        <MobileMenuAside header={header} publicStoreDomain={publicStoreDomain} />
+        <MobileMenuAside
+          header={header}
+          publicStoreDomain={publicStoreDomain}
+        />
         <main className="flex-grow">{children}</main>
         <Footer
           footer={footer}

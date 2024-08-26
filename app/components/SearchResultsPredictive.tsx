@@ -256,7 +256,10 @@ function SearchResultsPredictiveQueries({
           if (!suggestion) return null;
 
           return (
-            <li className="predictive-search-result-item mb-1" key={suggestion.text}>
+            <li
+              className="predictive-search-result-item mb-1"
+              key={suggestion.text}
+            >
               <div
                 role="button"
                 className="cursor-pointer hover:bg-gray-100 p-2 rounded"
