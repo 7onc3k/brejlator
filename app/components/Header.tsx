@@ -129,19 +129,11 @@ export function HeaderMenu({
     }
   }
 
+  const menuItems = menu || FALLBACK_HEADER_MENU;
+
   return (
     <nav className={className} role="navigation">
-      <NavLink
-        className="header-menu-item"
-        end
-        onClick={closeAside}
-        prefetch="intent"
-        style={activeLinkStyle}
-        to="/"
-      >
-        Domů
-      </NavLink>
-      {(menu || FALLBACK_HEADER_MENU).items.map((item) => {
+      {menuItems.items.map((item) => {
         if (!item.url) return null;
         // if the url is internal, we strip the domain
         const url =
