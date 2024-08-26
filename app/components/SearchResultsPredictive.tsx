@@ -249,16 +249,17 @@ function SearchResultsPredictiveQueries({
   if (!queries.length) return null;
 
   return (
-    <div className="predictive-search-result" key="queries">
-      <h5>Queries</h5>
+    <div className="predictive-search-result mb-4" key="queries">
+      <h5 className="text-lg font-semibold mb-2">Dotazy</h5>
       <ul>
         {queries.map((suggestion) => {
           if (!suggestion) return null;
 
           return (
-            <li className="predictive-search-result-item" key={suggestion.text}>
+            <li className="predictive-search-result-item mb-1" key={suggestion.text}>
               <div
-                role="presentation"
+                role="button"
+                className="cursor-pointer hover:bg-gray-100 p-2 rounded"
                 onClick={() => {
                   if (!inputRef.current) return;
                   inputRef.current.value = suggestion.text;
