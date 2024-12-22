@@ -120,7 +120,7 @@ export function HeaderMenu({
   publicStoreDomain: HeaderProps['publicStoreDomain'];
   isLoggedIn: HeaderProps['isLoggedIn'];
 }) {
-  const className = `header-menu-${viewport}`;
+  const className = `header-menu-${viewport} p-4 bg-white`;
 
   function closeAside(event: React.MouseEvent<HTMLAnchorElement>) {
     if (viewport === 'mobile') {
@@ -133,29 +133,31 @@ export function HeaderMenu({
 
   return (
     <nav className={className} role="navigation">
-      {menuItems.items.map((item) => {
-        if (!item.url) return null;
-        // if the url is internal, we strip the domain
-        const url =
-          item.url.includes('myshopify.com') ||
-          item.url.includes(publicStoreDomain) ||
-          item.url.includes(primaryDomainUrl)
-            ? new URL(item.url).pathname
-            : item.url;
-        return (
-          <NavLink
-            className="header-menu-item"
-            end
-            key={item.id}
-            onClick={closeAside}
-            prefetch="intent"
-            style={activeLinkStyle}
-            to={url}
-          >
-            {item.title}
-          </NavLink>
-        );
-      })}
+      <ul className="space-y-4">
+        {menuItems.items.map((item) => {
+          if (!item.url) return null;
+          const url =
+            item.url.includes('myshopify.com') ||
+            item.url.includes(publicStoreDomain) ||
+            item.url.includes(primaryDomainUrl)
+              ? new URL(item.url).pathname
+              : item.url;
+          return (
+            <li key={item.id}>
+              <NavLink
+                className="block py-2 px-4 text-lg font-medium text-gray-800 hover:bg-gray-100 rounded transition duration-300"
+                end
+                onClick={closeAside}
+                prefetch="intent"
+                style={activeLinkStyle}
+                to={url}
+              >
+                {item.title}
+              </NavLink>
+            </li>
+          );
+        })}
+      </ul>
     </nav>
   );
 }
@@ -312,6 +314,7 @@ function activeLinkStyle({
 }) {
   return {
     fontWeight: isActive ? 'bold' : undefined,
-    color: isPending ? 'grey' : 'black',
+    color: isPending ? 'rgb(156, 163, 175)' : 'rgb(31, 41, 55)',
+    backgroundColor: isActive ? 'rgb(243, 244, 246)' : undefined,
   };
 }

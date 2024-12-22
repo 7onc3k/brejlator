@@ -1,3 +1,4 @@
+
 :root {
   --aside-width: 400px;
   --cart-aside-summary-height-with-discount: 300px;
@@ -10,6 +11,8 @@
   --font-body: 'Roboto', sans-serif;
   --font-heading: 'Playfair Display', serif;
 }
+
+
 
 /* Základní styly */
 body {
